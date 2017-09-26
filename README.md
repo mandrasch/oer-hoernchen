@@ -25,6 +25,10 @@ Eine deutsche Beschreibung findet sich in der Online-Version. Feedback sehr gern
 - popper.js
 - font-awesome
 
+## 2DO:
+- Barrierefreiheit / Accessibility
+- Einfacheres Forken und Updaten / Easy forking and updating
+
 ## Lizenz
 
 Der selbst erstellte Quelltext des Projekts steht auf Github unter der [Unlicense-Lizenz](), gerne auch als CC0/Public Domain nutzen. Für die Nachnutzung oder Veränderung sind keinerlei Bedingungen vorgegeben. Ausgenommen von dieser Lizenz sind die Logos der aufgeführten Projekte und Plattformen sowie alle von Dritten genutzten Open-Source-Quelltexte. Die jeweilige Lizenz findet sich in den Quelltextdateien und in der CREDITS-Datei. Verwendetes Foto von [hschmider (Pixabay/CC0)](https://pixabay.com/de/eichh%C3%B6rnchen-tier-natur-possierlich-2116189/).
