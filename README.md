@@ -1,5 +1,5 @@
-# OER-Hörnchen (oer-squirrel)
-:squirrel: OER (Open Educational Resources) gezielt suchen und finden.
+# :squirrel: OER-Hörnchen (oer-squirrel)
+OER (Open Educational Resources) gezielt suchen und finden.
 
 Öffentliche Vorschauversion / public alpha:
 
