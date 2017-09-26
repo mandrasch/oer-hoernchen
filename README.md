@@ -27,3 +27,4 @@ Der selbst erstellte Quelltext des Projekts steht auf Github unter der [Unlicens
 ## Ein Herz für ...
 - :green_heart: Open Educational Resources
 - :green_heart: Open Source
+- :green_heart: Eduhacking
