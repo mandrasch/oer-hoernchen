@@ -20,6 +20,7 @@ Eine deutsche Beschreibung findet sich in der Online-Version. Feedback sehr gern
 - HTML, JS, CSS
 - [Stylish Portfolio Theme](https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio)
 - Bootstrap
+- [Bootstrap image checkbox (multiple) by Kosuke Horai](https://codepen.io/kosukehorai/pen/pRwKjg)
 - jQuery
 - jquery.easing
 - popper.js
