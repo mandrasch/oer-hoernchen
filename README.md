@@ -1,7 +1,7 @@
 # OER-Hörnchen (oer-squirrel)
 :squirrel: OER (Open Educational Resources) gezielt suchen und finden.
 
-![Screenshot](https://programmieraffe.github.io/oer-hoernchen/img/screenshot1.png)
+![Screenshot](img/screenshot1.png)
 
 __[https://programmieraffe.github.io/oer-hoernchen/](https://programmieraffe.github.io/oer-hoernchen/)__
 
