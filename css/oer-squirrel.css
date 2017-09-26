@@ -1,0 +1,53 @@
+
+.container{
+	max-width:750px;
+}
+
+/* check box styles */
+/* see: https://codepen.io/kosukehorai/pen/pRwKjg */
+
+.nopad {
+	/*padding-left: 0 !important;
+	padding-right: 0 !important;*/
+	margin-bottom: 15px;
+}
+/*image gallery*/
+.image-checkbox {
+	cursor: pointer;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 3px solid transparent;
+	margin-bottom: 0;
+	outline: 0;
+}
+.image-checkbox input[type="checkbox"] {
+	display: none;
+}
+
+.image-checkbox-checked {
+	border-color: #4783B0;
+}
+.image-checkbox .fa {
+  position: absolute;
+  color: #4A79A3;
+  background-color: #fff;
+  padding: 5px;
+  top: 0;
+  right: 15px;
+}
+.image-checkbox-checked .fa {
+  display: block !important;
+}
+
+/* own additions */
+/* migrate to bootstrap 4 - other class? */
+i.hidden{
+	display:none;
+}
+.btn:hover{
+  cursor:pointer;
+}
+#search-filter .card{
+  margin-bottom:15px;
+}
