@@ -12,7 +12,7 @@ English description: OER is sometimes hard to find in a messy and massive world 
 
 Eine deutsche Beschreibung findet sich in der Online-Version. Feedback sehr gerne als Issue eintragen!
 
-![Screenshot](https://programmieraffe.github.io/oer-hoernchen/img/screenshot2.png)
+![Screenshot](img/screenshot1.png)
 
 ## Produziert mit
 
