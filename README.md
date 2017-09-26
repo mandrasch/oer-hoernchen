@@ -1,13 +1,14 @@
-# OER-Hörnchen (OER squirrel)
+# OER-Hörnchen (oer-squirrel)
 OER gezielt suchen und finden.
 
-Öffentliche Vorschauversion / Public Alpha
+Öffentliche Vorschauversion / Public Alpha:
+
+__[https://programmieraffe.github.io/oer-hoernchen/](https://programmieraffe.github.io/oer-hoernchen/)__
 
 English description: OER is sometimes hard to find in a messy and massive world wide web. This is an open experiment to use the "site:"-operator of the google search (There is also Google custom search service, but I did not found a way to filter the results by open license). The technical limitation right now is the 32-word-limit for Google search queries. Feel free to fork and edit it for your own purposes, feedback is greatly appreciated (I'll will provide a translated version as well in near future).
 
 Eine deutsche Beschreibung findet sich in der Online-Version:
 
-[OER-Hörnchen](https://programmieraffe.github.io/oer-hoernchen/)
 
 ## Produziert mit
 
