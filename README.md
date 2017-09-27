@@ -15,6 +15,13 @@ Eine deutsche Beschreibung findet sich in der Online-Version. Feedback sehr gern
 ![Screenshot](img/screenshot1.png)
 ![Screenshot](img/screenshot2.png)
 
+## Mitmachen? Etwas beitragen?
+
+- Logo gesucht (sollte unter CC0 stehen)
+- Fehlerhafte Funktionen finden, verschiedene Browser und Geräte durchtesten
+- Verbesserungsvorschläge, vor allem Kategorisierung der Seiten
+- weitere Ideen?
+
 ## Produziert mit
 
 - HTML, JS, CSS
