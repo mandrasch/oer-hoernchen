@@ -55,3 +55,6 @@ Der selbst erstellte Quelltext des Projekts steht auf Github unter der [Unlicens
 - :green_heart: Open Educational Resources
 - :green_heart: Open Source
 - :green_heart: Eduhacking
+
+# Forks
+- [https://github.com/isgerjanson/oer-hoernchen] - Browser plugin for chrome
