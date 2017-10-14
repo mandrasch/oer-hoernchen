@@ -166,10 +166,12 @@ var performSearch = function(){
 
     html += '<p>Feedback oder Fragen? Gerne <a href="https://matthias-andrasch.de/kontakt" target="_blank">hier</a> melden!</p>';
 
-    $("#search-link-modal .modal-body").html(html).modal();
+    $("#search-link-modal .modal-body").html(html);
+    $('#search-link-modal').modal();
 
     // try to open new tab
     if(!word_limit_reached){
+
       window.open(url, '_blank').focus();
        // 2DO: good idea to use setTimeout?
        /*setTimeout(function(){
