@@ -1,27 +1,27 @@
 // 2DO: use name space, ignore this file (and images) in repo for forks
   var oer_provider_list = [
     {
-      'name':'',
+      'name':'SEGU Geschichte',
       'url':'segu-geschichte.de',
       'image':'segu_geschichte.jpg'
     },
     {
-      'name':'',
+      'name':'Serlo',
       'url':'de.serlo.org',
       'image':'serlo.png'
     },
     {
-      'name':'',
+      'name':'Memucho',
       'url':'memucho.de',
       'image':'memucho.png'
     },
     {
-      'name':'',
+      'name':'Medien in die Schule',
       'url':'medien-in-die-schule.de',
       'image':'medien-in-die-schule.jpg'
     },
     {
-      'name':'',
+      'name':'ZUM',
       'url':'zum.de',
       'image':'zum.jpg'
     },
@@ -49,6 +49,21 @@
       'name':'KindOERgarten',
       'url':'kindoergarten.de',
       'image':'kindoergarten.png'
+    },
+    {
+      'name':'teachSam',
+      'url':'teachsam.de',
+      'image':'teachsam.png'
+    },
+    {
+      'name':'IDeRblog - Übungsdatenbank',
+      'url':'typo3.lpm.uni-sb.de/iderblog/fuer-erwachsene/uebungsdatenbank-online/',
+      'image':'iderblog.png'
+    },
+    {
+      'name':'ChiLe - Chemie interaktiv lernen',
+      'url':'chemieunterricht-interaktiv.de',
+      'image':'chile.png'
     }
   ];
 
@@ -65,7 +80,7 @@
       'image':'bpb.jpg'
     },
     {
-      'name':'',
+      'name':'Lehrer Online',
       'url':'lehrer-online.de',
       'image':'lehrer_online.png'
     },
