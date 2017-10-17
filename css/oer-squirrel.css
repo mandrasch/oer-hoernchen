@@ -51,3 +51,14 @@ i.hidden{
 #search-filter .card{
   margin-bottom:15px;
 }
+#search-filter div.container{
+	max-width:750px;
+}
+#landing-form div.input-group {
+	max-width:75%;
+	margin:0 auto;
+	margin-top:30px;
+}
+.select-all{
+	margin-top:10px;
+}
