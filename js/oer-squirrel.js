@@ -108,7 +108,7 @@ var performSearch = function(){
     // 2DO: better naming for checkboxes!
     var site_filter_list = [];
     $.each($("input[name='image']:checked"), function(){
-      site_filter_list.push(this.value);
+      site_filter_list.push('site:'+this.value);
     });
     console.log('selected values',site_filter_list);
 
