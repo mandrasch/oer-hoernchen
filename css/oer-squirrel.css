@@ -62,3 +62,10 @@ i.hidden{
 .select-all{
 	margin-top:10px;
 }
+
+#not-compatible-provider-list .image-checkbox{
+	border:0;
+}
+#not-compatible-provider-list .image-checkbox-checked .fa{
+	display:none !important;
+}
