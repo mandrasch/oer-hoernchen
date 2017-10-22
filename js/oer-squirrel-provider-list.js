@@ -64,16 +64,16 @@
       'name':'ChiLe - Chemie interaktiv lernen',
       'url':'chemieunterricht-interaktiv.de',
       'image':'chile.png'
+    },
+    {
+      'name':'Ö1 macht Schule',
+      'url':'www.oe1macht.schule',
+      'image':'oe1machtschule.png'
     }
   ];
 
   var mixed_provider_list =
   [
-    {
-      'name':'Edutags - Social Bookmarking für Lehr- und Lernmaterial',
-      'url':'edutags.de',
-      'image':'edutags.png'
-    },
     {
       'name':'Bundeszentrale für Politische Bildung',
       'url':'bpb.de',
@@ -85,9 +85,9 @@
       'image':'lehrer_online.png'
     },
     {
-      'name':'Elixier Bildungssuchmaschine',
-      'url':'bildungsserver.de/elixier/',
-      'image':'elixier.png'
+      'name':'Medienportal Siemens Stiftung',
+      'url':'medienportal.siemens-stiftung.org',
+      'image':'siemens_stiftung.png'
     },
     {
       'name':'MOOIN',
@@ -104,8 +104,28 @@
       'url':'lecture2go.uni-hamburg.de',
       'image':'lecture2go.png'
     },{
-      'name':'Medienportal Siemens Stiftung',
-      'url':'medienportal.siemens-stiftung.org',
-      'image':'siemens_stiftung.png'
-    },
+      'name':'openlearnware - TU Darmstadt',
+      'url':'openlearnware.de',
+      'image':'openlearnware.png'
+    }
   ];
+
+
+  var not_compatible_provider_list =
+  [
+    {
+      'name':'Edutags - Social Bookmarking für Lehr- und Lernmaterial',
+      'url':'edutags.de',
+      'image':'edutags.png'
+    },
+    {
+      'name':'Elixier Bildungssuchmaschine',
+      'url':'bildungsserver.de/elixier/',
+      'image':'elixier.png'
+    },
+    {
+      'name':'Learnline NRW',
+      'url':'learnline.schulministerium.nrw.de',
+      'image':'learnline.png'
+    }
+  ]

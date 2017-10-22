@@ -9,7 +9,7 @@ $(document).ready(function(){
   // generate the checkbox lists
   generateList(oer_provider_list,'#oer-provider-list');
   generateList(mixed_provider_list,'#mixed-provider-list');
-  // generateList(media_provider_list,'#media-provider-list');
+  generateListNotCompatible(not_compatible_provider_list,'#not-compatible-provider-list');
 
   // generate checkboxes
 
@@ -88,6 +88,22 @@ var generateList = function(list,selector){
       '<input type="checkbox" name="image" value="'+object.url+'" checked />'+
       '<i class="fa fa-check hidden"></i>'+
       '</label>'+
+      '</a>'+
+      '</div>';
+
+      $(html).appendTo(selector);
+    });
+  }
+
+  /* generate list for providers which are not compatible right now */
+  // 2DO: optimize later
+  var generateListNotCompatible = function(list,selector){
+    $.each(list,function(index,object){
+      // console.log(index,object.url)
+
+      var html = '<div class="col-xs-6 col-sm-3 col-md-3 nopad text-center">'+
+      '<a href="https://'+object.url+'" target="_blank">'+
+      '<img class="img-fluid" src="provider_logos/'+object.image+'" alt="Logo '+object.name+'" title="'+object.name+'" />'+
       '</a>'+
       '</div>';
 
