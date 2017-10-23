@@ -54,10 +54,10 @@ i.hidden{
 #search-filter div.container{
 	max-width:750px;
 }
+
 #landing-form div.input-group {
 	max-width:75%;
-	margin:0 auto;
-	margin-top:30px;
+	margin: 30px auto;
 }
 .select-all{
 	margin-top:10px;
@@ -68,4 +68,31 @@ i.hidden{
 }
 #not-compatible-provider-list .image-checkbox-checked .fa{
 	display:none !important;
+}
+
+#search-filter-intro {
+	font-style: italic;
+}
+
+footer h4 {
+	font-weight: bold;
+}
+
+.icon-small {
+	height: 18px;
+	margin: 0;
+	padding: 0;
+}
+
+.icon-medium {
+	height: 22px;
+	margin: 0;
+	padding: 0;
+}
+
+#language-switch {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 1;
 }
