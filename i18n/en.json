@@ -46,5 +46,14 @@
   "footer-license-text": "The source code of the project is on GitHub under the {{link:Unlicense-license|https://choosealicense.com/licenses/unlicense/}}, gladly also usable as {{link:CC0/public domain|https://creativecommons.org/licenses/publicdomain}}. There are no conditions for reuse or modification. Excluded from this license are the logos of the listed projects and platforms as well as all open source source texts used by third parties. The respective license can be found in the source files and in the CREDITS file. The bootstrap Theme <a href=\"https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio\">Stylish Portfolio</a> by BlackrockDigital is available under MIT license. The photo used as the background was taken by {{link:hschmider (Pixabay/CC0)|https://pixabay.com/de/eichh%C3%B6rnchen-tier-natur-possierlich-2116189/}}.",
   "footer-imprint": "Imprint",
   "button-deselect-all": "De-select All",
-  "button-select-all": "Select All"
+  "button-select-all": "Select All",
+  "modal-search-title": "Search generated",
+  "modal-button-cont-search": "Keep searching",
+  "modal-text-search-success": "The search has been opened in a new window. It may be prevented by a pop-up blocker. Open here manually:",
+  "modal-text-search-error": "Google Search allows a maximum of 32 words as search input, please use fewer keywords or select fewer projects (each project counts as one word)",
+  "modal-button-search-despite": "Open search anyway",
+  "modal-button-copy": "Copy",
+  "modal-link-text": "Open search in a new tab/window",
+  "modal-link-share": "Link to share:",
+  "modal-text-feedback": "Feedback or questions? Happy to report {{link:here|https://matthias-andrasch.de/kontakt}}!"
 }

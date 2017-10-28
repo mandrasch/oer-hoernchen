@@ -96,3 +96,7 @@ footer h4 {
 	left: 10px;
 	z-index: 1;
 }
+
+#modal-text-feedback {
+    margin-top: 15px;
+}

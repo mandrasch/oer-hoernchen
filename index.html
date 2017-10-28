@@ -307,16 +307,45 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">Suche generiert</h5>
+                      <h5 class="modal-title" data-i18n="modal-search-title">Suche generiert</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+
+                      <div class="search-success">
+                          <p data-i18n="modal-text-search-success">Die Suche wird in einem neuen Fenster aufgerufen.
+                              Eventuell wird das Öffnen durch einen Pop-Up-Blocker verhindert. Hier manuell öffnen:</p>
+                          <p><a target="_blank" class="modal-search-url" data-i18n="modal-link-text">Suche
+                              in neuem Tab/Fenster öffnen</a></p>
+                          <p data-i18n="modal-link-share">Link zum Teilen:</p>
+                          <div class="input-group">
+                              <input type="text" class="form-control" id="modal-search-input"/>
+                              <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"
+                                        data-i18n="modal-button-copy">Kopieren</button>
+                                </span>
+                          </div>
+
+                      </div>
+
+                      <div class="search-error alert alert-danger" role="alert">
+                          <p data-i18n="modal-text-search-error">Die Google-Suche erlaubt maximal 32 Wörter im Suchfeld,
+                              bitte weniger Suchbegriffe nutzen oder weniger Projekte auswählen (jedes Projekt zählt als
+                              ein Wort)</p>
+                          <p><a target="_blank" class="modal-search-url"
+                                data-i18n="modal-button-search-despite">Suche trotzdem öffnen</a></p>
+                      </div>
+
+                      <p id="modal-text-feedback">Feedback oder Fragen? Gerne <a
+                              href="https://matthias-andrasch.de/kontakt" target="_blank">hier</a> melden!</p>
                   </div>
+
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Weiter suchen</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"
+                              data-i18n="modal-button-cont-search">Weiter suchen
+                      </button>
                   </div>
                 </div>
               </div>
@@ -345,8 +374,5 @@
             <script src="js/oer-squirrel-provider-list.js"></script>
             <script src="js/oer-squirrel.js"></script>
   <script src="js/oer-squirrel-i18n.js"></script>
-
-
           </body>
-
           </html>

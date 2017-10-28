@@ -73,6 +73,8 @@ $(document).ready(function () {
         $('#about-text').html($.i18n('about-text'));
         $('#footer-project-text').html($.i18n('footer-project-text'));
         $('#footer-license-text').html($.i18n('footer-license-text'));
+
+        $('#modal-text-feedback').html($.i18n('modal-text-feedback'));
     }
 
     /**

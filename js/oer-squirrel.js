@@ -28,7 +28,7 @@ $(document).ready(function(){
   $(".image-checkbox").on("click", function (e) {
     $(this).toggleClass('image-checkbox-checked');
     var $checkbox = $(this).find('input[type="checkbox"]');
-    $checkbox.prop("checked",!$checkbox.prop("checked"))
+      $checkbox.prop("checked", !$checkbox.prop("checked"));
     e.preventDefault();
   });
   /* eo image checkbox js */
@@ -93,7 +93,7 @@ var generateList = function(list,selector){
 
       $(html).appendTo(selector);
     });
-  }
+};
 
   /* generate list for providers which are not compatible right now */
   // 2DO: optimize later
@@ -109,7 +109,7 @@ var generateList = function(list,selector){
 
       $(html).appendTo(selector);
     });
-  }
+  };
 
 /* perform search function */
 var performSearch = function(){
@@ -161,41 +161,25 @@ var performSearch = function(){
         break;
       case 'nc-nd':
         // as_rights=(cc_publicdomain|cc_attribute|cc_sharealike|cc_noncommercial|cc_nonderived)
-        url_license_filter = '&as_rights=%28cc_publicdomain%7Ccc_attribute%7Ccc_sharealike%7Ccc_noncommercial%7Ccc_nonderived%29'
+          url_license_filter = '&as_rights=%28cc_publicdomain%7Ccc_attribute%7Ccc_sharealike%7Ccc_noncommercial%7Ccc_nonderived%29';
         break;
     }
     // add filter to url (not possibly by operator in search query)
-    url = url + url_license_filter;
-
-    // generate modal html
-
-    var html = '';
+    url += url_license_filter;
 
     // error message - word limit reached
     if(word_limit_reached){
-      html = html + '<p><div class="alert alert-danger" role="alert">'+
-      'Die Google-Suche erlaubt maximal 32 Wörter im Suchfeld, bitte weniger Suchbegriffe nutzen oder weniger Projekte auswählen (jedes Projekt zählt als ein Wort).'+
-      '</div></p>'+
-      '<p><a href="'+url+'" target="_blank">Suche trotzdem öffnen</a></p>';
+        $('#search-link-modal').find('.search-success').hide();
     }
     // everythings alright:
-    else{
-        html = html + '<p>Die Suche wird in einem neuen Fenster aufgerufen. Eventuell wird das Öffnen durch einen Pop-Up-Blocker verhindert. Hier manuell öffnen:</p>'+
-        '<p><a href="'+url+'" target="_blank">Suche in neuem Tab/Fenster öffnen</a></p>'+
-            '<p>Link zum Teilen: '+
-        ' <div class="input-group">'+
-        '<input type="text" class="form-control" value="'+url+'">'+
-        '<span class="input-group-btn">'+
-        '<button class="btn btn-default" type="button">Kopieren</button>'+
-        '</span>'+
-        '</input>'+
-        '</div>'+
-        '</p>';
+    else {
+        $('#search-link-modal').find('.search-error').hide();
     }
 
-    html = html + '<p>Feedback oder Fragen? Gerne <a href="https://matthias-andrasch.de/kontakt" target="_blank">hier</a> melden!</p>';
+    $('#search-link-modal').find('.modal-search-url').attr('href', url);
+    $('#search-link-modal').find('#modal-search-input').val(url);
 
-    $("#search-link-modal .modal-body").html(html);
+    //$("#search-link-modal .modal-body").html(html);
     $('#search-link-modal').modal();
 
     // try to open new tab
