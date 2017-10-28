@@ -37,6 +37,7 @@ $(document).ready(function () {
                     /**
                      * translate automatically all marked items
                      */
+                    $('html').attr('lang', i18n.locale);
                     $('body').i18n();
                     /**
                      * do some manual parsing for some parts of the content
