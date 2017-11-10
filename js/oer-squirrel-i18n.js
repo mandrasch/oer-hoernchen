@@ -4,16 +4,7 @@ $(document).ready(function () {
 
     var i18n = $.i18n();
 
-    var languages = [
-        {
-            name: 'Deutsch',
-            code: 'de'
-        },
-        {
-            name: 'English',
-            code: 'en'
-        }
-    ];
+    var languages = ['de', 'en'];
 
     buildLanguageSelector();
     /**
@@ -80,7 +71,7 @@ $(document).ready(function () {
     function buildLanguageSelector() {
         var sel = $('<select>').appendTo('#language-switch');
         $(languages).each(function (i) {
-            sel.append($("<option>").attr('value', languages[i].code).text(languages[i].code.toUpperCase()));
+            sel.append($("<option>").attr('value', languages[i]).text(languages[i].toUpperCase()));
         });
     }
 });
