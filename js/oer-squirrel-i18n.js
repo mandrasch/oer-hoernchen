@@ -3,10 +3,18 @@
 $(document).ready(function () {
 
     var i18n = $.i18n();
+
     var languages = [
-        {val: 'de', text: 'DE'},
-        {val: 'en', text: 'EN'}
+        {
+            name: 'Deutsch',
+            code: 'de'
+        },
+        {
+            name: 'English',
+            code: 'en'
+        }
     ];
+
     buildLanguageSelector();
     /**
      * extend parser to handle magic words, in this case 'link' to parse hyperlinks in translation files
@@ -16,10 +24,11 @@ $(document).ready(function () {
             return '<a href="' + nodes[1] + '" target="_blank">' + nodes[0] + '</a>';
         }
     });
+
     /*
     listener for language switch
     */
-    $("#language-switch select").on("change", function () {
+    $("#language-switch").find("select").on("change", function () {
 
         if (this.value === 'de') {
             /**
@@ -32,7 +41,7 @@ $(document).ready(function () {
              * Replace the HTML content by loading and processing the specific json translation file.
              */
             i18n.locale = this.value;
-            i18n.load('i18n/' + i18n.locale + '.json', 'en').done(
+            i18n.load('i18n/' + i18n.locale + '.json', i18n.locale).done(
                 function () {
                     /**
                      * translate automatically all marked items
@@ -51,13 +60,6 @@ $(document).ready(function () {
      * manual parsing based on html structure.
      */
     function parseContent() {
-        $('#query-landing').attr("placeholder", $.i18n('header-input-placeholder'));
-
-        $('#search-filter').find('.container').find('p').html($.i18n('search-filter-intro'));
-
-        $('#search-filter-intro').html($.i18n('search-filter-intro'));
-        $('#search-box').find('#query').attr("placeholder", $.i18n('search-query-input-placeholder'));
-
         $('.oer-squirrel-select-all-button').text($.i18n('button-select-all'));
         $('.oer-squirrel-deselect-all-button').text($.i18n('button-deselect-all'));
 
@@ -70,12 +72,6 @@ $(document).ready(function () {
             var licenseVal = 'license-filter-' + ($(this).attr('value'));
             $(this).parent().find('span').text($.i18n(licenseVal));
         });
-        $('#about-more-text').html($.i18n('about-tools-list'));
-        $('#about-text').html($.i18n('about-text'));
-        $('#footer-project-text').html($.i18n('footer-project-text'));
-        $('#footer-license-text').html($.i18n('footer-license-text'));
-
-        $('#modal-text-feedback').html($.i18n('modal-text-feedback'));
     }
 
     /**
@@ -83,8 +79,8 @@ $(document).ready(function () {
      */
     function buildLanguageSelector() {
         var sel = $('<select>').appendTo('#language-switch');
-        $(languages).each(function () {
-            sel.append($("<option>").attr('value', this.val).text(this.text));
+        $(languages).each(function (i) {
+            sel.append($("<option>").attr('value', languages[i].code).text(languages[i].code.toUpperCase()));
         });
     }
 });

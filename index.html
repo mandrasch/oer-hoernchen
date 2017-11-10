@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<html lang="en" prefix="og: http://ogp.me/ns#" dir="auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,6 @@
   <meta property="og:description" content="Deutschsprachiges Lehr- und Lernmaterial (Open Educational Resources) mit dem OER-Hörnchen gezielt suchen und finden (Experimentelles Online-Tool)." />
   <meta property="og:url" content="https://programmieraffe.github.io/oer-hoernchen/" />
   <meta property="og:image" content="https://programmieraffe.github.io/oer-hoernchen/img/squirrel_pixabay_h_schmider_cc0.jpg" />
-
 </head>
 
 <body>
@@ -58,7 +57,8 @@
       <h1 data-i18n="header-title">OER-Hörnchen</h1>
       <form id="landing-form">
         <div class="input-group">
-          <input type="text" class="form-control" id="query-landing" placeholder="Suche nach Begriff(en) ...">
+            <input type="text" class="form-control" id="query-landing" data-i18n="[placeholder]header-input-placeholder"
+                   placeholder="Suche nach Begriff(en) ...">
         </div>
       </form>
       <a href="#search-filter" class="btn btn-dark btn-lg js-scroll-trigger" id="search-button-landing"
@@ -70,7 +70,8 @@
   <section id="search-filter" class="about">
     <div class="container">
       <h4 data-i18n="header-search-link">Gezielt nach OER suchen</h4>
-      <p>Hallo Suchende*r! Bei diesem Projekt handelt es sich um eine weböffentliche Vorschauversion, welche noch Fehler
+        <p data-i18n="[html]search-filter-intro">Hallo Suchende*r! Bei diesem Projekt handelt es sich um eine
+            weböffentliche Vorschauversion, welche noch Fehler
         enthalten kann. Gerne <a href="https://matthias-andrasch.de/kontakt">Feedback einsenden</a>, mich auf <a
                 href="https://twitter.com/m_andrasch" target="_blank">Twitter kontaktieren</a> oder auf <a
                 href="https://www.facebook.com/groups/OERde/permalink/1085465494922146/" target="_blank">Facebook
@@ -85,7 +86,8 @@
             <div class="card-body">
               <form id="search-form">
                 <div class="input-group">
-                  <input type="text" class="form-control" id="query" placeholder="Suche nach Begriff...">
+                    <input type="text" class="form-control" id="query"
+                           data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff...">
                   <span class="input-group-btn">
                     <button class="btn btn-secondary search-button" type="button" data-i18n="search-instant-button">Suche direkt starten</button>
                   </span>
@@ -199,7 +201,7 @@
       <div class="col-lg-10 mx-auto">
         <h2 data-i18n="about-title">Über das OER-Hörnchen</h2>
         <hr class="small">
-        <div id="about-text">
+          <div id="about-text" data-i18n="[html]about-text">
           <p>Lehr- und Lernmaterialien unter freier Lizenz (<a href="https://oerlabs.de/oer-materialien/oer/">Open
             Educational Resources)</a> im deutschsprachigen Raum zu finden ist etwas tricky. Das World Wide Web gleicht
             dem hektischen Großstadtschungel, durch den sich auch manche Eichhörnchen bewegen müssen auf der Suche nach
@@ -224,7 +226,7 @@
             die Ergebnisse ebenfalls nach Lizenz filtern zu können.</p>
         </div>
         <h4 data-i18n="about-more-title">Alternative Suchwerkzeuge und Ideen:</h4>
-        <div id="about-more-text">
+          <div id="about-more-text" data-i18n="[html]about-tools-list">
           <ul>
             <li><a href="https://search.creativecommons.org" target="_blank">search.creativecommons.org</a> -
               verschiedene Mediensammlungen/Plattformen wie Flickr, Youtube oder Wikimedia Commons nach CC-lizenzierten
@@ -264,11 +266,11 @@
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
           <h4 data-i18n="footer-project-title">Projektinformationen</h4>
-          <p id="footer-project-text">Ein offenes Projekt von Matthias Andrasch, ermöglicht durch viele Menschen, welche
+            <p data-i18n="[html]footer-project-text">Ein offenes Projekt von Matthias Andrasch, ermöglicht durch viele
+                Menschen, welche
             Quelltexte, Tutorials und Tipps offen und frei zur Verfügung gestellt haben. Danke besonders an die <a
                     href="https://www.facebook.com/groups/OERde/" target="_blank">#OERde-Community</a>!
             <ul class="list-inline">
-
                     <li class="list-inline-item">
                       <a href="https://twitter.com/m_andrasch">
                         <i class="fa fa-twitter fa-fw fa-3x"></i>
@@ -283,7 +285,7 @@
           <p><a href="https://matthias-andrasch.de/impressum/" data-i18n="footer-imprint">Impressum</a></p>
                   <hr class="small">
           <h4 data-i18n="footer-license-title">Lizenz</h4>
-          <p id="footer-license-text">Der Quelltext des Projekts steht auf Github unter der <a
+            <p data-i18n="[html]footer-license-text">Der Quelltext des Projekts steht auf Github unter der <a
                   href="https://choosealicense.com/licenses/unlicense/">Unlicense-Lizenz</a>, gerne auch als <a
                   href="https://creativecommons.org/licenses/publicdomain/" rel="license">CC0/Public Domain</a> nutzen.
             Für die Nachnutzung oder Veränderung sind keinerlei Bedingungen vorgegeben. Ausgenommen von dieser Lizenz
@@ -321,7 +323,7 @@
                               in neuem Tab/Fenster öffnen</a></p>
                           <p data-i18n="modal-link-share">Link zum Teilen:</p>
                           <div class="input-group">
-                              <input type="text" class="form-control" id="modal-search-input"/>
+                              <input type="text" class="form-control" id="modal-search-input" title="modal-input"/>
                               <span class="input-group-btn">
                                 <button class="btn btn-default" type="button"
                                         data-i18n="modal-button-copy">Kopieren</button>
@@ -338,7 +340,7 @@
                                 data-i18n="modal-button-search-despite">Suche trotzdem öffnen</a></p>
                       </div>
 
-                      <p id="modal-text-feedback">Feedback oder Fragen? Gerne <a
+                      <p data-i18n="[html]modal-text-feedback">Feedback oder Fragen? Gerne <a
                               href="https://matthias-andrasch.de/kontakt" target="_blank">hier</a> melden!</p>
                   </div>
 

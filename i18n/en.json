@@ -11,10 +11,16 @@
   "meta-description": "Specifically lookup and find OER. A tool to find Open Educational Resources.",
   "meta-og-title": "OER-Squirrel",
   "meta-og-description": "Specifically find German-speaking educational material (Open Educational Resources) using the OER-Squirrel.",
+  /*
+  * navigation items
+  */
   "nav-brand": "Menu",
   "nav-home": "Home",
   "nav-filter": "Filters",
   "nav-about": "About",
+  /*
+  * content elements
+  */
   "header-title": "OER-Squirrel",
   "header-input-placeholder": "lookup a specific term or phrase... (e.g. European Union, squirrel, sine)",
   "header-search-link": "Lookup and find OER",
