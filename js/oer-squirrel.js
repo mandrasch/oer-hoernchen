@@ -108,7 +108,7 @@ var generateList = function(list,selector){
 
       $(html).appendTo(selector);
     });
-  }
+  };
 
 /* perform search function */
 var performSearch = function(){
@@ -154,35 +154,19 @@ var performSearch = function(){
     // add filter to url (not possibly by operator in search query)
     url += url_license_filter;
 
-    // generate modal html
-
-    var html = '';
-
     // error message - word limit reached
     if(word_limit_reached){
-      html = '<p><div class="alert alert-danger" role="alert">'+
-      'Die Google-Suche erlaubt maximal 32 Wörter im Suchfeld, bitte weniger Suchbegriffe nutzen oder weniger Projekte auswählen (jedes Projekt zählt als ein Wort).'+
-      '</div></p>'+
-      '<p><a href="'+url+'" target="_blank">Suche trotzdem öffnen</a></p>';
+        $('#search-link-modal').find('.search-success').hide();
     }
     // everythings alright:
-    else{
-        html = '<p>Die Suche wird in einem neuen Fenster aufgerufen. Eventuell wird das Öffnen durch einen Pop-Up-Blocker verhindert. Hier manuell öffnen:</p>'+
-        '<p><a href="'+url+'" target="_blank">Suche in neuem Tab/Fenster öffnen</a></p>'+
-            '<p>Link zum Teilen: '+
-        ' <div class="input-group">'+
-        '<input type="text" class="form-control" value="'+url+'">'+
-        '<span class="input-group-btn">'+
-        '<button class="btn btn-default" type="button">Kopieren</button>'+
-        '</span>'+
-        '</input>'+
-        '</div>'+
-        '</p>';
+    else {
+        $('#search-link-modal').find('.search-error').hide();
     }
 
-    html += '<p>Feedback oder Fragen? Gerne <a href="https://matthias-andrasch.de/kontakt" target="_blank">hier</a> melden!</p>';
+    $('#search-link-modal').find('.modal-search-url').attr('href', url);
+    $('#search-link-modal').find('#modal-search-input').val(url);
 
-    $("#search-link-modal .modal-body").html(html);
+    //$("#search-link-modal .modal-body").html(html);
     $('#search-link-modal').modal();
 
     // try to open new tab

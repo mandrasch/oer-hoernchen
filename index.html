@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<html lang="en" prefix="og: http://ogp.me/ns#" dir="auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,6 @@
   <meta property="og:description" content="Deutschsprachiges Lehr- und Lernmaterial (Open Educational Resources) mit dem OER-Hörnchen gezielt suchen und finden (Experimentelles Online-Tool)." />
   <meta property="og:url" content="https://programmieraffe.github.io/oer-hoernchen/" />
   <meta property="og:image" content="https://programmieraffe.github.io/oer-hoernchen/img/squirrel_pixabay_h_schmider_cc0.jpg" />
-
 </head>
 
 <body>
@@ -38,42 +37,48 @@
     <ul class="sidebar-nav">
 
       <li class="sidebar-brand">
-        <a class="js-scroll-trigger" href="#top">Start Bootstrap</a>
+        <a class="js-scroll-trigger" href="#top" data-i18n="nav-brand">Start Bootstrap</a>
       </li>
       <li>
-        <a class="js-scroll-trigger" href="#top">Home</a>
+        <a class="js-scroll-trigger" href="#top" data-i18n="nav-home">Home</a>
       </li>
       <li>
-        <a class="js-scroll-trigger" href="#search-filter">Suchfilter</a>
+        <a class="js-scroll-trigger" href="#search-filter" data-i18n="nav-filter">Suchfilter</a>
       </li>
       <li>
-        <a class="js-scroll-trigger" href="#about">About</a>
+        <a class="js-scroll-trigger" href="#about" data-i18n="nav-about">About</a>
       </li>
     </ul>
   </nav>
-
+  <div id="language-switch"></div>
   <!-- Header -->
   <header class="header" id="top">
     <div class="text-vertical-center">
-      <h1>OER-Hörnchen</h1>
+      <h1 data-i18n="header-title">OER-Hörnchen</h1>
       <form id="landing-form">
         <div class="input-group">
-          <input type="text" class="form-control" id="query-landing" placeholder="Suche nach Begriff(en) ...">
+            <input type="text" class="form-control" id="query-landing" data-i18n="[placeholder]header-input-placeholder"
+                   placeholder="Suche nach Begriff(en) ...">
         </div>
       </form>
-      <br>
-      <a href="#search-filter" class="btn btn-dark btn-lg js-scroll-trigger" id="search-button-landing">OER gezielt finden</a>
+      <a href="#search-filter" class="btn btn-dark btn-lg js-scroll-trigger" id="search-button-landing"
+         data-i18n="header-search-link">OER gezielt finden</a>
     </div>
 
   </header>
 
   <section id="search-filter" class="about">
     <div class="container">
-      <h4>Gezielt nach OER suchen</h4>
-      <p><i> Hallo Suchende*r! Bei diesem Projekt handelt es sich um eine weböffentliche Vorschauversion, welche noch Fehler enthalten kann. Gerne <a href="https://matthias-andrasch.de/kontakt">Feedback einsenden</a>, mich auf <a href="https://twitter.com/m_andrasch" target="_blank">Twitter kontaktieren</a> oder auf <a href="https://www.facebook.com/groups/OERde/permalink/1085465494922146/" target="_blank">Facebook kommentieren</a>!</i></p>
+      <h4 data-i18n="header-search-link">Gezielt nach OER suchen</h4>
+        <p data-i18n="[html]search-filter-intro">Hallo Suchende*r! Bei diesem Projekt handelt es sich um eine
+            weböffentliche Vorschauversion, welche noch Fehler
+        enthalten kann. Gerne <a href="https://matthias-andrasch.de/kontakt">Feedback einsenden</a>, mich auf <a
+                href="https://twitter.com/m_andrasch" target="_blank">Twitter kontaktieren</a> oder auf <a
+                href="https://www.facebook.com/groups/OERde/permalink/1085465494922146/" target="_blank">Facebook
+          kommentieren</a>!</p>
 
       <div class="row">
-        <div class="col-12">
+        <div class="col-12" id="search-box">
           <div class="card">
             <div class="card-header">
               Suchbegriff
@@ -81,9 +86,10 @@
             <div class="card-body">
               <form id="search-form">
                 <div class="input-group">
-                  <input type="text" class="form-control" id="query" placeholder="Suche nach Begriff...">
+                    <input type="text" class="form-control" id="query"
+                           data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff...">
                   <span class="input-group-btn">
-                    <button class="btn btn-secondary search-button" type="button">Suche direkt starten</button>
+                    <button class="btn btn-secondary search-button" type="button" data-i18n="search-instant-button">Suche direkt starten</button>
                   </span>
                 </div>
               </form>
@@ -91,7 +97,7 @@
           </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-12" id="provider-list-box">
           <div class="card">
             <div class="card-header">
               Deutschsprachige OER-Angebote
@@ -109,7 +115,7 @@
 
         </div>
 
-        <div class="col-12">
+        <div class="col-12" id="other-provider-list-box">
           <div class="card">
             <div class="card-header">
               Andere Inhaltsangebote (nicht ausschließlich OER - Lizenzfilter aktivieren!)
@@ -126,7 +132,7 @@
           </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-12" id="license-filter-box">
           <div class="card">
             <div class="card-header">
               Lizenzfilter (Maschinenlesbare Creative-Commons-Lizenzen)
@@ -135,25 +141,25 @@
               <div class="form-check">
                 <label class="form-check-label text-success">
                   <input class="form-check-input" type="radio" name="license-filter" value="only-oer" checked >
-                  Ausschließlich Inhalte mit OER-kompatiblen Lizenzen (CC0/Public-Domain, CC-BY, CC-BY-SA)
+                  <span>Ausschließlich Inhalte mit OER-kompatiblen Lizenzen (CC0/Public-Domain, CC-BY, CC-BY-SA)</span>
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
                   <input class="form-check-input" type="radio" name="license-filter" value="nc">
-                  Nutzung, Weitergabe, Veränderung erlaubt (aber: keine kommerzielle Nutzung)
+                  <span>Nutzung, Weitergabe, Veränderung erlaubt (aber: keine kommerzielle Nutzung)</span>
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
                   <input class="form-check-input" type="radio" name="license-filter" value="nc-nd">
-                  Nutzung und Weitergabe erlaubt (keine kommerzielle Nutzung und keine Veränderung erlaubt)
+                  <span>Nutzung und Weitergabe erlaubt (keine kommerzielle Nutzung und keine Veränderung erlaubt)</span>
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
                   <input class="form-check-input" type="radio" name="license-filter" value="no-filter">
-                  nicht nach Lizenzen filtern
+                  <span>nicht nach Lizenzen filtern</span>
                 </label>
               </div>
             </div>
@@ -162,7 +168,7 @@
         <div class="col-3 mx-auto">
           <!-- 2DO: remove col-4? col12 and text-align:center /mx-auto? -->
           <button type="button" class="btn btn-primary btn-lg search-button">
-            <i class="fa fa-search" aria-hidden="true"></i> Suche starten
+            <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Suche starten</span>
           </button>
         </div>
       </div>
@@ -170,9 +176,9 @@
 </section>
 
 <section id="not-compatible" class="not-compatible">
-    <div class="container">
+  <div class="container">
     <div class="row">
-   <div class="col-12">
+      <div class="col-12" id="not-compatible-provider-list-box">
           <div class="card">
             <div class="card-header">
               Weitere Seiten (nicht nach Lizenz durchsuchbar via Suchmaschine)
@@ -193,20 +199,49 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>Über das OER-Hörnchen</h2>
+        <h2 data-i18n="about-title">Über das OER-Hörnchen</h2>
         <hr class="small">
-        <p>Lehr- und Lernmaterialien unter freier Lizenz (<a href="https://oerlabs.de/oer-materialien/oer/">Open Educational Resources)</a> im deutschsprachigen Raum zu finden ist etwas tricky. Das World Wide Web gleicht dem hektischen Großstadtschungel, durch den sich auch manche Eichhörnchen bewegen müssen auf der Suche nach Futter. Das OER-Hörnchen soll die Suche nach OER als kleines Werkzeug etwas vereinfachen. Es handelt sich um eine öffentliche Vorschauversion - <a href="https://matthias-andrasch.de/kontakt/">Feedback ist gerne gesehen!</a></p>
-        <p>Technischer Hintergrund: Creative-Commons-Lizenzen können mit im Quelltext von Webseiten <a href="http://pb21.de/2013/07/how-to-maschinenlesbare-creative-commons-lizenzen/" target="_blank">maschinenlesbar</a> hinterlegt werden, sodass Suchmaschinen wie Google diese Information automatisch verarbeiten können. Somit können Webseiten/Inhalte im World Wide Web nach den jeweiligen Lizenzen automatisch gefiltert werden. Der nötige Quelltext lässt sich mit dem <a href="https://creativecommons.org/choose/?lang=DE">Creative-Commons-Lizenzierungstool</a> ganz einfach online erzeugen (Entscheidend ist das <i>rel='license'</i>-Attribut). <span class="text-danger">Leider setzen einige OER-Projekte die maschinenlesbaren CC-Lizenzen derzeit gar nicht oder nicht ganz optimal ein, sodass die jeweiligen Projektinhalte nicht automatisiert nach freien Lizenzen gefiltert werden können. Ich hoffe, dass dieses Projekt einen Beitrag leistet, um OER besser auffindbar zu machen.</span><br>
-          <p>Ausführliche Infos zur Maschinenlesbarkeit finden sich in diesem Artikel: <a href="http://pb21.de/2013/07/how-to-maschinenlesbare-creative-commons-lizenzen/" target="_blank">How-To: Maschinenlesbare Creative Commons-Lizenzen</a></p>
-          <p>Technische Limitierung: Durch den Suchfilter (Suchoperatoren) im Suchfeld der Google Suchmaschine ist die Eingabe auf 32 Wörter (Suchbegriffe sowie ausgewählte Seiten, die durchsucht werden sollen) begrenzt. Google bietet ebenfalls mit der <a href="https://cse.google.de/cse/" target="_blank">Google Custom Search (CSE)</a> die Möglichkeit an, nur bestimmte Webseiten zu durchsuchen. Allerdings habe ich keine Möglichkeit gefunden, die Ergebnisse ebenfalls nach Lizenz filtern zu können.</p>
-
-          <h4>Alternative Suchwerkzeuge und Ideen:</h4>
+          <div id="about-text" data-i18n="[html]about-text">
+          <p>Lehr- und Lernmaterialien unter freier Lizenz (<a href="https://oerlabs.de/oer-materialien/oer/">Open
+            Educational Resources)</a> im deutschsprachigen Raum zu finden ist etwas tricky. Das World Wide Web gleicht
+            dem hektischen Großstadtschungel, durch den sich auch manche Eichhörnchen bewegen müssen auf der Suche nach
+            Futter. Das OER-Hörnchen soll die Suche nach OER als kleines Werkzeug etwas vereinfachen. Es handelt sich um
+            eine öffentliche Vorschauversion - <a href="https://matthias-andrasch.de/kontakt/">Feedback ist gerne
+              gesehen!</a></p>
+          <p>Technischer Hintergrund: Creative-Commons-Lizenzen können mit im Quelltext von Webseiten <a
+                  href="http://pb21.de/2013/07/how-to-maschinenlesbare-creative-commons-lizenzen/" target="_blank">maschinenlesbar</a>
+            hinterlegt werden, sodass Suchmaschinen wie Google diese Information automatisch verarbeiten können. Somit
+            können Webseiten/Inhalte im World Wide Web nach den jeweiligen Lizenzen automatisch gefiltert werden. Der
+            nötige Quelltext lässt sich mit dem <a href="https://creativecommons.org/choose/?lang=DE">Creative-Commons-Lizenzierungstool</a>
+            ganz einfach online erzeugen (Entscheidend ist das <i>rel='license'</i>-Attribut). <span
+                    class="text-danger">Leider setzen einige OER-Projekte die maschinenlesbaren CC-Lizenzen derzeit gar nicht oder nicht ganz optimal ein, sodass die jeweiligen Projektinhalte nicht automatisiert nach freien Lizenzen gefiltert werden können. Ich hoffe, dass dieses Projekt einen Beitrag leistet, um OER besser auffindbar zu machen.</span>
+          </p>
+          <p>Ausführliche Infos zur Maschinenlesbarkeit finden sich in diesem Artikel: <a
+                  href="http://pb21.de/2013/07/how-to-maschinenlesbare-creative-commons-lizenzen/" target="_blank">How-To:
+            Maschinenlesbare Creative Commons-Lizenzen</a></p>
+          <p>Technische Limitierung: Durch den Suchfilter (Suchoperatoren) im Suchfeld der Google Suchmaschine ist die
+            Eingabe auf 32 Wörter (Suchbegriffe sowie ausgewählte Seiten, die durchsucht werden sollen) begrenzt. Google
+            bietet ebenfalls mit der <a href="https://cse.google.de/cse/" target="_blank">Google Custom Search (CSE)</a>
+            die Möglichkeit an, nur bestimmte Webseiten zu durchsuchen. Allerdings habe ich keine Möglichkeit gefunden,
+            die Ergebnisse ebenfalls nach Lizenz filtern zu können.</p>
+        </div>
+        <h4 data-i18n="about-more-title">Alternative Suchwerkzeuge und Ideen:</h4>
+          <div id="about-more-text" data-i18n="[html]about-tools-list">
           <ul>
-            <li><a href="https://search.creativecommons.org" target="_blank">search.creativecommons.org</a> - verschiedene Mediensammlungen/Plattformen wie Flickr, Youtube oder Wikimedia Commons nach CC-lizenzierten Inhalten durchsuchen, diente als Vorlage für das OER-Hörnchen.</li>
-            <li><a href="https://twitter.com/trugwaldsaenger/status/910124983120269312" target="_blank">searchoer.com</a> - eine Google Custom Search (CSE), welche englischsprachige Seiten bündelt</li>
-            <li><a href="https://programmieraffe.github.io/oer-search-lab/" target="_blank">Kleine Ideensammlung zum Finden von OER (2016)</a></li>
+            <li><a href="https://search.creativecommons.org" target="_blank">search.creativecommons.org</a> -
+              verschiedene Mediensammlungen/Plattformen wie Flickr, Youtube oder Wikimedia Commons nach CC-lizenzierten
+              Inhalten durchsuchen, diente als Vorlage für das OER-Hörnchen.
+            </li>
+            <li><a href="https://twitter.com/trugwaldsaenger/status/910124983120269312"
+                   target="_blank">searchoer.com</a> - eine Google Custom Search (CSE), welche englischsprachige Seiten
+              bündelt
+            </li>
+            <li><a href="https://programmieraffe.github.io/oer-search-lab/" target="_blank">Kleine Ideensammlung zum
+              Finden von OER (2016)</a></li>
           </ul>
-          <p>Eine ausführliche Projektbeschreibung folgt. Die Webseite wurde noch nicht auf Barrierefreiheit getestet.</p>
+          <p>Eine ausführliche Projektbeschreibung folgt. Die Webseite wurde noch nicht auf Barrierefreiheit
+            getestet.</p>
+        </div>
         </div>
       </div>
       <!-- /.row -->
@@ -217,10 +252,11 @@
   <!-- Call to Action -->
   <aside class="call-to-action bg-primary text-white">
     <div class="container text-center">
-      <h3>OER-Hörnchen ist Open Source und offen für alle!</h3>
-      <p>Das Projekt kann angepasst, verändert und verbessert werden.</p>
-      <a href="https://github.com/programmieraffe/oer-hoernchen" target="_blank" class="btn btn-lg btn-light">Github-Projekt</a>
-      <a href="https://matthias-andrasch.de/kontakt" class="btn btn-lg btn-dark">Kontakt</a>
+      <h3 data-i18n="cta-title">OER-Hörnchen ist Open Source und offen für alle!</h3>
+      <p data-i18n="cta-text">Das Projekt kann angepasst, verändert und verbessert werden.</p>
+      <a href="https://github.com/programmieraffe/oer-hoernchen" target="_blank" class="btn btn-lg btn-light"
+         data-i18n="cta-github">Github-Projekt</a>
+      <a href="https://matthias-andrasch.de/kontakt" class="btn btn-lg btn-dark" data-i18n="cta-contact">Kontakt</a>
     </div>
   </aside>
 
@@ -229,17 +265,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
-          <h4>
-            <strong>Projektinformationen</strong>
-          </h4>
-          <p>Ein offenes Projekt von Matthias Andrasch, ermöglicht durch viele Menschen, welche Quelltexte, Tutorials und Tipps offen und frei zur Verfügung gestellt haben. Danke besonders an die <a href="https://www.facebook.com/groups/OERde/" target="_blank">#OERde-Community</a>!
-            <br>
+          <h4 data-i18n="footer-project-title">Projektinformationen</h4>
+            <p data-i18n="[html]footer-project-text">Ein offenes Projekt von Matthias Andrasch, ermöglicht durch viele
+                Menschen, welche
+            Quelltexte, Tutorials und Tipps offen und frei zur Verfügung gestellt haben. Danke besonders an die <a
+                    href="https://www.facebook.com/groups/OERde/" target="_blank">#OERde-Community</a>!
             <ul class="list-inline">
-                    <!-- <li class="list-inline-item">
-                      <a href="#">
-                        <i class="fa fa-facebook fa-fw fa-3x"></i>
-                      </a>
-                    </li>-->
                     <li class="list-inline-item">
                       <a href="https://twitter.com/m_andrasch">
                         <i class="fa fa-twitter fa-fw fa-3x"></i>
@@ -251,12 +282,19 @@
                       </a>
                     </li>
                   </ul>
-                  <p><a href="https://matthias-andrasch.de/impressum/">Impressum</a></p>
+          <p><a href="https://matthias-andrasch.de/impressum/" data-i18n="footer-imprint">Impressum</a></p>
                   <hr class="small">
-                  <h4>
-                    <strong>Lizenz</strong>
-                  </h4>
-                  <p>Der Quelltext des Projekts steht auf Github unter der <a href="https://choosealicense.com/licenses/unlicense/">Unlicense-Lizenz</a>, gerne auch als <a href="https://creativecommons.org/licenses/publicdomain/" rel="license">CC0/Public Domain</a> nutzen. Für die Nachnutzung oder Veränderung sind keinerlei Bedingungen vorgegeben. Ausgenommen von dieser Lizenz sind die Logos der aufgeführten Projekte und Plattformen sowie alle von Dritten genutzten Open-Source-Quelltexte. Die jeweilige Lizenz findet sich in den Quelltextdateien und in der CREDITS-Datei. Das genutzte Bootstrap-Theme <a href="https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio">Stylish Portfolio</a> von BlackrockDigital ist unter MIT-Lizenz verfügbar. Verwendetes Foto von <a href="https://pixabay.com/de/eichh%C3%B6rnchen-tier-natur-possierlich-2116189/" target="_blank">hschmider (Pixabay/CC0)</a>.
+          <h4 data-i18n="footer-license-title">Lizenz</h4>
+            <p data-i18n="[html]footer-license-text">Der Quelltext des Projekts steht auf Github unter der <a
+                  href="https://choosealicense.com/licenses/unlicense/">Unlicense-Lizenz</a>, gerne auch als <a
+                  href="https://creativecommons.org/licenses/publicdomain/" rel="license">CC0/Public Domain</a> nutzen.
+            Für die Nachnutzung oder Veränderung sind keinerlei Bedingungen vorgegeben. Ausgenommen von dieser Lizenz
+            sind die Logos der aufgeführten Projekte und Plattformen sowie alle von Dritten genutzten
+            Open-Source-Quelltexte. Die jeweilige Lizenz findet sich in den Quelltextdateien und in der CREDITS-Datei.
+            Das genutzte Bootstrap-Theme <a href="https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio">Stylish
+              Portfolio</a> von BlackrockDigital ist unter MIT-Lizenz verfügbar. Verwendetes Foto von <a
+                    href="https://pixabay.com/de/eichh%C3%B6rnchen-tier-natur-possierlich-2116189/" target="_blank">hschmider
+              (Pixabay/CC0)</a>.
 
                   </div>
                 </div>
@@ -271,16 +309,45 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">Suche generiert</h5>
+                      <h5 class="modal-title" data-i18n="modal-search-title">Suche generiert</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+
+                      <div class="search-success">
+                          <p data-i18n="modal-text-search-success">Die Suche wird in einem neuen Fenster aufgerufen.
+                              Eventuell wird das Öffnen durch einen Pop-Up-Blocker verhindert. Hier manuell öffnen:</p>
+                          <p><a target="_blank" class="modal-search-url" data-i18n="modal-link-text">Suche
+                              in neuem Tab/Fenster öffnen</a></p>
+                          <p data-i18n="modal-link-share">Link zum Teilen:</p>
+                          <div class="input-group">
+                              <input type="text" class="form-control" id="modal-search-input" title="modal-input"/>
+                              <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"
+                                        data-i18n="modal-button-copy">Kopieren</button>
+                                </span>
+                          </div>
+
+                      </div>
+
+                      <div class="search-error alert alert-danger" role="alert">
+                          <p data-i18n="modal-text-search-error">Die Google-Suche erlaubt maximal 32 Wörter im Suchfeld,
+                              bitte weniger Suchbegriffe nutzen oder weniger Projekte auswählen (jedes Projekt zählt als
+                              ein Wort)</p>
+                          <p><a target="_blank" class="modal-search-url"
+                                data-i18n="modal-button-search-despite">Suche trotzdem öffnen</a></p>
+                      </div>
+
+                      <p data-i18n="[html]modal-text-feedback">Feedback oder Fragen? Gerne <a
+                              href="https://matthias-andrasch.de/kontakt" target="_blank">hier</a> melden!</p>
                   </div>
+
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Weiter suchen</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"
+                              data-i18n="modal-button-cont-search">Weiter suchen
+                      </button>
                   </div>
                 </div>
               </div>
@@ -294,15 +361,20 @@
             <!-- Plugin JavaScript -->
             <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-            <!-- Custom scripts for this template -->
+  <!-- Internationalization -->
+  <script src="vendor/i18n/libs/CLDRPluralRuleParser/src/CLDRPluralRuleParser.js"></script>
+  <script src="vendor/i18n/js/jquery.i18n.js"></script>
+  <script src="vendor/i18n/js/jquery.i18n.messagestore.js"></script>
+  <script src="vendor/i18n/js/jquery.i18n.fallbacks.js"></script>
+  <script src="vendor/i18n/js/jquery.i18n.parser.js"></script>
+  <script src="vendor/i18n/js/jquery.i18n.emitter.js"></script>
+
+  <!-- Custom scripts for this template -->
             <script src="js/stylish-portfolio.js"></script>
 
             <!-- OER-squirrel script -->
             <script src="js/oer-squirrel-provider-list.js"></script>
             <script src="js/oer-squirrel.js"></script>
-
-
-
+  <script src="js/oer-squirrel-i18n.js"></script>
           </body>
-
           </html>
