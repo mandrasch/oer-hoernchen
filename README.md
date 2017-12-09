@@ -38,6 +38,7 @@ Feedback sehr gerne als Issue eintragen!
 - jquery.easing
 - popper.js
 - font-awesome
+- [jquery.i18n](https://github.com/wikimedia/jquery.i18n)
 
 ## Suchmaschinen-Anbindung
 - derzeit unterstützt nur die Google-Suchmaschine die Filterung nach Lizenzen, Anbindung anderer Suchmaschinen ebenso möglich 
