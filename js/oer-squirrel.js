@@ -1,4 +1,6 @@
 // 2DO: use namespaces!
+//
+/* globals $, oer_provider_list, mixed_provider_list, console */
 /*
  * Jquery functions
  */
@@ -16,20 +18,18 @@ $(document).ready(function(){
   /* Image Checkbox Bootstrap template for multiple image selection
   https://www.prepbootstrap.com/bootstrap-template/image-checkbox */
   $(".image-checkbox").each(function () {
-    if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
-      $(this).addClass('image-checkbox-checked');
-    }
-    else {
-      $(this).removeClass('image-checkbox-checked');
-    }
+    $(this).toggleClass(
+        'image-checkbox-checked',
+        $(this).find('input[type="checkbox"]').first().attr("checked")
+    );
   });
 
   // sync the state to the input
   $(".image-checkbox").on("click", function (e) {
+    e.preventDefault();
     $(this).toggleClass('image-checkbox-checked');
     var $checkbox = $(this).find('input[type="checkbox"]');
-      $checkbox.prop("checked", !$checkbox.prop("checked"));
-    e.preventDefault();
+    $checkbox.prop("checked",!$checkbox.prop("checked"));
   });
   /* eo image checkbox js */
 
@@ -44,8 +44,7 @@ $(document).ready(function(){
   $('#search-button-landing').click(function(e){
     e.preventDefault();
     var val = $("#query-landing").val();
-    $("#query").val(val);
-    $("#query").focus();
+    $("#query").val(val).focus();
   });
 
   // 2DO: enter key action on first form field?
@@ -93,7 +92,7 @@ var generateList = function(list,selector){
 
       $(html).appendTo(selector);
     });
-};
+  };
 
   /* generate list for providers which are not compatible right now */
   // 2DO: optimize later
@@ -115,33 +114,21 @@ var generateList = function(list,selector){
 var performSearch = function(){
 
      // check the word/operator limit of 32 (google limit in search field)
-    var word_limit_reached = false;
-    if($("#query").val().split(' ').length + $("input[name='image']:checked").length > 32){
-      word_limit_reached = true;
-    }
+    var word_limit_reached = $("#query").val().split(' ').length + $("input[name='image']:checked").length > 32;
 
     // get selected checkbox values
     // 2DO: better naming for checkboxes!
     var site_filter_list = [];
     $.each($("input[name='image']:checked"), function(){
-      site_filter_list.push(this.value);
+      site_filter_list.push('site:' + this.value);
     });
     console.log('selected values',site_filter_list);
 
     // generate query parameter
-    var q = $("#query").val() + ' '; //2DO: check if empty
-    $.each(site_filter_list,function(index, value ){
-      var is_last_element = index == site_filter_list.length -1;
-      q = q + 'site:'+value+' '; // add site: filter for checkbox
-      if(!is_last_element)
-      {
-        q = q + 'OR ';
-      }
-    });
-    // encode characters for url
-    var q = encodeURI(q);
+    var q = $("#query").val() + ' ' + site_filter_list.join(' OR '); //2DO: check if empty
 
-    var url = 'https://www.google.de/search?as_q='+q+'';
+    // encode characters for url
+    var url = 'https://www.google.de/search?as_q='+ encodeURI(q);
 
     // add license parameters
     // url = url + encodeURI('&as_rights=(cc_publicdomain|cc_attribute|cc_sharealike).-(cc_noncommercial|cc_nonderived)');
@@ -161,7 +148,7 @@ var performSearch = function(){
         break;
       case 'nc-nd':
         // as_rights=(cc_publicdomain|cc_attribute|cc_sharealike|cc_noncommercial|cc_nonderived)
-          url_license_filter = '&as_rights=%28cc_publicdomain%7Ccc_attribute%7Ccc_sharealike%7Ccc_noncommercial%7Ccc_nonderived%29';
+        url_license_filter = '&as_rights=%28cc_publicdomain%7Ccc_attribute%7Ccc_sharealike%7Ccc_noncommercial%7Ccc_nonderived%29';
         break;
     }
     // add filter to url (not possibly by operator in search query)
@@ -185,8 +172,7 @@ var performSearch = function(){
     // try to open new tab
     if(!word_limit_reached){
 
-      var win = window.open(url, '_blank');
-      win.focus();
+      window.open(url, '_blank').focus();
        // 2DO: good idea to use setTimeout?
        /*setTimeout(function(){
           var win = window.open(url, '_blank');

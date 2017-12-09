@@ -80,6 +80,16 @@
       'image':'bpb.jpg'
     },
     {
+      'name':'iMooX',
+      'url':'imoox.at',
+      'image':'imoox.png'
+    },    
+    {
+      'name':'Lecture2Go Universität Hamburg',
+      'url':'lecture2go.uni-hamburg.de',
+      'image':'lecture2go.png'
+    },
+    {
       'name':'Lehrer Online',
       'url':'lehrer-online.de',
       'image':'lehrer_online.png'
@@ -94,19 +104,15 @@
       'url':'mooin.oncampus.de',
       'image':'mooin.png'
     },
-    {
-      'name':'iMooX',
-      'url':'imoox.at',
-      'image':'imoox.png'
-    },
-    {
-      'name':'Lecture2Go Universität Hamburg',
-      'url':'lecture2go.uni-hamburg.de',
-      'image':'lecture2go.png'
-    },{
+	{
       'name':'openlearnware - TU Darmstadt',
       'url':'openlearnware.de',
       'image':'openlearnware.png'
+    },
+    {
+		'name':'tutory.de - Arbeitsblätter online gestalten',
+		'url':'tutory.de',
+		'image':'tutory.png'
     }
   ];
 
