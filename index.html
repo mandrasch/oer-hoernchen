@@ -98,171 +98,170 @@
     <div class="text-vertical-center">
       <h1 data-i18n="header-title">OER-Hörnchen</h1>
       <div class="text-center">
+        <form id="landing-form">
+          <div class="input-group">
+            <input type="text" class="form-control" id="query-landing" data-i18n="[placeholder]header-input-placeholder"
+            placeholder="Suche nach Begriff(en) ...">
+          </div>
+        </form>
+        <a href="#edu-projects-search" class="btn btn-dark btn-lg js-scroll-trigger" id="search-button-landing"
+        data-i18n="header-search-link"><i class="fa fa-angle-double-down" aria-hidden="true"></i> OER gezielt finden</a>
         <div id="github-info" class="alert alert-info" role="alert">Dies ist die Entwicklervorschau des OER-Hörnchens. Diese Version kann noch Fehler enthalten (bitte <a href="https://github.com/programmieraffe/oer-hoernchen/issues">hier</a> melden!), die aktuelle öffentliche Version findet sich stets hier: <a href="https://oer-hoernchen.de">www.oer-hoernchen.de</a>.</div>
       </div>
-      <form id="landing-form">
-        <div class="input-group">
-          <input type="text" class="form-control" id="query-landing" data-i18n="[placeholder]header-input-placeholder"
-          placeholder="Suche nach Begriff(en) ...">
-        </div>
-      </form>
-      <a href="#edu-projects-search" class="btn btn-dark btn-lg js-scroll-trigger" id="search-button-landing"
-      data-i18n="header-search-link"><i class="fa fa-angle-double-down" aria-hidden="true"></i> OER gezielt finden</a>
-
     </div>
 
   </header>
 
   <!-- navbar bottom -->
   <nav id="navbar-bottom"class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
-     <a class="navbar-brand" href="#">OER-Hörnchen</a>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
+   <a class="navbar-brand" href="#">OER-Hörnchen</a>
+   <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
 
 
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i> OER-Projekte</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i> Web</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i> Medien</a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i> OER-Projekte</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i> Web</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i> Medien</a>
+      </li>
 
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.oer-hoernchen.de&via=m_andrasch&text=Gerade%20ausprobiert%3A%20OER%20gezielt%20finden%20mit%20dem%20%23OERH%C3%B6rnchen&hashtags=OERde,OpenSource" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.oer-hoernchen.de&via=m_andrasch&text=Gerade%20ausprobiert%3A%20OER%20gezielt%20finden%20mit%20dem%20%23OERH%C3%B6rnchen&hashtags=OERde,OpenSource" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 
-        <li class="nav-item"><a class="nav-link" href="https://github.com/programmieraffe/oer-hoernchen" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-        <li class="nav-item"><a class="nav-link button-hide-navbar" href=""><i class="fa fa-times" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-  </nav>
+      <li class="nav-item"><a class="nav-link" href="https://github.com/programmieraffe/oer-hoernchen" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      <li class="nav-item"><a class="nav-link button-hide-navbar" href=""><i class="fa fa-times" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+</nav>
 
-  <section id="edu-projects-search">
-    <div class="container">
-      <h2 data-i18n="header-search-link"><a href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i></a> OER-Projekte durchsuchen</h2>
-      <p class="explanation">Die erste Möglichkeit: Projekte, Bildungsangebote und Plattformen durchsuchen, welche explizit Bildungsmaterialien zum Lehren/Lernen anbieten. Mit dem OER-Hörnchen können diese Projekte gebündelt durchsucht werden.</p>
-      <div class="row">
-        <div class="col-12" id="search-box">
-          <div class="card">
-            <div class="card-header">
-              Suchbegriff
-            </div>
-            <div class="card-body">
-              <form id="edu-projects-search-form">
-                <div class="input-group">
-                  <input type="text" class="form-control" id="edu-projects-search-query"
-                  data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-secondary edu-projects-search-submit-button" type="button" data-i18n="search-instant-button"><i class="fa fa-search" aria-hidden="true"></i></button>
-                  </span>
-                </div>
-              </form>
-            </div>
+<section id="edu-projects-search">
+  <div class="container">
+    <h2 data-i18n="header-search-link"><a href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i></a> OER-Projekte durchsuchen</h2>
+    <p class="explanation">Die erste Möglichkeit: Projekte, Bildungsangebote und Plattformen durchsuchen, welche explizit Bildungsmaterialien zum Lehren/Lernen anbieten. Mit dem OER-Hörnchen können diese Projekte gebündelt durchsucht werden.</p>
+    <div class="row">
+      <div class="col-12" id="search-box">
+        <div class="card">
+          <div class="card-header">
+            Suchbegriff
+          </div>
+          <div class="card-body">
+            <form id="edu-projects-search-form">
+              <div class="input-group">
+                <input type="text" class="form-control" id="edu-projects-search-query"
+                data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary edu-projects-search-submit-button" type="button" data-i18n="search-instant-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
+      </div>
 
-        <div class="col-12" id="provider-list-box">
-          <div class="card">
-            <div class="card-header">
-              Deutschsprachige OER-Angebote
-            </div>
-            <div class="card-body">
-              <div class="row oer-squirrel-provider-list" id="oer-provider-list">
-              </div>
-              <div class="row">
-                <div class="col-12 select-all">
-                  <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button> <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
-                </div>
-              </div>
-            </div>
+      <div class="col-12" id="provider-list-box">
+        <div class="card">
+          <div class="card-header">
+            Deutschsprachige OER-Angebote
           </div>
-
-        </div>
-
-        <div class="col-12" id="other-provider-list-box">
-          <div class="card">
-            <div class="card-header">
-              Andere Bildungsangebote (nicht ausschließlich OER)
+          <div class="card-body">
+            <div class="row oer-squirrel-provider-list" id="oer-provider-list">
             </div>
-            <div class="card-body">
-              <div class="row oer-squirrel-provider-list" id="mixed-provider-list">
-              </div>
-              <div class="row">
-                <div class="col-12 select-all">
-                  <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button> <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
-                </div>
+            <div class="row">
+              <div class="col-12 select-all">
+                <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button> <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
               </div>
             </div>
           </div>
         </div>
 
+      </div>
 
-
-
-        <div class="col-12 license-filter-box" id="edu-projects-search-license-filter">
-          <div class="card">
-            <div class="card-header">
-             <a href="#faq-license-machine-readibility" class="js-scroll-trigger"><i class="fa fa-question-circle" aria-hidden="true"></i></a> Lizenzfilter (Maschinenlesbare Creative-Commons-Lizenzen) 
-
-           </div>
-           <div class="card-body">
-
-             <div class="form-group">
-              <!--<label for="exampleFormControlSelect1">Lizenzfilter:</label>-->
-              <select class="form-control" name="license-filter">
-                <option value="only-oer">Ausschließlich nach Inhalten mit OER-kompatibler Lizenz / gemeinfreien Inhalten suchen</option>
-                <option value="nc">Inhalte mit OER-kompatibler Lizenz sowie Inhalte mit NC-Einschränkung</option>
-                <option value="nc-nd">Inhalte mit OER-kompatibler Lizenz sowie Inhalte mit ND- und/oder NC-Einschränkung</option>
-                <option value="no-filter">Lizenzfilter deaktivieren (nicht empfohlen)</option>
-              </select>
-
-              <div class="license-explanation" style="font-size:80%;margin-top:10px;padding-left:25px;padding-right:25px;">
-                <div data-value="oer" class="text-success clearfix">
-                 <p style="margin-bottom:2px;"> Es wird nach Inhalten mit OER-kompatibler Lizenz bzw. nach gemeinfreien Inhalten gesucht, dazu zählen Public Domain/CC0, CC-BY, CC-BY-SA (ShareAlike)</i> <br>
-                  <i class="fa fa-check" aria-hidden="true"></i> Veränderungen erlaubt<br>
-                  <i class="fa fa-check" aria-hidden="true"></i> alle Nutzungsarten erlaubt (kommerziell/nichtkommerziell)
-                </p>
-                <p style="margin-top:2px;">
-                  <img src="img/license_icons/public_domain.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                  <img src="img/license_icons/cc0.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                  <img src="img/license_icons/cc_by.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                  <img src="img/license_icons/cc_by_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                </p>
-              </div>
-              <div data-value="nc" class="clearfix" style="margin-top:5px;">
-                <p style="margin-bottom:2px;">Es werden ebenfalls Inhalte in die Suche miteinbezogen, die unter NC-Einschränkung lizenziert wurden (<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-noncommercial" class="js-scroll-trigger">kommerzielle Nutzung verboten</a>)</p>
-                <p style="margin-top:2px;">
-                  <img src="img/license_icons/cc_by_nc.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                  <img src="img/license_icons/cc_by_nc_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                </p>
-              </div>
-              <div data-value="nc-nd" class="clearfix"  style="margin-top:5px;">
-                <p style="margin-bottom:2px;">Es werden ebenfalls Inhalte in die Suche einbezogen, die mit ND- und/oder NC-Einschränkung lizenziert wurden.<br>(<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-derivs" class="js-scroll-trigger" >Veränderungen verboten</a> und/oder <i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-noncommercial" class="js-scroll-trigger">kommerzielle Nutzung verboten</a>)
-                </p>
-                <p style="margin-top:2px;">
-                  <img src="img/license_icons/cc_by_nc.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                  <img src="img/license_icons/cc_by_nc_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                  <img src="img/license_icons/cc_by_nd.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                  <img src="img/license_icons/cc_by_nc_nd.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                </p>
-              </div>
-              <div data-value="no-filter"><p>Die Suche wird nicht nach Lizenzen eingeschränkt.</p></div>
+      <div class="col-12" id="other-provider-list-box">
+        <div class="card">
+          <div class="card-header">
+            Andere Bildungsangebote (nicht ausschließlich OER)
+          </div>
+          <div class="card-body">
+            <div class="row oer-squirrel-provider-list" id="mixed-provider-list">
             </div>
+            <div class="row">
+              <div class="col-12 select-all">
+                <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button> <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-12 license-filter-box" id="edu-projects-search-license-filter">
+        <div class="card">
+          <div class="card-header">
+           <a href="#faq-license-machine-readibility" class="js-scroll-trigger"><i class="fa fa-question-circle" aria-hidden="true"></i></a> Lizenzfilter (Maschinenlesbare Creative-Commons-Lizenzen) 
+
+         </div>
+         <div class="card-body">
+
+           <div class="form-group">
+            <!--<label for="exampleFormControlSelect1">Lizenzfilter:</label>-->
+            <select class="form-control" name="license-filter">
+              <option value="only-oer">Ausschließlich nach Inhalten mit OER-kompatibler Lizenz / gemeinfreien Inhalten suchen</option>
+              <option value="nc">Inhalte mit OER-kompatibler Lizenz sowie Inhalte mit NC-Einschränkung</option>
+              <option value="nc-nd">Inhalte mit OER-kompatibler Lizenz sowie Inhalte mit ND- und/oder NC-Einschränkung</option>
+              <option value="no-filter">Lizenzfilter deaktivieren (nicht empfohlen)</option>
+            </select>
+
+            <div class="license-explanation" style="font-size:80%;margin-top:10px;padding-left:25px;padding-right:25px;">
+              <div data-value="oer" class="text-success clearfix">
+               <p style="margin-bottom:2px;"> Es wird nach Inhalten mit OER-kompatibler Lizenz bzw. nach gemeinfreien Inhalten gesucht, dazu zählen Public Domain/CC0, CC-BY, CC-BY-SA (ShareAlike)</i> <br>
+                <i class="fa fa-check" aria-hidden="true"></i> Veränderungen erlaubt<br>
+                <i class="fa fa-check" aria-hidden="true"></i> alle Nutzungsarten erlaubt (kommerziell/nichtkommerziell)
+              </p>
+              <p style="margin-top:2px;">
+                <img src="img/license_icons/public_domain.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                <img src="img/license_icons/cc0.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                <img src="img/license_icons/cc_by.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                <img src="img/license_icons/cc_by_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+              </p>
+            </div>
+            <div data-value="nc" class="clearfix" style="margin-top:5px;">
+              <p style="margin-bottom:2px;">Es werden ebenfalls Inhalte in die Suche miteinbezogen, die unter NC-Einschränkung lizenziert wurden (<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-noncommercial" class="js-scroll-trigger">kommerzielle Nutzung verboten</a>)</p>
+              <p style="margin-top:2px;">
+                <img src="img/license_icons/cc_by_nc.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                <img src="img/license_icons/cc_by_nc_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+              </p>
+            </div>
+            <div data-value="nc-nd" class="clearfix"  style="margin-top:5px;">
+              <p style="margin-bottom:2px;">Es werden ebenfalls Inhalte in die Suche einbezogen, die mit ND- und/oder NC-Einschränkung lizenziert wurden.<br>(<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-derivs" class="js-scroll-trigger" >Veränderungen verboten</a> und/oder <i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-noncommercial" class="js-scroll-trigger">kommerzielle Nutzung verboten</a>)
+              </p>
+              <p style="margin-top:2px;">
+                <img src="img/license_icons/cc_by_nc.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                <img src="img/license_icons/cc_by_nc_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                <img src="img/license_icons/cc_by_nd.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                <img src="img/license_icons/cc_by_nc_nd.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+              </p>
+            </div>
+            <div data-value="no-filter"><p>Die Suche wird nicht nach Lizenzen eingeschränkt.</p></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-12">
-    <div class="text-center">
-      <button type="button" class="btn btn-primary btn-lg edu-projects-search-submit-button">
-        <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Projektsuche starten</span>
-      </button>
-    </div>
+</div>
+<div class="col-12">
+  <div class="text-center">
+    <button type="button" class="btn btn-primary btn-lg edu-projects-search-submit-button">
+      <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Projektsuche starten</span>
+    </button>
   </div>
+</div>
 </div>
 </div><!-- /.container -->
 </section>
