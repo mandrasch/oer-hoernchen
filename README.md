@@ -50,7 +50,7 @@ Feedback sehr gerne als Issue eintragen!
 
 ## Lizenz
 
-Der selbst erstellte Quelltext des Projekts steht auf Github unter der [Unlicense-Lizenz](), gerne auch als CC0/Public Domain nutzen. Für die Nachnutzung oder Veränderung sind keinerlei Bedingungen vorgegeben. Ausgenommen von dieser Lizenz sind die Logos der aufgeführten Projekte und Plattformen sowie alle von Dritten genutzten Open-Source-Quelltexte. Die jeweilige Lizenz findet sich in den Quelltextdateien und in der CREDITS-Datei. Verwendetes Foto von [hschmider (Pixabay/CC0)](https://pixabay.com/de/eichh%C3%B6rnchen-tier-natur-possierlich-2116189/).
+CC0 1.0 Universal License (Public Domain) - alle Informationen: [LICENSE](https://github.com/programmieraffe/oer-hoernchen/blob/gh-pages/LICENSE)
 
 ## Ein Herz für ...
 - :green_heart: Open Educational Resources
