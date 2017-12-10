@@ -57,5 +57,9 @@ CC0 1.0 Universal License (Public Domain) - alle Informationen: [LICENSE](https:
 - :green_heart: Open Source
 - :green_heart: Eduhacking
 
+## Beitragende / Contributors
+- [otacke](https://github.com/otacke)
+- [danvers](https://github.com/danvers)
+
 # Forks
 - [https://github.com/isgerjanson/oer-hoernchen] - Browser plugin for chrome
