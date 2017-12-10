@@ -117,13 +117,54 @@
   ];
 
 
-  var not_compatible_provider_list =
-  [
+  var media_provider_list = [
     {
+      'id':'flickr',
+      'name':'flickr',
+      'url':'flickr.com',
+      'image':'flickr.png'
+    },
+    {
+      'id':'youtube',
+      'name':'YouTube',
+      'url':'youtube.com',
+      'image':'youtube.png'
+    },
+    {
+      'id':'googleimages',
+      'name':'Google Bildersuche',
+      'url':'google.de/imghp',
+      'image':'google_image_search.png'
+    },
+    {
+      'id':'pixabay',
+      'name':'Pixabay (CC0 Fotos/Bilder)',
+      'url':'pixabay.de',
+      'image':'pixabay.png'
+    },
+    {
+      'id':'freemusicarchive',
+      'name':'Free Music Archive (FMA)',
+      'url':'freemusicarchive.com',
+      'image':'freemusicarchive.png'
+    },{
+      'id':'wikimediacommons',
+      'name':'Wikimedia Commons',
+      'url':'commons.wikimedia.org',
+      'image':'wikimedia_commons.png'
+    },
+    {
+      'id':'edutags',
       'name':'Edutags - Social Bookmarking für Lehr- und Lernmaterial',
       'url':'edutags.de',
       'image':'edutags.png'
     },
+
+  ]
+
+  var not_compatible_provider_list =
+  [
+
     {
       'name':'Elixier Bildungssuchmaschine',
       'url':'bildungsserver.de/elixier/',
@@ -135,3 +176,5 @@
       'image':'learnline.png'
     }
   ]
+
+

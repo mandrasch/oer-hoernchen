@@ -3,6 +3,16 @@
 	max-width:750px;
 }
 
+section {
+    padding: 50px 0 10px 0;
+}
+
+
+h4{
+	padding:10px 0 5px 0;
+}
+
+
 /* check box styles */
 /* see: https://codepen.io/kosukehorai/pen/pRwKjg */
 
@@ -48,7 +58,8 @@ i.hidden{
 .btn:hover{
   cursor:pointer;
 }
-#search-filter .card{
+/*#search-filter */
+.card{
   margin-bottom:15px;
 }
 #search-filter div.container{
@@ -99,4 +110,10 @@ footer h4 {
 
 #modal-text-feedback {
     margin-top: 15px;
+}
+
+#github-info{
+	max-width:75%;
+	display:none;
+	margin:0 auto;
 }
