@@ -67,9 +67,9 @@
     }
 
 
-    // github info
+    // github info message (preview, not offical version)
     if(document.location.hostname == 'programmieraffe.github.io'){
-      $("#github-info").show();
+      $('#github-info-modal').modal();
     }
 
 
