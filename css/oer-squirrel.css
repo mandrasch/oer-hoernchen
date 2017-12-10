@@ -3,10 +3,23 @@
 	max-width:750px;
 }
 
+.header{
+	/* https://pixabay.com/de/eichh%C3%B6rnchen-winter-schnee-apfel-619966/ */
+	background: url('../img/squirrel-619966_1920_cc0_oldiefan.jpg') no-repeat center center scroll;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.header h1{
+	display:none;
+	background-color:rgba(255, 255, 255, 0.5);
+}
+
 section {
     padding: 50px 0 10px 0;
 }
-
 
 h4{
 	padding:10px 0 5px 0;

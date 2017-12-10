@@ -115,18 +115,19 @@
 
   <!-- navbar bottom -->
   <nav id="navbar-bottom"class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
+     <a class="navbar-brand" href="#">OER-Hörnchen</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
 
 
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i> Projekte durchsuchen</a>
+          <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i> OER-Projekte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i> Web durchsuchen</a>
+          <a class="nav-link js-scroll-trigger" href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i> Web</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i> Medien suchen</a>
+          <a class="nav-link js-scroll-trigger" href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i> Medien</a>
         </li>
 
       </ul>
@@ -537,9 +538,9 @@
                   <p data-i18n="[html]footer-license-text"><small>Der Quelltext des Projekts ist mit Hilfe der <a
                     href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">"Creative Commons Zero (CC0 1.0 Universal)"-Freigabeerklärung</a> als gemeinfreies Werk (Public Domain) verfügbar. Für die Nachnutzung oder Veränderung sind keinerlei Bedingungen vorgegeben. Ausgenommen von dieser Freigabe sind die Logos der aufgeführten Projekte und Plattformen sowie alle von Dritten genutzten Open-Source-Quelltexte. Die jeweilige Lizenzangaben finden sich in der <a href="https://github.com/programmieraffe/oer-hoernchen/blob/gh-pages/LICENSE">LICENSE</a>-Datei des Projekts.
                     Theme: <a href="https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio">Stylish
-                    Portfolio</a> von BlackrockDigital, MIT-Lizenz. Verwendetes Foto von <a
-                    href="https://pixabay.com/de/eichh%C3%B6rnchen-tier-natur-possierlich-2116189/" target="_blank">hschmider
-                  (Pixabay/CC0)</a></small>.
+                    Portfolio</a> von BlackrockDigital, MIT-Lizenz.<br>
+                    <i>Aktuelles Foto: <a href="https://pixabay.com/de/tier-nagetier-eichh%C3%B6rnchen-1241334/">Oldiefan (CC0/Pixabay)</a> - <a href="https://pixabay.com/de/tier-nagetier-eichh%C3%B6rnchen-1241334/">Kaffee spenden</a></i> ist möglich.</small>.
+                  </p>
 
                 </div>
               </div>
@@ -605,11 +606,11 @@
             </p>
           </div>
 
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal"
             data-i18n="modal-button-cont-search"><i class="fa fa-angle-double-down" aria-hidden="true"></i> Nichts gefunden? Nächster Schritt
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -651,11 +652,13 @@
         },
         "theme": "edgeless",
         "position": "bottom-right",
+        "dismissOnScroll":5, //scroll range
+        "dismissOnTimeout":15000, //milliseconds
         "content": {
           "message": "Das OER-Hörnchen setzt Cookies ein und erhebt anonyme Nutzungsstatistiken.",
           "dismiss": "Einverstanden",
           "link": "Datenschutzerklärung",
-          "href": "https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/"
+          "href": "https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/",
         }
       })});
     </script>
