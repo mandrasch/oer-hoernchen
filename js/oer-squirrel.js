@@ -4,6 +4,13 @@
 // feel free to improve & send a pull request <3
 // 2DO: use namespaces!
 
+// console.log fallback
+if (typeof console == "undefined") {
+    window.console = {
+        log: function () {}
+    };
+}
+
 /*
  * jQuery functions
  */
@@ -313,6 +320,7 @@ var generateList = function(list,selector){
         // piwik outlink tracking (experimental)
         urlDiv.off('click'); //unbind all click events
         urlDiv.on('click',function(){
+          console.log('piwik tracking, tracking outlink: ',url);
           if (typeof _paq !== "undefined") {
             _paq.push(['trackLink', url, 'link']);
           }
