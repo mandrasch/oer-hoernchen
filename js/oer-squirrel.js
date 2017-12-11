@@ -313,7 +313,7 @@ var generateList = function(list,selector){
         // piwik outlink tracking (experimental)
         urlDiv.off('click'); //unbind all click events
         urlDiv.on('click',function(){
-          if (typeof _paq === "undefined") {
+          if (typeof _paq !== "undefined") {
             _paq.push(['trackLink', url, 'link']);
           }
         });
