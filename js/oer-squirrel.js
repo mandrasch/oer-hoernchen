@@ -236,6 +236,7 @@ var generateList = function(list,selector){
     $('#search-link-modal .search-success-multiple').hide();
 
     var q = '';
+    var keyword = ''; // the initial search keyword
 
     if(type === 'edu-projects'){
         // check the word/operator limit of 32 (google limit in search field)
@@ -252,12 +253,15 @@ var generateList = function(list,selector){
 
         // generate query parameter + append site filter list
         q = $("#edu-projects-search-query").val() + ' ' + site_filter_list.join(' OR '); //2DO: check if empty and show warning?
+        keyword = $("#edu-projects-search-query").val(); // for tracking
       }
 
       if(type === 'web'){
         q = $("#web-search-query").val();
+        keyword = q; // for tracking
       }
 
+      // generate the search (licensing)
       if(type === 'edu-projects' || type === 'web'){
         // encode characters for google url
         url = 'https://www.google.de/search?as_q='+ encodeURI(q);
@@ -336,7 +340,8 @@ var generateList = function(list,selector){
         // get selected checkbox values
         // 2DO: better naming for checkboxes!
         var url_list = [];
-        var q = $("#media-search-query").val();
+        q = $("#media-search-query").val();
+        keyword = q; // for tracking
         var q_encoded = encodeURI(q);
 
         $.each($("#media-search input[name='image']:checked"), function(){
@@ -486,7 +491,7 @@ var generateList = function(list,selector){
       if (typeof _paq !== "undefined") {
         _paq.push(['trackSiteSearch',
               // Search keyword searched for
-              q,
+              keyword,
               // Search category selected in your search engine. If you do not need this, set to false
               type, // e.g. web oder projects
               // Number of results on the Search results page. Zero indicates a 'No Result Search Keyword'. Set to false if you don't know
