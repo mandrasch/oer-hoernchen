@@ -305,8 +305,20 @@ var generateList = function(list,selector){
 
 
         // add url and open modal dialog
-        console.log('set url to', url);
-        $('#search-link-modal').find('.modal-search-url').attr('href', url);
+        //console.log('set url to', url);
+        var urlDiv = $('#search-link-modal').find('.modal-search-url:first');
+        // change url to current generated
+        urlDiv.attr('href', url);
+
+        // piwik outlink tracking (experimental)
+        urlDiv.off('click'); //unbind all click events
+        urlDiv.on('click',function(){
+          if (typeof _paq === "undefined") {
+            _paq.push(['trackLink', url, 'link']);
+          }
+        });
+        // eo piwik link tracking
+
         $('#search-link-modal .search-success').show();  
         $('#search-link-modal').modal();
       }
