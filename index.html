@@ -14,9 +14,6 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-  <!-- cookie consent -->
-  <link rel="stylesheet" type="text/css" href="css/cookieconsent.min.css" />
-
   <!-- Custom CSS -->
   <link href="css/stylish-portfolio.css" rel="stylesheet">
   <link href="css/oer-squirrel.css" rel="stylesheet">
@@ -116,8 +113,6 @@
    <a class="navbar-brand" href="#">OER-Hörnchen</a>
    <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
-
-
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i> OER-Projekte</a>
       </li>
@@ -635,14 +630,6 @@
     </div>
   </div>  <!-- eo github info modal>
 
-
-
-              
-
-
-
-
-
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/popper/popper.min.js"></script>
@@ -663,31 +650,16 @@
   <script src="js/stylish-portfolio.js"></script>
 
   <!-- cookie consent -->
-  <script src="js/cookieconsent.min.js"></script>
-  <script>
-    window.addEventListener("load", function(){
-      window.cookieconsent.initialise({
-        "palette": {
-          "popup": {
-            "background": "#edeff5",
-            "text": "#838391"
-          },
-          "button": {
-            "background": "#4b81e8"
-          }
-        },
-        "theme": "edgeless",
-        "position": "bottom-right",
-        "dismissOnScroll":5, //scroll range
-        "dismissOnTimeout":15000, //milliseconds
-        "content": {
-          "message": "Das OER-Hörnchen setzt Cookies ein und erhebt anonyme Nutzungsstatistiken.",
-          "dismiss": "Einverstanden",
-          "link": "Datenschutzerklärung",
-          "href": "https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/",
-        }
-      })});
-    </script>
+  <script type="text/javascript" id="cookiebanner"
+    src="js/cookiebanner.min.js"
+    data-height="30px" data-position="top"
+    data-message="Neu: Das OER-Hörnchen erhebt anonyme Suchstatistiken." 
+    data-moreinfo="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/"
+    data-linkmsg="Mehr Infos"
+    data-font-size="10px"
+    data-accept-on-click="true"
+    >
+  </script>
 
     <!-- OER-squirrel script -->
     <script src="js/oer-squirrel-provider-list.js"></script>
