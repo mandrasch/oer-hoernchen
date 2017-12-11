@@ -235,7 +235,6 @@ var generateList = function(list,selector){
     $('#search-link-modal .search-success').hide();  
     $('#search-link-modal .search-success-multiple').hide();
 
-
     var q = '';
 
     if(type === 'edu-projects'){
@@ -318,6 +317,7 @@ var generateList = function(list,selector){
         urlDiv.attr('href', url);
 
         // piwik outlink tracking (experimental)
+        // 2DO: not working because of delay? - check later
         urlDiv.off('click'); //unbind all click events
         urlDiv.on('click',function(){
           console.log('piwik tracking, tracking outlink: ',url);
@@ -326,6 +326,27 @@ var generateList = function(list,selector){
           }
         });
         // eo piwik link tracking
+
+        // piwik event tracking (experimental)
+        // https://piwik.org/docs/event-tracking/
+        if (typeof _paq !== "undefined") {
+          _paq.push(['trackEvent', 'edu-projects-search', 'generated']);
+        }
+        // eo piwik event tracking
+
+        // piwik internal search tracking (experimental)
+        if (typeof _paq !== "undefined") {
+          _paq.push(['trackSiteSearch',
+              // Search keyword searched for
+              q,
+              // Search category selected in your search engine. If you do not need this, set to false
+              "projects",
+              // Number of results on the Search results page. Zero indicates a 'No Result Search Keyword'. Set to false if you don't know
+              false
+          ]);
+        }
+        // eo internal piwik search tracking
+
 
         $('#search-link-modal .search-success').show();  
         $('#search-link-modal').modal();
