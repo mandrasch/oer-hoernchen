@@ -6,9 +6,9 @@
 
 // console.log fallback
 if (typeof console == "undefined") {
-    window.console = {
-        log: function () {}
-    };
+  window.console = {
+    log: function () {}
+  };
 }
 
 /*
@@ -327,27 +327,6 @@ var generateList = function(list,selector){
         });
         // eo piwik link tracking
 
-        // piwik event tracking (experimental)
-        // https://piwik.org/docs/event-tracking/
-        if (typeof _paq !== "undefined") {
-          _paq.push(['trackEvent', 'edu-projects-search', 'generated']);
-        }
-        // eo piwik event tracking
-
-        // piwik internal search tracking (experimental)
-        if (typeof _paq !== "undefined") {
-          _paq.push(['trackSiteSearch',
-              // Search keyword searched for
-              q,
-              // Search category selected in your search engine. If you do not need this, set to false
-              "projects",
-              // Number of results on the Search results page. Zero indicates a 'No Result Search Keyword'. Set to false if you don't know
-              false
-          ]);
-        }
-        // eo internal piwik search tracking
-
-
         $('#search-link-modal .search-success').show();  
         $('#search-link-modal').modal();
       }
@@ -357,7 +336,8 @@ var generateList = function(list,selector){
         // get selected checkbox values
         // 2DO: better naming for checkboxes!
         var url_list = [];
-        var q = encodeURI($("#media-search-query").val());
+        var q = $("#media-search-query").val();
+        var q_encoded = encodeURI(q);
 
         $.each($("#media-search input[name='image']:checked"), function(){
 
@@ -369,7 +349,7 @@ var generateList = function(list,selector){
 
           switch(provider_id){
             case 'youtube':
-            new_url = 'https://www.youtube.com/results?search_query=' + q + ',creativecommons';
+            new_url = 'https://www.youtube.com/results?search_query=' + q_encoded + ',creativecommons';
             break;
 
             case 'flickr':
@@ -384,7 +364,7 @@ var generateList = function(list,selector){
               url_license_filter = 'l=cc';
               break;
             }
-            new_url = 'https://flickr.com/search/?q='+q+'&'+url_license_filter+'';
+            new_url = 'https://flickr.com/search/?q='+q_encoded+'&'+url_license_filter+'';
             break;
 
             case 'googleimages':
@@ -402,11 +382,11 @@ var generateList = function(list,selector){
               url_license_filter = '';
               break;
             }
-            new_url = "https://www.google.com/search?site=imghp&tbm=isch&q=" + q + "&tbs=sur:"+url_license_filter+'';
+            new_url = "https://www.google.com/search?site=imghp&tbm=isch&q=" + q_encoded + "&tbs=sur:"+url_license_filter+'';
             break;
 
             case 'pixabay':
-            new_url = 'https://pixabay.com/en/photos/?q=' + q;
+            new_url = 'https://pixabay.com/en/photos/?q=' + q_encoded;
             break;
 
             case 'freemusicarchive':
@@ -424,7 +404,7 @@ var generateList = function(list,selector){
               url_license_filter = '';
               break;
             }
-            new_url = 'https://freemusicarchive.org/search/?adv=1&quicksearch='+q+'&'+url_license_filter;
+            new_url = 'https://freemusicarchive.org/search/?adv=1&quicksearch='+q_encoded+'&'+url_license_filter;
             break;
 
             case 'wikimediacommons':
@@ -446,7 +426,7 @@ var generateList = function(list,selector){
               url_license_filter = '';
               break;
             }
-            new_url = 'https://www.edutags.de/browse?fulltext='+q+'&'+url_license_filter;
+            new_url = 'https://www.edutags.de/browse?fulltext='+q_encoded+'&'+url_license_filter;
             break;
           } // eo switch/case 
 
@@ -466,7 +446,7 @@ var generateList = function(list,selector){
                 var html = '<li><a href="'+url_list[i].url+'" target="_blank">'+url_list[i].title+' durchsuchen</a></li>';
                 console.log('html',html)
                 $('#search-link-modal .search-success-multiple-list ul:first').append(html);
-          }
+              }
 
         }); // eo each
 
@@ -481,14 +461,46 @@ var generateList = function(list,selector){
       $("#search-link-modal .search-success-multiple-open-urls").click(function(e){
         e.preventDefault();
         for (var i = 0; i < url_list.length; i++) {
+
           window.open( url_list[i].url, '_blank');
-        }
-        $('#search-link-modal .search-success-multiple-list').show();
-      });
+
+            // piwik outlink tracking (experimental)
+            if (typeof _paq !== "undefined") {
+              _paq.push(['trackLink', url_list[i].url, 'link']);
+            }
+            // eo piwik link tracking
+
+
+          }
+          $('#search-link-modal .search-success-multiple-list').show();
+        });
 
       //$('#search-link-modal').find('.modal-search-url').attr('href', url);
       $('#search-link-modal').modal();
 
       } // eo if type media
+
+      // TRACKING (for open data)
+      // piwik internal search tracking (experimental)
+      // 2DO: check if type is media,web oder eduprojects
+      if (typeof _paq !== "undefined") {
+        _paq.push(['trackSiteSearch',
+              // Search keyword searched for
+              q,
+              // Search category selected in your search engine. If you do not need this, set to false
+              type, // e.g. web oder projects
+              // Number of results on the Search results page. Zero indicates a 'No Result Search Keyword'. Set to false if you don't know
+              false
+              ]);
+      }
+        // eo internal piwik search tracking
+
+        // piwik event tracking (experimental)
+        // https://piwik.org/docs/event-tracking/
+        if (typeof _paq !== "undefined") {
+          _paq.push(['trackEvent', type+'-search', 'generated']);
+        }
+        // eo piwik event tracking
+
 
     } // eo performSearch
