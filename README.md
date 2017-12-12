@@ -2,9 +2,10 @@
 :squirrel: OER (Open Educational Resources) gezielt suchen und finden.
 
 :warning: quick&dirty coding
-:warning: Öffentliche Vorschauversion / public alpha
 
 __[https://www.oer-hoernchen.de](https://www.oer-hoernchen.de)__
+
+Entwicklervorschau: [https://programmieraffe.github.io/oer-hoernchen/](programmieraffe.github.io/oer-hoernchen/)
 
 English description: OER is sometimes hard to find in a messy and massive world wide web. This is an open experiment to use the "site:"-operator of the google search (There is also Google custom search service, but I did not found a way to filter the results by open license). The technical limitation right now is the 32-word-limit for Google search queries. Feel free to fork and edit it for your own purposes, feedback is greatly appreciated (I'll will provide a translated version as well in near future).
 
