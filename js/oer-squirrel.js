@@ -195,14 +195,15 @@ var generateList = function(list,selector){
         data_providerid = object.id;
       }
 
+      // we need to remove the a tag, because piwik tracks clinks on it as external link
       var html = '<div class="col-xs-6 col-sm-3 col-md-3 nopad text-center">'+
-      '<a href="https://'+object.url+'">'+
+      //'<a href="https://'+object.url+'">'+
       '<label class="image-checkbox">'+
       '<img class="img-fluid" src="provider_logos/'+object.image+'" alt="Logo '+object.name+'" title="'+object.name+'" />'+
       '<input type="checkbox" name="image" value="'+object.url+'" data-providerid="'+data_providerid+'" data-title="'+object.name+'" checked />'+
       '<i class="fa fa-check hidden"></i>'+
       '</label>'+
-      '</a>'+
+      //'</a>'+
       '</div>';
 
       $(html).appendTo(selector);
@@ -468,25 +469,34 @@ var generateList = function(list,selector){
         for (var i = 0; i < url_list.length; i++) {
 
           window.open( url_list[i].url, '_blank');
-
             // piwik outlink tracking (experimental)
             if (typeof _paq !== "undefined") {
-              _paq.push(['trackLink', url_list[i].url, 'link']);
+              _paq.push(['trackLink', url_list[i].url, 'link']); // 2DO: check if external manual links are tracked? (if blocked by pop up blocker)
             }
             // eo piwik link tracking
-
-
           }
           $('#search-link-modal .search-success-multiple-list').show();
-        });
+      });
+
+      
+
 
       //$('#search-link-modal').find('.modal-search-url').attr('href', url);
       $('#search-link-modal').modal();
 
       } // eo if type media
 
+
       // TRACKING (for open data)
+      // piwik event tracking (experimental)
+      // https://piwik.org/docs/event-tracking/
+      if (typeof _paq !== "undefined") {
+        _paq.push(['trackEvent', type+'-search', 'generated']);
+      }
+      // eo piwik event tracking
+
       // piwik internal search tracking (experimental)
+      // track keyword
       // 2DO: check if type is media,web oder eduprojects
       if (typeof _paq !== "undefined") {
         _paq.push(['trackSiteSearch',
@@ -498,14 +508,7 @@ var generateList = function(list,selector){
               false
               ]);
       }
-        // eo internal piwik search tracking
-
-        // piwik event tracking (experimental)
-        // https://piwik.org/docs/event-tracking/
-        if (typeof _paq !== "undefined") {
-          _paq.push(['trackEvent', type+'-search', 'generated']);
-        }
-        // eo piwik event tracking
+      // eo internal piwik search tracking
 
 
     } // eo performSearch
