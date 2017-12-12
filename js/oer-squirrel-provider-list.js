@@ -119,16 +119,16 @@
 
   var media_provider_list = [
     {
-      'id':'flickr',
-      'name':'flickr',
-      'url':'flickr.com',
-      'image':'flickr.png'
-    },
-    {
       'id':'youtube',
       'name':'YouTube',
       'url':'youtube.com',
       'image':'youtube.png'
+    },
+    {
+      'id':'flickr',
+      'name':'flickr',
+      'url':'flickr.com',
+      'image':'flickr.png'
     },
     {
       'id':'googleimages',
