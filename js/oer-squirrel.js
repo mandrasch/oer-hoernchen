@@ -172,8 +172,9 @@ if (typeof console == "undefined") {
     $(this).parents(".card-body").find(".image-checkbox-checked").trigger("click");
   });
 
-  // deselect media providers
-  $("#media-search button.oer-squirrel-deselect-all-button").trigger('click');
+  // only select first media provider
+  $("#media-provider-list").find(".image-checkbox-checked").trigger("click");
+  $("#media-provider-list").find(".image-checkbox:not(.image-checkbox-checked):first").trigger("click");
 
   // image checkbox enter action
 
