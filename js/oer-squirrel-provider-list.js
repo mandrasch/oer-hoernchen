@@ -37,7 +37,7 @@
     },
     {
       'name':'rpi virtuell',
-      'url': 'rpi-virtuell.net',
+      'url': 'material.rpi-virtuell.de',
       'image':'rpi_virtuell.png'
     },
     {
