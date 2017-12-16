@@ -1,9 +1,9 @@
-# OER-Hörnchen (oer-squirrel)
+# OERhörnchen (oer-squirrel)
 :squirrel: OER (Open Educational Resources) gezielt suchen und finden.
 
 :warning: quick&dirty coding
 
-__[https://www.oer-hoernchen.de](https://www.oer-hoernchen.de)__
+__[https://www.oerhoernchen.de](https://www.oerhoernchen.de)__
 
 Entwicklervorschau: [https://programmieraffe.github.io/oer-hoernchen/](programmieraffe.github.io/oer-hoernchen/)
 
