@@ -5,7 +5,7 @@
 // 2DO: use namespaces!
 
 // console.log fallback
-if (typeof console === "undefined") {
+if (typeof console === 'undefined') {
   window.console = {
     log: function () {}
   };
@@ -30,19 +30,19 @@ if (typeof console === "undefined") {
 
   /* Image Checkbox Bootstrap template for multiple image selection
   https://www.prepbootstrap.com/bootstrap-template/image-checkbox */
-  $(".image-checkbox").each(function () {
+  $('.image-checkbox').each(function () {
     $(this).toggleClass(
       'image-checkbox-checked',
-      $(this).find('input[type="checkbox"]').first().attr("checked")
+      $(this).find('input[type="checkbox"]').first().attr('checked')
       );
   });
 
   // sync the state to the input
-  $(".image-checkbox").on("click", function (e) {
+  $('.image-checkbox').on('click', function (e) {
     e.preventDefault();
     $(this).toggleClass('image-checkbox-checked');
     var $checkbox = $(this).find('input[type="checkbox"]');
-    $checkbox.prop("checked",!$checkbox.prop("checked"));
+    $checkbox.prop('checked',!$checkbox.prop('checked'));
   });
 
   /* eo image checkbox js */
@@ -50,15 +50,15 @@ if (typeof console === "undefined") {
 
 
     // clone the license filter box
-    var new_div =  $(".license-filter-box:first").clone();
+    var new_div =  $('.license-filter-box:first').clone();
     new_div.prop('id', 'web-search-license-filter');
     $('select[name="license-filter"]',new_div).prop('name','web-search-license-filter');
-    new_div.appendTo( "#web-search > .container > .row:first" );
+    new_div.appendTo( '#web-search > .container > .row:first' );
 
-    var new_div =  $(".license-filter-box:first").clone();
+    var new_div =  $('.license-filter-box:first').clone();
     new_div.prop('id', 'media-search-license-filter');
     $('select[name="license-filter"]',new_div).prop('name','media-search-license-filter');
-    new_div.appendTo( "#media-search > .container > .row:first" );
+    new_div.appendTo( '#media-search > .container > .row:first' );
 
     // 2DO: use polyfill https://davidwalsh.name/query-string-javascript
     // right now only for testing purposes
@@ -66,10 +66,10 @@ if (typeof console === "undefined") {
       var urlParams = new URLSearchParams(window.location.search);
       if(urlParams.has('q')){
         var get_q = urlParams.get('q');
-        $("#query-landing").val(get_q);
-        $("#edu-projects-search-query").val(get_q);
-        $("#web-search-query").val(get_q);
-        $("#media-search-query").val(get_q);
+        $('#query-landing').val(get_q);
+        $('#edu-projects-search-query').val(get_q);
+        $('#web-search-query').val(get_q);
+        $('#media-search-query').val(get_q);
       }
     }
 
@@ -88,27 +88,26 @@ if (typeof console === "undefined") {
 
   // license filter explanation
   $('select[name="license-filter"], select[name="web-search-license-filter"], select[name="media-search-license-filter"]').change(function () {
-    var val = $(this).find(":selected").val();
-    var explanation_div = $(this).parent().find("div.license-explanation:first");
-    $("div", explanation_div).hide();
+    var val = $(this).find(':selected').val();
+    var explanation_div = $(this).parent().find('div.license-explanation:first');
+    $('div', explanation_div).hide();
     switch(val){
       case 'only-oer':
-      $("div[data-value='oer']", explanation_div).show();
+      $('div[data-value="oer"]', explanation_div).show();
       break;
       case 'nc':
-      $("div[data-value='oer']", explanation_div).show();
-      $("div[data-value='nc']", explanation_div).show();
+      $('div[data-value="oer"]', explanation_div).show();
+      $('div[data-value="nc"]', explanation_div).show();
       break;
       case 'nc-nd':
-      $("div[data-value='oer']", explanation_div).show();
-      $("div[data-value='nc-nd']", explanation_div).show();
+      $('div[data-value="oer"]', explanation_div).show();
+      $('div[data-value="nc-nd"]', explanation_div).show();
       break;
       case 'no-filter':
-      $("div[data-value='no-filter']", explanation_div).show();
+      $('div[data-value="no-filter"]', explanation_div).show();
       break;
     }
   }).change();
-
 
   // listen for submit events
 
@@ -120,10 +119,10 @@ if (typeof console === "undefined") {
   // landing section button, add query to other input form field (down below)
   $('#search-button-landing').click(function(e){
     e.preventDefault();
-    var val = $("#query-landing").val();
-    $("#edu-projects-search-query").val(val).focus();
-    $("#web-search-query").val(val);
-    $("#media-search-query").val(val);
+    var val = $('#query-landing').val();
+    $('#edu-projects-search-query').val(val).focus();
+    $('#web-search-query').val(val);
+    $('#media-search-query').val(val);
 
   });
 
@@ -134,7 +133,7 @@ if (typeof console === "undefined") {
     performSearch('edu-projects');
   });
 
-  $(".edu-projects-search-submit-button").click(function(e){
+  $('.edu-projects-search-submit-button').click(function(e){
     //console.log('search button click event');
     e.preventDefault();
     performSearch('edu-projects');
@@ -145,7 +144,7 @@ if (typeof console === "undefined") {
     performSearch('web');
   });
 
-  $(".web-search-submit-button").click(function(e){
+  $('.web-search-submit-button').click(function(e){
     //console.log('search button click event');
     e.preventDefault();
     performSearch('web');
@@ -156,32 +155,32 @@ if (typeof console === "undefined") {
     performSearch('media');
   });
 
-  $(".media-search-submit-button").click(function(e){
+  $('.media-search-submit-button').click(function(e){
     //console.log('search button click event');
     e.preventDefault();
     performSearch('media');
   });
 
   // select all / deselect all buttons
-  $(".oer-squirrel-select-all-button").click(function(e){
+  $('.oer-squirrel-select-all-button').click(function(e){
     e.preventDefault();
-    $(this).parents(".card-body").find(".image-checkbox:not(.image-checkbox-checked)").trigger("click");
+    $(this).parents('.card-body').find('.image-checkbox:not(.image-checkbox-checked)').trigger('click');
   });
-  $(".oer-squirrel-deselect-all-button").click(function(e){
+  $('.oer-squirrel-deselect-all-button').click(function(e){
     e.preventDefault();
-    $(this).parents(".card-body").find(".image-checkbox-checked").trigger("click");
+    $(this).parents('.card-body').find('.image-checkbox-checked').trigger('click');
   });
 
   // only select first media provider
-  $("#media-provider-list").find(".image-checkbox-checked").trigger("click");
-  $("#media-provider-list").find(".image-checkbox:not(.image-checkbox-checked):first").trigger("click");
+  $('#media-provider-list').find('.image-checkbox-checked').trigger('click');
+  $('#media-provider-list').find('.image-checkbox:not(.image-checkbox-checked):first').trigger('click');
 
   // image checkbox enter action
 
   // bottom navbar
-  $(".button-hide-navbar").click(function(e){
+  $('.button-hide-navbar').click(function(e){
     e.preventDefault();
-    $("#navbar-bottom").hide();
+    $('#navbar-bottom').hide();
   });
 
 }); // eo jquery
@@ -191,8 +190,8 @@ var generateList = function(list,selector){
   $.each(list,function(index,object){
       // console.log(index,object.url)
 
-      var data_providerid = "";
-      if(object.hasOwnProperty("id")){
+      var data_providerid = '';
+      if(object.hasOwnProperty('id')){
         data_providerid = object.id;
       }
 
@@ -243,23 +242,23 @@ var generateList = function(list,selector){
     if(type === 'edu-projects'){
         // check the word/operator limit of 32 (google limit in search field)
         // 2DO: better selector
-        var word_limit_reached = $("#edu-projects-search-query").val().split(' ').length + $("#edu-projects-search input[name='image']:checked").length > 32;
+        var word_limit_reached = $('#edu-projects-search-query').val().split(' ').length + $('#edu-projects-search input[name="image"]:checked').length > 32;
 
         // get selected checkbox values
         // 2DO: better naming for checkboxes!
         var site_filter_list = [];
-        $.each($("#edu-projects-search input[name='image']:checked"), function(){
+        $.each($('#edu-projects-search input[name="image"]:checked'), function(){
           site_filter_list.push('site:' + this.value);
         });
         //console.log('selected values',site_filter_list);
 
         // generate query parameter + append site filter list
-        q = $("#edu-projects-search-query").val() + ' ' + site_filter_list.join(' OR '); //2DO: check if empty and show warning?
-        keyword = $("#edu-projects-search-query").val(); // for tracking
+        q = $('#edu-projects-search-query').val() + ' ' + site_filter_list.join(' OR '); //2DO: check if empty and show warning?
+        keyword = $('#edu-projects-search-query').val(); // for tracking
       }
 
       if(type === 'web'){
-        q = $("#web-search-query").val();
+        q = $('#web-search-query').val();
         keyword = q; // for tracking
       }
 
@@ -274,12 +273,11 @@ var generateList = function(list,selector){
         // 2DO: check if OER-license was selected
 
         if(type === 'edu-projects'){
-          var license_filter_val = $("#edu-projects-search select[name='license-filter']").val();
+          var license_filter_val = $('#edu-projects-search select[name="license-filter"]').val();
         }
         else{
-          var license_filter_val = $("#web-search select[name='web-search-license-filter']").val();
+          var license_filter_val = $('#web-search select[name="web-search-license-filter"]').val();
         }
-
 
         var url_license_filter = '';
         switch(license_filter_val){
@@ -299,10 +297,10 @@ var generateList = function(list,selector){
         // add filter to url (not possibly by operator in search query)
         url += url_license_filter;
 
-        var lang_select_val = $("#web-search-language-select").val();
+        var lang_select_val = $('#web-search-language-select').val();
         if(type === 'web' && lang_select_val !== 'default'){
             // append language
-            url += "&lr=" + lang_select_val;
+            url += '&lr=' + lang_select_val;
           }
 
         // error message - word limit reached (32 words max)
@@ -327,7 +325,7 @@ var generateList = function(list,selector){
         urlDiv.off('click'); //unbind all click events
         urlDiv.on('click',function(){
           console.log('piwik tracking, tracking outlink: ',url);
-          if (typeof _paq !== "undefined") {
+          if (typeof _paq !== 'undefined') {
             _paq.push(['trackLink', url, 'link']);
           }
         });
@@ -342,16 +340,16 @@ var generateList = function(list,selector){
         // get selected checkbox values
         // 2DO: better naming for checkboxes!
         var url_list = [];
-        q = $("#media-search-query").val();
+        q = $('#media-search-query').val();
         keyword = q; // for tracking
         var q_encoded = encodeURI(q);
 
-        $.each($("#media-search input[name='image']:checked"), function(){
+        $.each($('#media-search input[name="image"]:checked'), function(){
 
           var provider_id = $(this).data('providerid');
           var url_title = $(this).data('title');
           var new_url = '';
-          var license_filter_val = $("#media-search select[name='media-search-license-filter']").val();
+          var license_filter_val = $('#media-search select[name="media-search-license-filter"]').val();
           var url_license_filter = '';
 
           switch(provider_id){
@@ -389,7 +387,7 @@ var generateList = function(list,selector){
               url_license_filter = '';
               break;
             }
-            new_url = "https://www.google.com/search?site=imghp&tbm=isch&q=" + q_encoded + "&tbs=sur:"+url_license_filter+'';
+            new_url = 'https://www.google.com/search?site=imghp&tbm=isch&q=' + q_encoded + '&tbs=sur:' + url_license_filter + '';
             break;
 
             case 'pixabay':
@@ -411,7 +409,7 @@ var generateList = function(list,selector){
               url_license_filter = '';
               break;
             }
-            new_url = 'https://freemusicarchive.org/search/?adv=1&quicksearch='+q_encoded+'&'+url_license_filter;
+            new_url = 'https://freemusicarchive.org/search/?adv=1&quicksearch=' + q_encoded + '&' + url_license_filter;
             break;
 
             case 'wikimediacommons':
@@ -462,25 +460,22 @@ var generateList = function(list,selector){
       $('#search-link-modal .search-success-multiple-list').hide();
 
       // unbind all event handlers
-      $("#search-link-modal .search-success-multiple-open-urls").off();
+      $('#search-link-modal .search-success-multiple-open-urls').off();
       // add event handlers
       // 2DO: (better) namespace usage?
-      $("#search-link-modal .search-success-multiple-open-urls").click(function(e){
+      $('#search-link-modal .search-success-multiple-open-urls').click(function(e){
         e.preventDefault();
         for (var i = 0; i < url_list.length; i++) {
 
           window.open( url_list[i].url, '_blank');
             // piwik outlink tracking (experimental)
-            if (typeof _paq !== "undefined") {
+            if (typeof _paq !== 'undefined') {
               _paq.push(['trackLink', url_list[i].url, 'link']); // 2DO: check if external manual links are tracked? (if blocked by pop up blocker)
             }
             // eo piwik link tracking
           }
           $('#search-link-modal .search-success-multiple-list').show();
       });
-
-
-
 
       //$('#search-link-modal').find('.modal-search-url').attr('href', url);
       $('#search-link-modal').modal();
@@ -491,7 +486,7 @@ var generateList = function(list,selector){
       // TRACKING (for open data)
       // piwik event tracking (experimental)
       // https://piwik.org/docs/event-tracking/
-      if (typeof _paq !== "undefined") {
+      if (typeof _paq !== 'undefined') {
         _paq.push(['trackEvent', type+'-search', 'generated']);
       }
       // eo piwik event tracking
@@ -499,7 +494,7 @@ var generateList = function(list,selector){
       // piwik internal search tracking (experimental)
       // track keyword
       // 2DO: check if type is media,web oder eduprojects
-      if (typeof _paq !== "undefined") {
+      if (typeof _paq !== 'undefined') {
         _paq.push(['trackSiteSearch',
               // Search keyword searched for
               keyword,
