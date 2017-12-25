@@ -5,7 +5,7 @@
 // 2DO: use namespaces!
 
 // console.log fallback
-if (typeof console == "undefined") {
+if (typeof console === "undefined") {
   window.console = {
     log: function () {}
   };
@@ -18,7 +18,7 @@ if (typeof console == "undefined") {
 
   // 2DO: check if provider-list is set
 
-  /* PAGE GENERATION */ 
+  /* PAGE GENERATION */
 
   // generate the checkbox lists
   generateList(oer_provider_list,'#oer-provider-list');
@@ -75,7 +75,7 @@ if (typeof console == "undefined") {
 
 
     // github info message (preview, not offical version)
-    if(document.location.hostname == 'programmieraffe.github.io'){
+    if(document.location.hostname === 'programmieraffe.github.io'){
       $('#github-info-modal').modal();
     }
 
@@ -234,7 +234,7 @@ var generateList = function(list,selector){
 
     // reset error messages and hide everything to begin
     $('#search-link-modal').find('.search-error').hide();
-    $('#search-link-modal .search-success').hide();  
+    $('#search-link-modal .search-success').hide();
     $('#search-link-modal .search-success-multiple').hide();
 
     var q = '';
@@ -280,7 +280,7 @@ var generateList = function(list,selector){
           var license_filter_val = $("#web-search select[name='web-search-license-filter']").val();
         }
 
-        
+
         var url_license_filter = '';
         switch(license_filter_val){
           case 'only-oer':
@@ -333,7 +333,7 @@ var generateList = function(list,selector){
         });
         // eo piwik link tracking
 
-        $('#search-link-modal .search-success').show();  
+        $('#search-link-modal .search-success').show();
         $('#search-link-modal').modal();
       }
 
@@ -435,7 +435,7 @@ var generateList = function(list,selector){
             }
             new_url = 'https://www.edutags.de/browse?fulltext='+q_encoded+'&'+url_license_filter;
             break;
-          } // eo switch/case 
+          } // eo switch/case
 
           if(new_url!==''){
             var new_url_element = {
@@ -479,7 +479,7 @@ var generateList = function(list,selector){
           $('#search-link-modal .search-success-multiple-list').show();
       });
 
-      
+
 
 
       //$('#search-link-modal').find('.modal-search-url').attr('href', url);
