@@ -1,4 +1,5 @@
-/* globals $, oer_provider_list, mixed_provider_list, console */
+/* globals $, oer_provider_list, mixed_provider_list, not_compatible_provider_list, media_provider_list, _paq, URLSearchParams, console
+ */
 
 // BEWARE: quick & dirty coding ;-)
 // feel free to improve & send a pull request <3
@@ -10,171 +11,6 @@ if (typeof console === 'undefined') {
     log: function () {}
   };
 }
-
-/*
- * jQuery functions
- */
-$(document).ready(function () {
-  // 2DO: check if provider-list is set
-  /* PAGE GENERATION */
-  // generate the checkbox lists
-  generateList(oer_provider_list, '#oer-provider-list');
-  generateList(mixed_provider_list, '#mixed-provider-list');
-  generateListNotCompatible(not_compatible_provider_list, '#not-compatible-provider-list');
-  generateList(media_provider_list, '#media-provider-list');
-
-  // generate checkboxes
-
-  /* Image Checkbox Bootstrap template for multiple image selection
-  https://www.prepbootstrap.com/bootstrap-template/image-checkbox */
-  $('.image-checkbox').each(function () {
-    $(this).toggleClass(
-      'image-checkbox-checked',
-      $(this).find('input[type="checkbox"]').first().attr('checked')
-    );
-  });
-
-  // sync the state to the input
-  $('.image-checkbox').on('click', function (e) {
-    e.preventDefault();
-    $(this).toggleClass('image-checkbox-checked');
-    var $checkbox = $(this).find('input[type="checkbox"]');
-    $checkbox.prop('checked', !$checkbox.prop('checked'));
-  });
-
-  /* eo image checkbox js */
-
-  // clone the license filter box
-  var new_div = $('.license-filter-box:first').clone();
-  new_div.prop('id', 'web-search-license-filter');
-  $('select[name="license-filter"]', new_div).prop('name', 'web-search-license-filter');
-  new_div.appendTo('#web-search > .container > .row:first');
-
-  var new_div = $('.license-filter-box:first').clone();
-  new_div.prop('id', 'media-search-license-filter');
-  $('select[name="license-filter"]', new_div).prop('name', 'media-search-license-filter');
-  new_div.appendTo('#media-search > .container > .row:first');
-
-  // 2DO: use polyfill https://davidwalsh.name/query-string-javascript
-  // right now only for testing purposes
-  if ('URLSearchParams' in window) {
-    var urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('q')) {
-      var get_q = urlParams.get('q');
-      $('#query-landing').val(get_q);
-      $('#edu-projects-search-query').val(get_q);
-      $('#web-search-query').val(get_q);
-      $('#media-search-query').val(get_q);
-    }
-  }
-
-  // github info message (preview, not offical version)
-  if (document.location.hostname === 'programmieraffe.github.io') {
-    $('#github-info-modal').modal();
-  }
-
-  /*
-   * EVENTS
-   */
-
-  // listen for select change events
-  // license filter explanation
-  $('select[name="license-filter"], select[name="web-search-license-filter"], select[name="media-search-license-filter"]').change(function () {
-    var val = $(this).find(':selected').val();
-    var explanation_div = $(this).parent().find('div.license-explanation:first');
-    $('div', explanation_div).hide();
-    switch (val) {
-      case 'only-oer':
-        $('div[data-value="oer"]', explanation_div).show();
-        break;
-      case 'nc':
-        $('div[data-value="oer"]', explanation_div).show();
-        $('div[data-value="nc"]', explanation_div).show();
-        break;
-      case 'nc-nd':
-        $('div[data-value="oer"]', explanation_div).show();
-        $('div[data-value="nc-nd"]', explanation_div).show();
-        break;
-      case 'no-filter':
-        $('div[data-value="no-filter"]', explanation_div).show();
-        break;
-    }
-  }).change();
-
-  // listen for submit events
-  $('#landing-form').submit(function (e) {
-    e.preventDefault();
-    $('#search-button-landing').trigger('click');
-  });
-
-  // landing section button, add query to other input form field (down below)
-  $('#search-button-landing').click(function (e) {
-    e.preventDefault();
-    var val = $('#query-landing').val();
-    $('#edu-projects-search-query').val(val).focus();
-    $('#web-search-query').val(val);
-    $('#media-search-query').val(val);
-
-  });
-
-  // 2DO: enter key action on first form field?
-
-  $('#edu-projects-search-form').submit(function (e) {
-    e.preventDefault();
-    performSearch('edu-projects');
-  });
-
-  $('.edu-projects-search-submit-button').click(function (e) {
-    //console.log('search button click event');
-    e.preventDefault();
-    performSearch('edu-projects');
-  });
-
-  $('#web-search-form').submit(function (e) {
-    e.preventDefault();
-    performSearch('web');
-  });
-
-  $('.web-search-submit-button').click(function (e) {
-    //console.log('search button click event');
-    e.preventDefault();
-    performSearch('web');
-  });
-
-  $('#media-search-form').submit(function (e) {
-    e.preventDefault();
-    performSearch('media');
-  });
-
-  $('.media-search-submit-button').click(function (e) {
-    //console.log('search button click event');
-    e.preventDefault();
-    performSearch('media');
-  });
-
-  // select all / deselect all buttons
-  $('.oer-squirrel-select-all-button').click(function (e) {
-    e.preventDefault();
-    $(this).parents('.card-body').find('.image-checkbox:not(.image-checkbox-checked)').trigger('click');
-  });
-  $('.oer-squirrel-deselect-all-button').click(function (e) {
-    e.preventDefault();
-    $(this).parents('.card-body').find('.image-checkbox-checked').trigger('click');
-  });
-
-  // only select first media provider
-  $('#media-provider-list').find('.image-checkbox-checked').trigger('click');
-  $('#media-provider-list').find('.image-checkbox:not(.image-checkbox-checked):first').trigger('click');
-
-  // image checkbox enter action
-
-  // bottom navbar
-  $('.button-hide-navbar').click(function (e) {
-    e.preventDefault();
-    $('#navbar-bottom').hide();
-  });
-
-}); // eo jquery
 
 /* generate list for providers function */
 var generateList = function (list, selector) {
@@ -228,11 +64,12 @@ var performSearch = function (type) {
 
   var q = '';
   var keyword = ''; // the initial search keyword
+  var word_limit_reached = '';
 
   if (type === 'edu-projects') {
     // check the word/operator limit of 32 (google limit in search field)
     // 2DO: better selector
-    var word_limit_reached = $('#edu-projects-search-query').val().split(' ').length + $('#edu-projects-search input[name="image"]:checked').length > 32;
+    word_limit_reached = $('#edu-projects-search-query').val().split(' ').length + $('#edu-projects-search input[name="image"]:checked').length > 32;
 
     // get selected checkbox values
     // 2DO: better naming for checkboxes!
@@ -262,11 +99,9 @@ var performSearch = function (type) {
     // copied from google, other url encode algorithm? (above one does not work)
     // 2DO: check if OER-license was selected
 
-    if (type === 'edu-projects') {
-      var license_filter_val = $('#edu-projects-search select[name="license-filter"]').val();
-    } else {
-      var license_filter_val = $('#web-search select[name="web-search-license-filter"]').val();
-    }
+    var license_filter_val = (type === 'edu-projects') ?
+      $('#edu-projects-search select[name="license-filter"]').val() :
+      $('#web-search select[name="web-search-license-filter"]').val();
 
     var url_license_filter = '';
     switch (license_filter_val) {
@@ -434,7 +269,7 @@ var performSearch = function (type) {
       for (var i = 0; i < url_list.length; i++) {
         // 2DO: translation
         var html = '<li><a href="' + url_list[i].url + '" target="_blank">' + url_list[i].title + ' durchsuchen</a></li>';
-        console.log('html', html)
+        console.log('html', html);
         $('#search-link-modal .search-success-multiple-list ul:first').append(html);
       }
     }); // eo each
@@ -475,7 +310,7 @@ var performSearch = function (type) {
   // track keyword
   // 2DO: check if type is media,web oder eduprojects
   if (typeof _paq !== 'undefined') {
-    paq.push(['trackSiteSearch',
+    _paq.push(['trackSiteSearch',
       // Search keyword searched for
       keyword,
       // Search category selected in your search engine. If you do not need this, set to false
@@ -485,4 +320,169 @@ var performSearch = function (type) {
     ]);
   } // eo internal piwik search tracking
 
-} // eo performSearch
+}; // eo performSearch
+
+/*
+ * jQuery functions
+ */
+$(document).ready(function () {
+  // 2DO: check if provider-list is set
+  /* PAGE GENERATION */
+  // generate the checkbox lists
+  generateList(oer_provider_list, '#oer-provider-list');
+  generateList(mixed_provider_list, '#mixed-provider-list');
+  generateListNotCompatible(not_compatible_provider_list, '#not-compatible-provider-list');
+  generateList(media_provider_list, '#media-provider-list');
+
+  // generate checkboxes
+
+  /* Image Checkbox Bootstrap template for multiple image selection
+  https://www.prepbootstrap.com/bootstrap-template/image-checkbox */
+  $('.image-checkbox').each(function () {
+    $(this).toggleClass(
+      'image-checkbox-checked',
+      $(this).find('input[type="checkbox"]').first().attr('checked')
+    );
+  });
+
+  // sync the state to the input
+  $('.image-checkbox').on('click', function (e) {
+    e.preventDefault();
+    $(this).toggleClass('image-checkbox-checked');
+    var $checkbox = $(this).find('input[type="checkbox"]');
+    $checkbox.prop('checked', !$checkbox.prop('checked'));
+  });
+
+  /* eo image checkbox js */
+
+  // clone the license filter box
+  var new_div = $('.license-filter-box:first').clone();
+  new_div.prop('id', 'web-search-license-filter');
+  $('select[name="license-filter"]', new_div).prop('name', 'web-search-license-filter');
+  new_div.appendTo('#web-search > .container > .row:first');
+
+  new_div = $('.license-filter-box:first').clone();
+  new_div.prop('id', 'media-search-license-filter');
+  $('select[name="license-filter"]', new_div).prop('name', 'media-search-license-filter');
+  new_div.appendTo('#media-search > .container > .row:first');
+
+  // 2DO: use polyfill https://davidwalsh.name/query-string-javascript
+  // right now only for testing purposes
+  if ('URLSearchParams' in window) {
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('q')) {
+      var get_q = urlParams.get('q');
+      $('#query-landing').val(get_q);
+      $('#edu-projects-search-query').val(get_q);
+      $('#web-search-query').val(get_q);
+      $('#media-search-query').val(get_q);
+    }
+  }
+
+  // github info message (preview, not offical version)
+  if (document.location.hostname === 'programmieraffe.github.io') {
+    $('#github-info-modal').modal();
+  }
+
+  /*
+   * EVENTS
+   */
+
+  // listen for select change events
+  // license filter explanation
+  $('select[name="license-filter"], select[name="web-search-license-filter"], select[name="media-search-license-filter"]').change(function () {
+    var val = $(this).find(':selected').val();
+    var explanation_div = $(this).parent().find('div.license-explanation:first');
+    $('div', explanation_div).hide();
+    switch (val) {
+      case 'only-oer':
+        $('div[data-value="oer"]', explanation_div).show();
+        break;
+      case 'nc':
+        $('div[data-value="oer"]', explanation_div).show();
+        $('div[data-value="nc"]', explanation_div).show();
+        break;
+      case 'nc-nd':
+        $('div[data-value="oer"]', explanation_div).show();
+        $('div[data-value="nc-nd"]', explanation_div).show();
+        break;
+      case 'no-filter':
+        $('div[data-value="no-filter"]', explanation_div).show();
+        break;
+    }
+  }).change();
+
+  // listen for submit events
+  $('#landing-form').submit(function (e) {
+    e.preventDefault();
+    $('#search-button-landing').trigger('click');
+  });
+
+  // landing section button, add query to other input form field (down below)
+  $('#search-button-landing').click(function (e) {
+    e.preventDefault();
+    var val = $('#query-landing').val();
+    $('#edu-projects-search-query').val(val).focus();
+    $('#web-search-query').val(val);
+    $('#media-search-query').val(val);
+
+  });
+
+  // 2DO: enter key action on first form field?
+
+  $('#edu-projects-search-form').submit(function (e) {
+    e.preventDefault();
+    performSearch('edu-projects');
+  });
+
+  $('.edu-projects-search-submit-button').click(function (e) {
+    //console.log('search button click event');
+    e.preventDefault();
+    performSearch('edu-projects');
+  });
+
+  $('#web-search-form').submit(function (e) {
+    e.preventDefault();
+    performSearch('web');
+  });
+
+  $('.web-search-submit-button').click(function (e) {
+    //console.log('search button click event');
+    e.preventDefault();
+    performSearch('web');
+  });
+
+  $('#media-search-form').submit(function (e) {
+    e.preventDefault();
+    performSearch('media');
+  });
+
+  $('.media-search-submit-button').click(function (e) {
+    //console.log('search button click event');
+    e.preventDefault();
+    performSearch('media');
+  });
+
+  // select all / deselect all buttons
+  $('.oer-squirrel-select-all-button').click(function (e) {
+    e.preventDefault();
+    $(this).parents('.card-body').find('.image-checkbox:not(.image-checkbox-checked)').trigger('click');
+  });
+  $('.oer-squirrel-deselect-all-button').click(function (e) {
+    e.preventDefault();
+    $(this).parents('.card-body').find('.image-checkbox-checked').trigger('click');
+  });
+
+  // only select first media provider
+  $('#media-provider-list').find('.image-checkbox-checked').trigger('click');
+  $('#media-provider-list').find('.image-checkbox:not(.image-checkbox-checked):first').trigger('click');
+
+  // image checkbox enter action
+
+  // bottom navbar
+  $('.button-hide-navbar').click(function (e) {
+    e.preventDefault();
+    $('#navbar-bottom').hide();
+  });
+
+}); // eo jquery
