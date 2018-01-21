@@ -1,566 +1,523 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#" dir="auto">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Frei veränderbares Lehr-/Lernmaterial im deutschsprachigen Raum gezielt finden. Ein Open-Source-Werkzeug für die Suche nach Open Educational Resources (OER).">
-  <meta name="author" content="Matthias Andrasch">
-  <title>OERhörnchen: Frei veränderbares Lehr-/Lernmaterial finden.</title>
-
-  <!-- Bootstrap Core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom Fonts -->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-  <!-- Custom CSS -->
-  <link href="css/stylish-portfolio.css" rel="stylesheet">
-  <link href="css/oer-squirrel.css" rel="stylesheet">
-
-  <!-- OG facebook tags -->
-  <meta property="og:title" content="OERhörnchen"/>
-  <meta property="og:description" content="Frei veränderbares Lehr-/Lernmaterial im deutschsprachigen Raum gezielt finden. Ein Open-Source-Werkzeug für die Suche nach Open Educational Resources (OER)." />
-  <meta property="og:url" content="https://oerhoernchen.de" />
-  <meta property="og:image" content="https://oerhoernchen.de/img/squirrel-619966_1920_cc0_oldiefan.jpg" />
-
-  <!-- 2DO: Touch icon / Favicon -->
-
-  <!-- ################### GITHUB FORKERS: PLEASE REMOVE THIS ##################### -->
-  <!-- PIWIK TRACKING CODE (forked domains will not be tracked, but you should remove this) -->
-  <script type="text/javascript">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Frei veränderbares Lehr-/Lernmaterial im deutschsprachigen Raum gezielt finden. Ein Open-Source-Werkzeug für die Suche nach Open Educational Resources (OER).">
+    <meta name="author" content="Matthias Andrasch">
+    <title>OERhörnchen: Frei veränderbares Lehr-/Lernmaterial finden.</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="css/oer-squirrel.css" rel="stylesheet">
+    <!-- OG facebook tags -->
+    <meta property="og:title" content="OERhörnchen" />
+    <meta property="og:description" content="Frei veränderbares Lehr-/Lernmaterial im deutschsprachigen Raum gezielt finden. Ein Open-Source-Werkzeug für die Suche nach Open Educational Resources (OER)." />
+    <meta property="og:url" content="https://oerhoernchen.de" />
+    <meta property="og:image" content="https://oerhoernchen.de/img/squirrel-619966_1920_cc0_oldiefan.jpg" />
+    <!-- 2DO: Touch icon / Favicon -->
+    <!-- ################### GITHUB FORKERS: PLEASE REMOVE THIS ##################### -->
+    <!-- PIWIK TRACKING CODE (forked domains will not be tracked, but you should remove this) -->
+    <script type="text/javascript">
     var _paq = _paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(["setDomains", ["*.programmieraffe.github.io/oer-hoernchen","*.oer-hoernchen.de","*.oerhoernchen.de"]]);
+    _paq.push(["setDomains", ["*.programmieraffe.github.io/oer-hoernchen", "*.oer-hoernchen.de", "*.oerhoernchen.de"]]);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//piwik.matthiasundmedien.de/";
-      _paq.push(['setTrackerUrl', u+'piwik.php']);
-      _paq.push(['setSiteId', '24']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        var u = "//piwik.matthiasundmedien.de/";
+        _paq.push(['setTrackerUrl', u + 'piwik.php']);
+        _paq.push(['setSiteId', '24']);
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = u + 'piwik.js';
+        s.parentNode.insertBefore(g, s);
     })();
-  </script>
-  <!-- End Piwik Code -->
-  <!-- ################### END OF REMOVE THIS ############################ -->
-
+    </script>
+    <!-- End Piwik Code -->
+    <!-- ################### END OF REMOVE THIS ############################ -->
 </head>
 
 <body>
-  <!-- Navigation -->
-  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
     <i class="fa fa-bars"></i>
   </a>
-  <nav id="sidebar-wrapper">
-    <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+    <nav id="sidebar-wrapper">
+        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
       <i class="fa fa-times"></i>
     </a>
-    <ul class="sidebar-nav">
-      <li class="sidebar-brand">
-        <a class="js-scroll-trigger" href="#top" data-i18n="nav-brand">OERhörnchen</a>
-      </li>
-      <li>
-        <a class="js-scroll-trigger" href="#edu-projects-search" data-i18n="nav-filter">1. In Projekten suchen</a>
-      </li>
-      <li>
-        <a class="js-scroll-trigger" href="#web-search" data-i18n="nav-about">2. Web-Suche</a>
-      </li>
-      <li>
-        <a class="js-scroll-trigger" href="#media-search" data-i18n="nav-about">3. Medien-Suche</a>
-      </li>
-      <li>
-        <a class="js-scroll-trigger" href="#about" data-i18n="nav-about">Über das OERhörnchen</a>
-      </li>
-      <li>
-        <a class="js-scroll-trigger" href="https://programmieraffe.github.io/oer-hoernchen/" target="_blank" data-i18n="nav-about">Code @ Github</a>
-      </li>
-      <li>
-        <a href="https://matthias-andrasch.de/oerhoernchen-newsletter/" target="_blank">Newsletter</a>
-      <li>
-        <a href="https://matthias-andrasch.de/kontakt/" target="_blank">Kontakt</a>
-      </li>
-      <li>
-        <a href="https://matthias-andrasch.de/impressum/" target="_blank">Impressum</a>
-      </li>
-      <li>
-        <a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" target="_blank">Datenschutz</a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- not fully supported yet -->
-  <div id="language-switch" style="display:none;"></div>
-
-  <!-- Header -->
-  <header class="header" id="top">
-    <div class="text-vertical-center">
-      <h1 data-i18n="header-title">OERhörnchen</h1>
-      <div class="text-center landing-form-container">
-        <form id="landing-form">
-          <div class="input-group">
-            <input type="text" class="form-control" id="query-landing" data-i18n="[placeholder]header-input-placeholder"
-            placeholder="Suche nach Begriff(en) ...">
-          </div>
-        </form>
-        <a href="#edu-projects-search" class="btn btn-dark btn-lg js-scroll-trigger" id="search-button-landing"
-        data-i18n="header-search-link"><i class="fa fa-angle-double-down" aria-hidden="true"></i> OER gezielt finden</a>
-      </div>
-    </div>
-
-  </header>
-
-  <!-- navbar bottom -->
-  <nav id="navbar-bottom"class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
-   <a class="navbar-brand" href="#">OERhörnchen</a>
-   <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i> OER-Projekte</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i> Web</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i> Medien</a>
-      </li>
-
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item"><a class="nav-link" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.oer-hoernchen.de&via=m_andrasch&text=Gerade%20ausprobiert%3A%20OER%20gezielt%20finden%20mit%20dem%20%23OERH%C3%B6rnchen&hashtags=OERde,OpenSource" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-
-      <li class="nav-item"><a class="nav-link" href="https://github.com/programmieraffe/oer-hoernchen" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-      <li class="nav-item"><a class="nav-link button-hide-navbar" href=""><i class="fa fa-times" aria-hidden="true"></i></a></li>
-    </ul>
-  </div>
-</nav>
-
-<section id="edu-projects-search">
-  <div class="container">
-    <h2 data-i18n="header-search-link"><a href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i></a> OER-Projekte durchsuchen</h2>
-    <p class="explanation">Mit dem OERhörnchen können gezielt Lehr-/Lernmaterialen gefunden werden, welche frei veränderbar  sind und wieder veröffentlicht werden dürfen - sogenannte <a href="https://oerlabs.de/oer/was-sind-oer/" target="_blank">Open Educational Resources (OER)</a>. Die erste Möglichkeit: OER-Projekte und Bildungsangebote gebündelt durchsuchen, welche explizit Bildungsmaterialien zum Lehren/Lernen anbieten:</p>
-    <div class="row">
-      <div class="col-12" id="search-box">
-        <div class="card">
-          <div class="card-header">
-            Suchbegriff
-          </div>
-          <div class="card-body">
-            <form id="edu-projects-search-form">
-              <div class="input-group">
-                <input type="text" class="form-control" id="edu-projects-search-query"
-                data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff(en)...">
-                <span class="input-group-btn">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a class="js-scroll-trigger" href="#top" data-i18n="nav-brand">OERhörnchen</a>
+            </li>
+            <li>
+                <a class="js-scroll-trigger" href="#edu-projects-search" data-i18n="nav-filter">1. In Projekten suchen</a>
+            </li>
+            <li>
+                <a class="js-scroll-trigger" href="#web-search" data-i18n="nav-about">2. Web-Suche</a>
+            </li>
+            <li>
+                <a class="js-scroll-trigger" href="#media-search" data-i18n="nav-about">3. Medien-Suche</a>
+            </li>
+            <li>
+              <a href="bildungsteiler/">Bildungsteiler (BETA)</a>
+            <li>
+                <a class="js-scroll-trigger" href="#about" data-i18n="nav-about">Über das OERhörnchen</a>
+            </li>
+            <li>
+                <a class="js-scroll-trigger" href="https://programmieraffe.github.io/oer-hoernchen/" target="_blank" data-i18n="nav-about">Code @ Github</a>
+            </li>
+            <li>
+                <a href="https://matthias-andrasch.de/oerhoernchen-newsletter/" target="_blank">Newsletter</a>
+                <li>
+                    <a href="https://matthias-andrasch.de/kontakt/" target="_blank">Kontakt</a>
+                </li>
+                <li>
+                    <a href="https://matthias-andrasch.de/impressum/" target="_blank">Impressum</a>
+                </li>
+                <li>
+                    <a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" target="_blank">Datenschutz</a>
+                </li>
+        </ul>
+    </nav>
+    <!-- not fully supported yet -->
+    <div id="language-switch" style="display:none;"></div>
+    <!-- Header -->
+    <header class="header" id="top">
+        <div class="text-vertical-center">
+            <h1 data-i18n="header-title">OERhörnchen</h1>
+            <div class="text-center landing-form-container">
+                <form id="landing-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="query-landing" data-i18n="[placeholder]header-input-placeholder" placeholder="Suche nach Begriff(en) ...">
+                    </div>
+                </form>
+                <a href="#edu-projects-search" class="btn btn-dark btn-lg js-scroll-trigger" id="search-button-landing" data-i18n="header-search-link"><i class="fa fa-angle-double-down" aria-hidden="true"></i> OER gezielt finden</a>
+            </div>
+        </div>
+    </header>
+    <!-- navbar bottom -->
+    <nav id="navbar-bottom" class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">OERhörnchen</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-search" aria-hidden="true"></i> Finden</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bildungsteiler/"><i class="fa fa-globe" aria-hidden="true"></i> Bildungsteiler</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.oer-hoernchen.de&via=m_andrasch&text=Gerade%20ausprobiert%3A%20OER%20gezielt%20finden%20mit%20dem%20%23OERH%C3%B6rnchen&hashtags=OERde,OpenSource" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/programmieraffe/oer-hoernchen" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                <li class="nav-item"><a class="nav-link button-hide-navbar" href=""><i class="fa fa-times" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="edu-projects-search">
+        <div class="container">
+                <ul class="nav justify-content-center" style="margin-bottom:12px;">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i> OER-Projekte durchsuchen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i> Gesamtes Web</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link js-scroll-trigger" href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i> Medien für OER</a>
+                    </li>
+                </ul>
+            
+            <h2 data-i18n="header-search-link"><a href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i></a> OER-Projekte durchsuchen</h2>
+            <p class="explanation">Mit dem OERhörnchen können gezielt Lehr-/Lernmaterialen gefunden werden, welche frei veränderbar sind und wieder veröffentlicht werden dürfen - sogenannte <a href="https://oerlabs.de/oer/was-sind-oer/" target="_blank">Open Educational Resources (OER)</a>. Die erste Möglichkeit: OER-Projekte und Bildungsangebote gebündelt durchsuchen, welche explizit Bildungsmaterialien zum Lehren/Lernen anbieten:</p>
+            <div class="row">
+                <div class="col-12" id="search-box">
+                    <div class="card">
+                        <div class="card-header">
+                            Suchbegriff
+                        </div>
+                        <div class="card-body">
+                            <form id="edu-projects-search-form">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="edu-projects-search-query" data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff(en)...">
+                                    <span class="input-group-btn">
                   <button class="btn btn-secondary edu-projects-search-submit-button" type="button" data-i18n="search-instant-button"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12" id="provider-list-box">
-        <div class="card">
-          <div class="card-header">
-            Deutschsprachige OER-Angebote
-          </div>
-          <div class="card-body">
-            <div class="row oer-squirrel-provider-list" id="oer-provider-list">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" id="provider-list-box">
+                    <div class="card">
+                        <div class="card-header">
+                            Deutschsprachige OER-Angebote
+                        </div>
+                        <div class="card-body">
+                            <div class="row oer-squirrel-provider-list" id="oer-provider-list">
+                            </div>
+                            <div class="row">
+                                <div class="col-12 select-all">
+                                    <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button>
+                                    <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" id="other-provider-list-box">
+                    <div class="card">
+                        <div class="card-header">
+                            Andere Bildungsangebote (nicht ausschließlich OER)
+                        </div>
+                        <div class="card-body">
+                            <div class="row oer-squirrel-provider-list" id="mixed-provider-list">
+                            </div>
+                            <div class="row">
+                                <div class="col-12 select-all">
+                                    <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button>
+                                    <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 license-filter-box" id="edu-projects-search-license-filter">
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="#faq-license-machine-readibility" class="js-scroll-trigger"><i class="fa fa-question-circle" aria-hidden="true"></i></a> Lizenzfilter (Maschinenlesbare Creative-Commons-Lizenzen)
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <!--<label for="exampleFormControlSelect1">Lizenzfilter:</label>-->
+                                <select class="form-control" name="license-filter">
+                                    <option value="only-oer">Ausschließlich nach Inhalten mit OER-kompatibler Lizenz / gemeinfreien Inhalten suchen</option>
+                                    <option value="nc">Inhalte mit OER-kompatibler Lizenz sowie Inhalte mit NC-Einschränkung</option>
+                                    <option value="nc-nd">Inhalte mit OER-kompatibler Lizenz sowie Inhalte mit ND- und/oder NC-Einschränkung</option>
+                                    <option value="no-filter">Lizenzfilter deaktivieren (nicht empfohlen)</option>
+                                </select>
+                                <div class="license-explanation" style="font-size:80%;margin-top:10px;padding-left:25px;padding-right:25px;">
+                                    <div data-value="oer" class="text-success clearfix">
+                                        <p style="margin-bottom:2px;"> Es wird nach Inhalten mit OER-kompatibler Lizenz bzw. nach gemeinfreien Inhalten gesucht, dazu zählen Public Domain/CC0, CC-BY, CC-BY-SA (ShareAlike)</i>
+                                            <br>
+                                            <i class="fa fa-check" aria-hidden="true"></i> Veränderungen erlaubt
+                                            <br>
+                                            <i class="fa fa-check" aria-hidden="true"></i> alle Nutzungsarten erlaubt (kommerziell/nichtkommerziell)
+                                        </p>
+                                        <p style="margin-top:2px;">
+                                            <img src="img/license_icons/public_domain.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                            <img src="img/license_icons/cc0.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                            <img src="img/license_icons/cc_by.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                            <img src="img/license_icons/cc_by_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                        </p>
+                                    </div>
+                                    <div data-value="nc" class="clearfix" style="margin-top:5px;">
+                                        <p style="margin-bottom:2px;">Es werden ebenfalls Inhalte in die Suche miteinbezogen, die unter NC-Einschränkung lizenziert wurden (<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-noncommercial" class="js-scroll-trigger">kommerzielle Nutzung verboten</a>)</p>
+                                        <p style="margin-top:2px;">
+                                            <img src="img/license_icons/cc_by_nc.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                            <img src="img/license_icons/cc_by_nc_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                        </p>
+                                    </div>
+                                    <div data-value="nc-nd" class="clearfix" style="margin-top:5px;">
+                                        <p style="margin-bottom:2px;">Es werden ebenfalls Inhalte in die Suche einbezogen, die mit ND- und/oder NC-Einschränkung lizenziert wurden.
+                                            <br>(<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-derivs" class="js-scroll-trigger">Veränderungen verboten</a> und/oder <i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-noncommercial" class="js-scroll-trigger">kommerzielle Nutzung verboten</a>)
+                                        </p>
+                                        <p style="margin-top:2px;">
+                                            <img src="img/license_icons/cc_by_nc.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                            <img src="img/license_icons/cc_by_nc_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                            <img src="img/license_icons/cc_by_nd.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                            <img src="img/license_icons/cc_by_nc_nd.png" class="float-left" style="padding:2px;height:40px;" alt="...">
+                                        </p>
+                                    </div>
+                                    <div data-value="no-filter">
+                                        <p>Die Suche wird nicht nach Lizenzen eingeschränkt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="col-12">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-lg edu-projects-search-submit-button">
+                        <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Projektsuche starten</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- /.container -->
+    </section>
+    <section id="web-search">
+        <div class="container">
+            <h2 data-i18n="header-web-search-link"><a href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i></a> Das Web nach freien Inhalten durchsuchen</h2>
+            <p class="explanation">Das World Wide Web nach Webseiten durchsuchen, die mit einer freien Lizenz markiert wurden. Diese Seiten müssen nicht unbedingt Bildungsmaterial ("educational") sein, eignen sich teilweise also eher als Vorlage für pädagogische Zwecke.</p>
             <div class="row">
-              <div class="col-12 select-all">
-                <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button> <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="col-12" id="other-provider-list-box">
-        <div class="card">
-          <div class="card-header">
-            Andere Bildungsangebote (nicht ausschließlich OER)
-          </div>
-          <div class="card-body">
-            <div class="row oer-squirrel-provider-list" id="mixed-provider-list">
-            </div>
-            <div class="row">
-              <div class="col-12 select-all">
-                <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button> <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-      <div class="col-12 license-filter-box" id="edu-projects-search-license-filter">
-        <div class="card">
-          <div class="card-header">
-           <a href="#faq-license-machine-readibility" class="js-scroll-trigger"><i class="fa fa-question-circle" aria-hidden="true"></i></a> Lizenzfilter (Maschinenlesbare Creative-Commons-Lizenzen) 
-
-         </div>
-         <div class="card-body">
-
-           <div class="form-group">
-            <!--<label for="exampleFormControlSelect1">Lizenzfilter:</label>-->
-            <select class="form-control" name="license-filter">
-              <option value="only-oer">Ausschließlich nach Inhalten mit OER-kompatibler Lizenz / gemeinfreien Inhalten suchen</option>
-              <option value="nc">Inhalte mit OER-kompatibler Lizenz sowie Inhalte mit NC-Einschränkung</option>
-              <option value="nc-nd">Inhalte mit OER-kompatibler Lizenz sowie Inhalte mit ND- und/oder NC-Einschränkung</option>
-              <option value="no-filter">Lizenzfilter deaktivieren (nicht empfohlen)</option>
-            </select>
-
-            <div class="license-explanation" style="font-size:80%;margin-top:10px;padding-left:25px;padding-right:25px;">
-              <div data-value="oer" class="text-success clearfix">
-               <p style="margin-bottom:2px;"> Es wird nach Inhalten mit OER-kompatibler Lizenz bzw. nach gemeinfreien Inhalten gesucht, dazu zählen Public Domain/CC0, CC-BY, CC-BY-SA (ShareAlike)</i> <br>
-                <i class="fa fa-check" aria-hidden="true"></i> Veränderungen erlaubt<br>
-                <i class="fa fa-check" aria-hidden="true"></i> alle Nutzungsarten erlaubt (kommerziell/nichtkommerziell)
-              </p>
-              <p style="margin-top:2px;">
-                <img src="img/license_icons/public_domain.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                <img src="img/license_icons/cc0.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                <img src="img/license_icons/cc_by.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                <img src="img/license_icons/cc_by_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-              </p>
-            </div>
-            <div data-value="nc" class="clearfix" style="margin-top:5px;">
-              <p style="margin-bottom:2px;">Es werden ebenfalls Inhalte in die Suche miteinbezogen, die unter NC-Einschränkung lizenziert wurden (<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-noncommercial" class="js-scroll-trigger">kommerzielle Nutzung verboten</a>)</p>
-              <p style="margin-top:2px;">
-                <img src="img/license_icons/cc_by_nc.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                <img src="img/license_icons/cc_by_nc_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-              </p>
-            </div>
-            <div data-value="nc-nd" class="clearfix"  style="margin-top:5px;">
-              <p style="margin-bottom:2px;">Es werden ebenfalls Inhalte in die Suche einbezogen, die mit ND- und/oder NC-Einschränkung lizenziert wurden.<br>(<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-derivs" class="js-scroll-trigger" >Veränderungen verboten</a> und/oder <i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true"></i> <a href="#faq-license-filter-noncommercial" class="js-scroll-trigger">kommerzielle Nutzung verboten</a>)
-              </p>
-              <p style="margin-top:2px;">
-                <img src="img/license_icons/cc_by_nc.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                <img src="img/license_icons/cc_by_nc_sa.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                <img src="img/license_icons/cc_by_nd.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-                <img src="img/license_icons/cc_by_nc_nd.png" class="float-left" style="padding:2px;height:40px;" alt="...">
-              </p>
-            </div>
-            <div data-value="no-filter"><p>Die Suche wird nicht nach Lizenzen eingeschränkt.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="col-12">
-  <div class="text-center">
-    <button type="button" class="btn btn-primary btn-lg edu-projects-search-submit-button">
-      <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Projektsuche starten</span>
-    </button>
-  </div>
-</div>
-</div>
-</div><!-- /.container -->
-</section>
-
-
-<section id="web-search">
-  <div class="container">
-    <h2 data-i18n="header-web-search-link"><a href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i></a> Das Web nach freien Inhalten durchsuchen</h2>
-    <p class="explanation">Das World Wide Web nach Webseiten durchsuchen, die mit einer freien Lizenz markiert wurden. Diese Seiten müssen nicht unbedingt Bildungsmaterial ("educational") sein, eignen sich teilweise also eher als Vorlage für pädagogische Zwecke.</p>
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            Suchbegriff
-          </div>
-          <div class="card-body">
-            <form id="web-search-form">
-              <div class="input-group">
-                <input type="text" class="form-control" id="web-search-query"
-                data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff...">
-                <span class="input-group-btn">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Suchbegriff
+                        </div>
+                        <div class="card-body">
+                            <form id="web-search-form">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="web-search-query" data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff...">
+                                    <span class="input-group-btn">
                   <button class="btn btn-secondary web-search-submit-button" type="button" data-i18n="search-instant-button"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
-              </div>
-              <small>Tipp: Den Suchbegriff mit folgenden Begriffen erweitern, um bessere Ergebnisse zu erzielen: "Unterrichtsmaterial", "Arbeitsblatt", "filetype:pdf"</small>
-              <div class="form-group" style="margin-top:5px;">
-                <label for="web-search-language-select" style="display:none;">Sprache:</label>
-                <select class="form-control language-select" id="web-search-language-select">
-                  <option selected value="default">Bestimmte Sprache einstellen (optional)</option>
-                  <option value="lang_de">Deutsch</option>
-                  <option value="lang_en">Englisch</option>
-                  <option value="lang_fr">Französisch</option>
-                  <option value="lang_ar">Arabisch</option>
-                  <option value="lang_bg">Bulgarisch</option>
-                  <option value="lang_ca">Katalanisch</option>
-                  <option value="lang_hr">Kroatisch</option>
-                  <option value="lang_zh-Hans">Chinesisch (simpel)</option>
-                  <option value="lang_zh-Hant">Chinesisch (traditionell)</option>
-                  <option value="lang_cs">Tschechisch</option>
-                  <option value="lang_da">Dänisch</option>
-                  <option value="lang_nl">Niederländisch</option>
-                  <option value="lang_fil">Filipino</option>
-                  <option value="lang_fi">Finnish </option>
-                  <option value="lang_el">Greek</option>
-                  <option value="lang_he">Hebrew</option>
-                  <option value="lang_hi">Hindi </option>
-                  <option value="lang_hu">Hungarian </option>
-                  <option value="lang_id">Indonesian </option>
-                  <option value="lang_it">Italian </option>
-                  <option value="lang_ja">Japanese  </option>
-                  <option value="lang_ko">Korean </option>
-                  <option value="lang_lv">Latvian </option>
-                  <option value="lang_lt">Lithuanian  </option>
-                  <option value="lang_no">Norwegian </option>
-                  <option value="lang_pl">Polish </option>
-                  <option value="lang_pt">Portuguese  </option>
-                  <option value="lang_ro">Romanian  </option>
-                  <option value="lang_ru">Russian</option>
-                  <option value="lang_sr">Serbian </option>
-                  <option value="lang_sk">Slovak</option>
-                  <option value="lang_sl">Slovenian </option>
-                  <option value="lang_es">Spanish </option>
-                  <option value="lang_sv">Swedish </option>
-                  <option value="lang_th">Thai  </option>
-                  <option value="lang_tr">Turkish </option>
-                  <option value="lang_uk">Ukrainian </option>
-                  <option value="lang_vi">Vietnamese </option>
-                </select>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <!-- license filter is appended here after page generation -->
-    </div>
-    <div class="col-12">
-      <div class="text-center">
-        <button type="button" class="btn btn-primary btn-lg web-search-submit-button">
-          <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Websuche starten</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <section id="media-search" class="about">
-    <div class="container">
-      <h2 data-i18n="header-web-search-link"><a href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i></a> Nach Medien unter offener Lizenz suchen</h2>
-      <p class="explanation">Nach offenen Inhalten (Audio, Foto, Video, etc.) suchen, die größtenteils nicht explizit für Lehren/Lernen erstellt wurden. Die Seiten werden jeweils in einem eigenen Tab geöffnet vom OERhörnchen.</p>
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              Suchbegriff
+                                </div>
+                                <small>Tipp: Den Suchbegriff mit folgenden Begriffen erweitern, um bessere Ergebnisse zu erzielen: "Unterrichtsmaterial", "Arbeitsblatt", "filetype:pdf"</small>
+                                <div class="form-group" style="margin-top:5px;">
+                                    <label for="web-search-language-select" style="display:none;">Sprache:</label>
+                                    <select class="form-control language-select" id="web-search-language-select">
+                                        <option selected value="default">Bestimmte Sprache einstellen (optional)</option>
+                                        <option value="lang_de">Deutsch</option>
+                                        <option value="lang_en">Englisch</option>
+                                        <option value="lang_fr">Französisch</option>
+                                        <option value="lang_ar">Arabisch</option>
+                                        <option value="lang_bg">Bulgarisch</option>
+                                        <option value="lang_ca">Katalanisch</option>
+                                        <option value="lang_hr">Kroatisch</option>
+                                        <option value="lang_zh-Hans">Chinesisch (simpel)</option>
+                                        <option value="lang_zh-Hant">Chinesisch (traditionell)</option>
+                                        <option value="lang_cs">Tschechisch</option>
+                                        <option value="lang_da">Dänisch</option>
+                                        <option value="lang_nl">Niederländisch</option>
+                                        <option value="lang_fil">Filipino</option>
+                                        <option value="lang_fi">Finnish </option>
+                                        <option value="lang_el">Greek</option>
+                                        <option value="lang_he">Hebrew</option>
+                                        <option value="lang_hi">Hindi </option>
+                                        <option value="lang_hu">Hungarian </option>
+                                        <option value="lang_id">Indonesian </option>
+                                        <option value="lang_it">Italian </option>
+                                        <option value="lang_ja">Japanese </option>
+                                        <option value="lang_ko">Korean </option>
+                                        <option value="lang_lv">Latvian </option>
+                                        <option value="lang_lt">Lithuanian </option>
+                                        <option value="lang_no">Norwegian </option>
+                                        <option value="lang_pl">Polish </option>
+                                        <option value="lang_pt">Portuguese </option>
+                                        <option value="lang_ro">Romanian </option>
+                                        <option value="lang_ru">Russian</option>
+                                        <option value="lang_sr">Serbian </option>
+                                        <option value="lang_sk">Slovak</option>
+                                        <option value="lang_sl">Slovenian </option>
+                                        <option value="lang_es">Spanish </option>
+                                        <option value="lang_sv">Swedish </option>
+                                        <option value="lang_th">Thai </option>
+                                        <option value="lang_tr">Turkish </option>
+                                        <option value="lang_uk">Ukrainian </option>
+                                        <option value="lang_vi">Vietnamese </option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- license filter is appended here after page generation -->
             </div>
-            <div class="card-body">
-              <form id="media-search-form">
-                <div class="input-group">
-                  <input type="text" class="form-control" id="media-search-query"
-                  data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff...">
-                  <span class="input-group-btn">
+            <div class="col-12">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-lg web-search-submit-button">
+                        <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Websuche starten</span>
+                    </button>
+                </div>
+            </div>
+    </section>
+    <section id="media-search" class="about">
+        <div class="container">
+            <h2 data-i18n="header-web-search-link"><a href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i></a> Nach Medien unter offener Lizenz suchen</h2>
+            <p class="explanation">Nach offenen Inhalten (Audio, Foto, Video, etc.) suchen, die größtenteils nicht explizit für Lehren/Lernen erstellt wurden. Die Seiten werden jeweils in einem eigenen Tab geöffnet vom OERhörnchen.</p>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Suchbegriff
+                        </div>
+                        <div class="card-body">
+                            <form id="media-search-form">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="media-search-query" data-i18n="[placeholder]search-query-input-placeholder" placeholder="Suche nach Begriff...">
+                                    <span class="input-group-btn">
                     <button class="btn btn-secondary media-search-submit-button" type="button" data-i18n="search-instant-button"><i class="fa fa-search" aria-hidden="true"></i></button>
                   </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12" id="provider-list-box">
-          <div class="card">
-            <div class="card-header">
-              Medienplattformen und Portale
-            </div>
-            <div class="card-body">
-              <p><small><i>Hinweis: Einige Plattformen unterstützen die Lizenzfilterung nicht in vollem Umfang - die Suche nach OER-kompatiblen Lizenzen funktioniert aber auf allen aufgeführten Seiten. Mehrfachauswahl ist möglich:</i></small></p>
-              <div class="row oer-squirrel-media-provider-list" id="media-provider-list">
-              </div>
-              <div class="row">
-                <div class="col-12 select-all">
-                  <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button> <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
+                <div class="col-12" id="provider-list-box">
+                    <div class="card">
+                        <div class="card-header">
+                            Medienplattformen und Portale
+                        </div>
+                        <div class="card-body">
+                            <p><small><i>Hinweis: Einige Plattformen unterstützen die Lizenzfilterung nicht in vollem Umfang - die Suche nach OER-kompatiblen Lizenzen funktioniert aber auf allen aufgeführten Seiten. Mehrfachauswahl ist möglich:</i></small></p>
+                            <div class="row oer-squirrel-media-provider-list" id="media-provider-list">
+                            </div>
+                            <div class="row">
+                                <div class="col-12 select-all">
+                                    <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button">Alle auswählen</button>
+                                    <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button">Alle abwählen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+            <div class="col-12">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-lg media-search-submit-button">
+                        <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Mediensuche starten</span>
+                    </button>
+                </div>
+            </div>
+            <!-- license filter is appended here after page generation -->
         </div>
-      </div>
-
-      <div class="col-12">
-        <div class="text-center">
-          <button type="button" class="btn btn-primary btn-lg media-search-submit-button">
-            <i class="fa fa-search" aria-hidden="true"></i> <span data-i18n="search-button">Mediensuche starten</span>
-          </button>
+    </section>
+    <section id="not-compatible" class="not-compatible">
+        <div class="container">
+            <div class="row">
+                <div class="col-12" id="not-compatible-provider-list-box">
+                    <div class="card">
+                        <div class="card-header">
+                            Weitere Seiten (derzeit nicht nach Lizenzen durchsuchbar via OERhörnchen)
+                        </div>
+                        <div class="card-body">
+                            <div class="row" id="not-compatible-provider-list">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- license filter is appended here after page generation -->
-    </div>
-  </section>
-
-
-  <section id="not-compatible" class="not-compatible">
-    <div class="container">
-      <div class="row">
-        <div class="col-12" id="not-compatible-provider-list-box">
-          <div class="card">
-            <div class="card-header">
-              Weitere Seiten (derzeit nicht nach Lizenzen durchsuchbar via OERhörnchen)
-            </div>
-            <div class="card-body">
-              <div class="row" id="not-compatible-provider-list">
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <hr class="small">
-          <h2 data-i18n="about-title">Über das OERhörnchen</h2>
-
-          <div id="about-text" data-i18n="[html]about-text">
-            <p>Lehr- und Lernmaterialien unter freier Lizenz (Open
-              Educational Resources) im deutschsprachigen Raum zu finden ist etwas tricky. Das World Wide Web gleicht
-              dem hektischen Großstadtschungel, durch den sich auch manche Eichhörnchen bewegen müssen auf der Suche nach
-              Futter. Das OERhörnchen soll die Suche nach Inhalten unter freier Lizenz als kleines Werkzeug vereinfachen. Das OERhörnchen nutzt hierfür die Maschinenlesbarkeit von Creative Commons Lizenzen. <a href="https://matthias-andrasch.de/kontakt/">Feedback ist gerne gesehen!</a></p>
-            </div>
-
-            <p>Interview über die Ziele und Entstehung des Projekts auf ZBW Mediatalk:
-              <ul><li><a href="https://www.zbw-mediatalk.eu/2017/10/open-educational-resources-auffindbar-machen-das-suchtool-oer-hornchen/" target="_blank">Open Educational Resources auffindbar machen: Das Suchtool OERhörnchen</a> (Also available <a href="https://www.zbw-mediatalk.eu/en/2017/10/open-educational-resources-auffindbar-machen-das-suchtool-oer-hornchen/">in english</a>)</li>
-              </ul>
-            </p>
-
-            <h3 data-i18n="about-license-filter" id="faq-license-filter-general">FAQ (Häufige Fragen)</h3>
-
-            <h4>Was sind Open Educational Resources?</h4>
-            <p>Videos zur Einführung in die Thematik auf oerlabs.de: <a href="https://oerlabs.de/oer/was-sind-oer/" target="_blank">Open Educational Resources?</a></p>
-
-            <h4>Was sind Creative Commons Lizenzen?</h4>
-            <p>Freie Bildungsmaterialien werden mit Hilfe von den sogenannten „Creative Commons“-Lizenzen veröffentlicht, um möglichst einfach nutz- und veränderbar zu sein. Die Lizenzen sollen eine offene Alternative zu komplizierten indivduellen Absprachen zwischen Urheber*innen und Nutzer*innen von Inhalten sein, die durch die gängigen Urheberrechtsgesetze nötig sind. Informationen zu den verschiedenen Lizenztypen, welche die Nonprofit-Organisation Creative Commons entwickelt hat, finden sich in diesem Video: <a href="https://www.youtube.com/watch?v=VDEoQ8ukDIQ&list=PLhy2nHJciTEDyq0e4r1fVk0hDivostIBi&index=3" target="_blank">„[COER MOOC] Video 3 - Einführung in die CC Lizenzierung“</a>. Vorsicht: Nicht alle Lizenzvarianten sind für Open Educational Resources geeignet. 
-
-              <h4>Was sind „OER-kompatible“ Lizenzen?</h4>
-
-              <p>Die <a href="https://open-educational-resources.de/was-ist-oer/" target="_blank">UNESCO-Definition</a> von freien Bildungsmaterialen besagt, dass eine „offene Lizenz [für OER] [..] den kostenlosen Zugang sowie die kostenlose Nutzung, Bearbeitung und Weiterverbreitung durch Andere <b>ohne oder mit geringfügigen Einschränkungen</b> [ermöglichen soll]“. Nimmt man diesen Anspruch ernst, sollten nur die folgenden Lizenzen für OER eingesetzt werden, um rechtliche Fallstricke und Unklarheiten zu vermeiden:</p>
-
-              <p class="clearfix">
-                <img src="img/license_icons/public_domain.png" class="float-left" alt="..." style="padding:2px;"> 
-                <img src="img/license_icons/cc0.png" class="float-left" style="padding:2px;" alt="...">
-                <img src="img/license_icons/cc_by.png" class="float-left" style="padding:2px;" alt="...">
-                <img src="img/license_icons/cc_by_sa.png" class="float-left" style="padding:2px;" alt="..."></li>
-              </p>
-
-              <p>Die Organisation Creative Commons bezeichnet diese Lizenzvarianten ebenfalls als <a href="https://creativecommons.org/share-your-work/public-domain/freeworks/" target="_blank">“Approved for Free Cultural Works”</a>, welche u.a. auch mit den Open-Definitionen im Open-Source-Bereich kompatibel sind.</p>
-
-              <h4 id="faq-license-filter-noncommercial">Kommerzielle Nutzung verboten - kein Problem?</h4>
-
-              <p>Neben den obigen Lizenzvarianten wird meist intuitiv die NC-Einschränkung von Creative Commons für die Lizenzierung ausgewählt ohne die Konsequenzen abschätzen zu können. Warum NC doof/unpraktikabel ist, habe ich <a href="https://matthias-andrasch.de/2017/nc-ist-doof/" target="_blank">hier</a> aufgeschrieben.</p>
-
-              <h4 id="faq-license-filter-derivs">Veränderungen verboten?</h4>
-              <p>Bildungsmaterialien im Bereich OER sollen verändert und wiederveröffentlicht werden können (siehe <a href="https://open-educational-resources.de/5rs-auf-deutsch/">5R/5V</a>) - daher steht die Einschränkung „Keine Veränderung“ (ND = no derivatives) schon grundsätzlich im Widerspruch zu OER. Dadurch werden z.B. Übersetzungen oder das Benutzen von Inhalten in Videos verunmöglicht, was für die meisten Inhalte ziemlich schade ist. Die Inhalte sind jedoch nicht ganz für OER verloren - wer sich für die kreativen Grenzen interessiert, die durch die ND-Klausel entstehen, findet hier einen tollen Beitrag: <a href="https://irights.info/artikel/kombinieren-bearbeiten-remixen-oer-richtig-verwenden/28560">Kombinieren, Bearbeiten, Remixen: OER richtig verwenden</a>.
-
-                <h4 id="faq-license-machine-readibility">Was sind „maschinenlesbare“ Lizenzen?</h4>
-                <p>Creative-Commons-Lizenzen können mit im Quelltext von Webseiten <a
-                  href="http://pb21.de/2013/07/how-to-maschinenlesbare-creative-commons-lizenzen/" target="_blank">maschinenlesbar</a>
-                  hinterlegt werden, sodass Suchmaschinen wie Google diese Information automatisch verarbeiten können. Somit
-                  können Webseiten/Inhalte im World Wide Web nach den jeweiligen Lizenzen automatisch gefiltert werden. Der
-                  nötige Quelltext lässt sich mit dem <a href="https://creativecommons.org/choose/?lang=DE">offiziellen Creative-Commons-Lizenzierungstool</a> ganz einfach online erzeugen (Entscheidend ist das <i>rel='license'</i>-Attribut).  Ausführliche Infos zur Maschinenlesbarkeit finden sich in diesem Artikel: <a
-                  href="http://pb21.de/2013/07/how-to-maschinenlesbare-creative-commons-lizenzen/" target="_blank">How-To:
+    </section>
+    <!-- Services -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <hr class="small">
+                    <h2 data-i18n="about-title">Über das OERhörnchen</h2>
+                    <div id="about-text" data-i18n="[html]about-text">
+                        <p>Lehr- und Lernmaterialien unter freier Lizenz (Open Educational Resources) im deutschsprachigen Raum zu finden ist etwas tricky. Das World Wide Web gleicht dem hektischen Großstadtschungel, durch den sich auch manche Eichhörnchen bewegen müssen auf der Suche nach Futter. Das OERhörnchen soll die Suche nach Inhalten unter freier Lizenz als kleines Werkzeug vereinfachen. Das OERhörnchen nutzt hierfür die Maschinenlesbarkeit von Creative Commons Lizenzen. <a href="https://matthias-andrasch.de/kontakt/">Feedback ist gerne gesehen!</a></p>
+                    </div>
+                    <p>Interview über die Ziele und Entstehung des Projekts auf ZBW Mediatalk:
+                        <ul>
+                            <li><a href="https://www.zbw-mediatalk.eu/2017/10/open-educational-resources-auffindbar-machen-das-suchtool-oer-hornchen/" target="_blank">Open Educational Resources auffindbar machen: Das Suchtool OERhörnchen</a> (Also available <a href="https://www.zbw-mediatalk.eu/en/2017/10/open-educational-resources-auffindbar-machen-das-suchtool-oer-hornchen/">in english</a>)</li>
+                        </ul>
+                    </p>
+                    <h3 data-i18n="about-license-filter" id="faq-license-filter-general">FAQ (Häufige Fragen)</h3>
+                    <h4>Was sind Open Educational Resources?</h4>
+                    <p>Videos zur Einführung in die Thematik auf oerlabs.de: <a href="https://oerlabs.de/oer/was-sind-oer/" target="_blank">Open Educational Resources?</a></p>
+                    <h4>Was sind Creative Commons Lizenzen?</h4>
+                    <p>Freie Bildungsmaterialien werden mit Hilfe von den sogenannten „Creative Commons“-Lizenzen veröffentlicht, um möglichst einfach nutz- und veränderbar zu sein. Die Lizenzen sollen eine offene Alternative zu komplizierten indivduellen Absprachen zwischen Urheber*innen und Nutzer*innen von Inhalten sein, die durch die gängigen Urheberrechtsgesetze nötig sind. Informationen zu den verschiedenen Lizenztypen, welche die Nonprofit-Organisation Creative Commons entwickelt hat, finden sich in diesem Video: <a href="https://www.youtube.com/watch?v=VDEoQ8ukDIQ&list=PLhy2nHJciTEDyq0e4r1fVk0hDivostIBi&index=3" target="_blank">„[COER MOOC] Video 3 - Einführung in die CC Lizenzierung“</a>. Vorsicht: Nicht alle Lizenzvarianten sind für Open Educational Resources geeignet.
+                        <h4>Was sind „OER-kompatible“ Lizenzen?</h4>
+                        <p>Die <a href="https://open-educational-resources.de/was-ist-oer/" target="_blank">UNESCO-Definition</a> von freien Bildungsmaterialen besagt, dass eine „offene Lizenz [für OER] [..] den kostenlosen Zugang sowie die kostenlose Nutzung, Bearbeitung und Weiterverbreitung durch Andere <b>ohne oder mit geringfügigen Einschränkungen</b> [ermöglichen soll]“. Nimmt man diesen Anspruch ernst, sollten nur die folgenden Lizenzen für OER eingesetzt werden, um rechtliche Fallstricke und Unklarheiten zu vermeiden:</p>
+                        <p class="clearfix">
+                            <img src="img/license_icons/public_domain.png" class="float-left" alt="..." style="padding:2px;">
+                            <img src="img/license_icons/cc0.png" class="float-left" style="padding:2px;" alt="...">
+                            <img src="img/license_icons/cc_by.png" class="float-left" style="padding:2px;" alt="...">
+                            <img src="img/license_icons/cc_by_sa.png" class="float-left" style="padding:2px;" alt="..."></li>
+                        </p>
+                        <p>Die Organisation Creative Commons bezeichnet diese Lizenzvarianten ebenfalls als <a href="https://creativecommons.org/share-your-work/public-domain/freeworks/" target="_blank">“Approved for Free Cultural Works”</a>, welche u.a. auch mit den Open-Definitionen im Open-Source-Bereich kompatibel sind.</p>
+                        <h4 id="faq-license-filter-noncommercial">Kommerzielle Nutzung verboten - kein Problem?</h4>
+                        <p>Neben den obigen Lizenzvarianten wird meist intuitiv die NC-Einschränkung von Creative Commons für die Lizenzierung ausgewählt ohne die Konsequenzen abschätzen zu können. Warum NC doof/unpraktikabel ist, habe ich <a href="https://matthias-andrasch.de/2017/nc-ist-doof/" target="_blank">hier</a> aufgeschrieben.</p>
+                        <h4 id="faq-license-filter-derivs">Veränderungen verboten?</h4>
+                        <p>Bildungsmaterialien im Bereich OER sollen verändert und wiederveröffentlicht werden können (siehe <a href="https://open-educational-resources.de/5rs-auf-deutsch/">5R/5V</a>) - daher steht die Einschränkung „Keine Veränderung“ (ND = no derivatives) schon grundsätzlich im Widerspruch zu OER. Dadurch werden z.B. Übersetzungen oder das Benutzen von Inhalten in Videos verunmöglicht, was für die meisten Inhalte ziemlich schade ist. Die Inhalte sind jedoch nicht ganz für OER verloren - wer sich für die kreativen Grenzen interessiert, die durch die ND-Klausel entstehen, findet hier einen tollen Beitrag: <a href="https://irights.info/artikel/kombinieren-bearbeiten-remixen-oer-richtig-verwenden/28560">Kombinieren, Bearbeiten, Remixen: OER richtig verwenden</a>.
+                            <h4 id="faq-license-machine-readibility">Was sind „maschinenlesbare“ Lizenzen?</h4>
+                            <p>Creative-Commons-Lizenzen können mit im Quelltext von Webseiten <a href="http://pb21.de/2013/07/how-to-maschinenlesbare-creative-commons-lizenzen/" target="_blank">maschinenlesbar</a> hinterlegt werden, sodass Suchmaschinen wie Google diese Information automatisch verarbeiten können. Somit können Webseiten/Inhalte im World Wide Web nach den jeweiligen Lizenzen automatisch gefiltert werden. Der nötige Quelltext lässt sich mit dem <a href="https://creativecommons.org/choose/?lang=DE">offiziellen Creative-Commons-Lizenzierungstool</a> ganz einfach online erzeugen (Entscheidend ist das <i>rel='license'</i>-Attribut). Ausführliche Infos zur Maschinenlesbarkeit finden sich in diesem Artikel: <a href="http://pb21.de/2013/07/how-to-maschinenlesbare-creative-commons-lizenzen/" target="_blank">How-To:
                 Maschinenlesbare Creative Commons-Lizenzen</a>.</p>
-
-                <h4>Durch welche Projekte wurde das OERhörnchen inspiriert?</h4>
-                <p>
-                  <ul>
-                    <li><a href="https://search.creativecommons.org" target="_blank">search.creativecommons.org</a> - Suchwerkzeug von Creative Commons</li>
-                    <li>Frühere Überlegungen: <a href="https://programmieraffe.github.io/oer-search-lab/" target="_blank">Kleine Ideensammlung zum
+                            <h4>Durch welche Projekte wurde das OERhörnchen inspiriert?</h4>
+                            <p>
+                                <ul>
+                                    <li><a href="https://search.creativecommons.org" target="_blank">search.creativecommons.org</a> - Suchwerkzeug von Creative Commons</li>
+                                    <li>Frühere Überlegungen: <a href="https://programmieraffe.github.io/oer-search-lab/" target="_blank">Kleine Ideensammlung zum
                     Finden von OER (2016)</a></li>
-                    <li>Die <a href="https://www.facebook.com/groups/OERde/" target="_blank">deutschsprachige</a> und <a href="https://twitter.com/search?q=%23OER&src=typd">weltweite</a> OER-Community sowie durch die Open-Source-Bewegung.</li>
-                  </ul>
-                </p>
-
-                <p>Die Webseite wurde leider noch nicht auf Barrierefreiheit getestet/optimiert.</p>
-
-              </div>
+                                    <li>Die <a href="https://www.facebook.com/groups/OERde/" target="_blank">deutschsprachige</a> und <a href="https://twitter.com/search?q=%23OER&src=typd">weltweite</a> OER-Community sowie durch die Open-Source-Bewegung.</li>
+                                </ul>
+                            </p>
+                            <p>Die Webseite wurde leider noch nicht auf Barrierefreiheit getestet/optimiert.</p>
+                </div>
             </div>
             <!-- /.row -->
-          </div>
-          <!-- /.container -->
-        </section>
-
-        <!-- Call to Action -->
-        <aside class="call-to-action bg-primary text-white">
-          <div class="container text-center">
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- Call to Action -->
+    <aside class="call-to-action bg-primary text-white">
+        <div class="container text-center">
             <h3 data-i18n="cta-title">OERhörnchen ist Open Source und offen für alle!</h3>
             <p data-i18n="cta-text">Das Projekt kann angepasst, verändert und verbessert werden.</p>
-            <a href="https://github.com/programmieraffe/oer-hoernchen" target="_blank" class="btn btn-lg btn-light"
-            data-i18n="cta-github"><i class="fa fa-github" aria-hidden="true"></i> Github-Projekt</a>
+            <a href="https://github.com/programmieraffe/oer-hoernchen" target="_blank" class="btn btn-lg btn-light" data-i18n="cta-github"><i class="fa fa-github" aria-hidden="true"></i> Github-Projekt</a>
             <a href="https://matthias-andrasch.de/kontakt" class="btn btn-lg btn-dark" data-i18n="cta-contact">Kontakt</a>
-          </div>
-        </aside>
-
-        <!-- Footer -->
-        <footer>
-          <div class="container">
+        </div>
+    </aside>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
             <div class="row">
-              <div class="col-lg-10 mx-auto text-center">
-                <h4 data-i18n="footer-project-title">Projektinformationen</h4>
-                <p data-i18n="[html]footer-project-text">Ein offenes Projekt von <a href="https://matthias-andrasch.de">Matthias Andrasch</a>, ermöglicht durch viele
-                  Menschen, welche
-                  Quelltexte, Tutorials und Tipps offen und frei zur Verfügung gestellt haben. Danke besonders an die <a
-                  href="https://www.facebook.com/groups/OERde/" target="_blank">#OERde-Community</a>!
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a href="https://twitter.com/m_andrasch">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h4 data-i18n="footer-project-title">Projektinformationen</h4>
+                    <p data-i18n="[html]footer-project-text">Ein offenes Projekt von <a href="https://matthias-andrasch.de">Matthias Andrasch</a>, ermöglicht durch viele Menschen, welche Quelltexte, Tutorials und Tipps offen und frei zur Verfügung gestellt haben. Danke besonders an die <a href="https://www.facebook.com/groups/OERde/" target="_blank">#OERde-Community</a>!
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/m_andrasch">
                         <i class="fa fa-twitter fa-fw fa-3x"></i>
                       </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="https://matthias-andrasch.de">
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://matthias-andrasch.de">
                         <i class="fa fa-dribbble fa-fw fa-3x"></i>
                       </a>
-                    </li>
-                  </ul>
-                  <p><a href="https://matthias-andrasch.de/impressum/" data-i18n="footer-imprint">Impressum</a> | <a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" target="_blank">Datenschutzerklärung</a> | <a href="https://programmieraffe.github.io/oer-hoernchen/" target="_blank">Entwicklervorschau</a></p>
-                  <hr class="small">
-                  <div class="text-center">
-                    <img src="img/license_icons/cc0.png" role="decorative">
-                  </div>
-                  <p data-i18n="[html]footer-license-text"><small>Der Quelltext des Projekts ist mit Hilfe der <a
+                            </li>
+                        </ul>
+                        <p><a href="https://matthias-andrasch.de/impressum/" data-i18n="footer-imprint">Impressum</a> | <a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" target="_blank">Datenschutzerklärung</a> | <a href="https://programmieraffe.github.io/oer-hoernchen/" target="_blank">Entwicklervorschau</a></p>
+                        <hr class="small">
+                        <div class="text-center">
+                            <img src="img/license_icons/cc0.png" role="decorative">
+                        </div>
+                        <p data-i18n="[html]footer-license-text"><small>Der Quelltext des Projekts ist mit Hilfe der <a
                     href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">"Creative Commons Zero (CC0 1.0 Universal)"-Freigabeerklärung</a> als gemeinfreies Werk (Public Domain) verfügbar. Für die Nachnutzung oder Veränderung sind keinerlei Bedingungen vorgegeben. Ausgenommen von dieser Freigabe sind die Logos der aufgeführten Projekte und Plattformen sowie alle von Dritten genutzten Open-Source-Quelltexte. Die jeweilige Lizenzangaben finden sich in der <a href="https://github.com/programmieraffe/oer-hoernchen/blob/gh-pages/LICENSE">LICENSE</a>-Datei des Projekts.
                     Theme: <a href="https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio">Stylish
                     Portfolio</a> von BlackrockDigital, MIT-Lizenz.<br>
                     <i>Aktuelles Foto: <a href="https://pixabay.com/de/tier-nagetier-eichh%C3%B6rnchen-1241334/">Oldiefan (CC0/Pixabay)</a> - <a href="https://pixabay.com/de/tier-nagetier-eichh%C3%B6rnchen-1241334/">Kaffee spenden</a></i> ist möglich.</small>.
-                  </p>
-
+                        </p>
                 </div>
-              </div>
             </div>
-          <!--<a id="to-top" href="#top" class="btn btn-dark btn-lg js-scroll-trigger">
+        </div>
+        <!--<a id="to-top" href="#top" class="btn btn-dark btn-lg js-scroll-trigger">
             <i class="fa fa-chevron-up fa-fw fa-1x"></i>
           </a>-->
-        </footer>
-
-        <!-- search link modal -->
-        <div class="modal fade" id="search-link-modal">
-          <div class="modal-dialog" role="document">
+    </footer>
+    <!-- search link modal -->
+    <div class="modal fade" id="search-link-modal">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" data-i18n="modal-search-title">Bereit zum Absprung!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="search-success">
-                  <p data-i18n="modal-text-search-success"> Das OERhörnchen hat die Suchanfrage generiert und vorbereitet. Die vorbereitete Google-Suche kann hier geöffnet werden (derzeit unterstützt nur Google das Filtern nach Lizenzen):</p>
-                  <p style="text-align:center;"><a target="_blank" class="modal-search-url search-success-open-url btn-primary btn" data-i18n="modal-link-text"><i class="fa fa-external-link" aria-hidden="true"></i> Google-Suche öffnen</a></p>
-            <!--<p data-i18n="modal-link-share">Link zum Teilen:</p>
+                <div class="modal-header">
+                    <h5 class="modal-title" data-i18n="modal-search-title">Bereit zum Absprung!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-success">
+                        <p data-i18n="modal-text-search-success"> Das OERhörnchen hat die Suchanfrage generiert und vorbereitet. Die vorbereitete Google-Suche kann hier geöffnet werden (derzeit unterstützt nur Google das Filtern nach Lizenzen):</p>
+                        <p style="text-align:center;"><a target="_blank" class="modal-search-url search-success-open-url btn-primary btn" data-i18n="modal-link-text"><i class="fa fa-external-link" aria-hidden="true"></i> Google-Suche öffnen</a></p>
+                        <!--<p data-i18n="modal-link-share">Link zum Teilen:</p>
             <div class="input-group">
               <input type="text" class="form-control" id="modal-search-input" title="modal-input"/>
               <span class="input-group-btn">
@@ -568,109 +525,82 @@
                 data-i18n="modal-button-copy">Kopieren</button>
               </span>
             </div>-->
-          </div>
-
-          <div class="search-success-multiple">
-            <p>  Das OERhörnchen ist bereit für die Suche und wird versuchen, die ausgewählten Webseiten der Online-Dienste automatisch als neue Tabs zu öffnen. Bitte Pop-Ups zulassen hier klicken zum Öffnen: </p>
-            <p style="text-align:center;">
-              <button class="search-success-multiple-open-urls btn-primary btn"><i class="fa fa-external-link" aria-hidden="true"></i> Webseiten öffnen</button>
-            </p>
-            <div class="search-success-multiple-list">
-              <p>Falls das Öffnen nicht geklappt hat, können die Seiten hier manuell geöffnet werden (eventuell verhindert der Pop-Up-Blocker des Browsers das Öffnen, bitte Pop-Ups zulassen!):</p>
-              <ul></ul>
-            </div>
-          </div>
-
-
-
-          <div class="search-error alert alert-danger" role="alert">
-            <p data-i18n="modal-text-search-error">Die Google-Suche erlaubt maximal 32 Wörter im Suchfeld,
-              bitte weniger Suchbegriffe nutzen oder weniger Projekte auswählen (jedes Projekt zählt als
-            ein Wort)</p>
-            <p><a target="_blank" class="modal-search-url"
-              data-i18n="modal-button-search-despite">Suche trotzdem öffnen</a></p>
-            </div>
-
-
-
-
-
-            <p> <img src="img/squirrel_pixabay_cocoparisienne_250497_cc0.jpg" class="rounded float-right" style="max-width:120px;" role="presentation" /><small>Das OERhörnchen öffnet externe Online-Dienste bzw. Webseiten. Für die Richtigkeit der Angaben auf externen Seiten wird keine Haftung übernommen, bitte stets selber prüfen! Die hier eingegebenen Suchbegriffe sowie die Lizenzeinstellungen werden mittels der URL automatisch übermittelt. Nutzerbezogene Daten übermittelt das OERhörnchen nicht an externe Anbieter. Anonymisierte Statistiken zur Seitenbenutzung werden anonym auf einem eigenen Piwik-Server erhoben und sollen in Zukunft der Allgemeinheit als Open Data zur Verfügung gestellt werden. Weitere Informationen: <a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" target="_blank">Datenschutzerklärung</a></small></p>
-            <p data-i18n="[html]modal-text-feedback">Feedback oder Fragen? Sehr gerne <a
-              href="https://matthias-andrasch.de/kontakt" target="_blank"> bei mir melden</a>!<br>
-            </p>
-          </div>
-
-          <!-- <div class="modal-footer">
+                    </div>
+                    <div class="search-success-multiple">
+                        <p> Das OERhörnchen ist bereit für die Suche und wird versuchen, die ausgewählten Webseiten der Online-Dienste automatisch als neue Tabs zu öffnen. Bitte Pop-Ups zulassen hier klicken zum Öffnen: </p>
+                        <p style="text-align:center;">
+                            <button class="search-success-multiple-open-urls btn-primary btn"><i class="fa fa-external-link" aria-hidden="true"></i> Webseiten öffnen</button>
+                        </p>
+                        <div class="search-success-multiple-list">
+                            <p>Falls das Öffnen nicht geklappt hat, können die Seiten hier manuell geöffnet werden (eventuell verhindert der Pop-Up-Blocker des Browsers das Öffnen, bitte Pop-Ups zulassen!):</p>
+                            <ul></ul>
+                        </div>
+                    </div>
+                    <div class="search-error alert alert-danger" role="alert">
+                        <p data-i18n="modal-text-search-error">Die Google-Suche erlaubt maximal 32 Wörter im Suchfeld, bitte weniger Suchbegriffe nutzen oder weniger Projekte auswählen (jedes Projekt zählt als ein Wort)</p>
+                        <p><a target="_blank" class="modal-search-url" data-i18n="modal-button-search-despite">Suche trotzdem öffnen</a></p>
+                    </div>
+                    <p> <img src="img/squirrel_pixabay_cocoparisienne_250497_cc0.jpg" class="rounded float-right" style="max-width:120px;" role="presentation" /><small>Das OERhörnchen öffnet externe Online-Dienste bzw. Webseiten. Für die Richtigkeit der Angaben auf externen Seiten wird keine Haftung übernommen, bitte stets selber prüfen! Die hier eingegebenen Suchbegriffe sowie die Lizenzeinstellungen werden mittels der URL automatisch übermittelt. Nutzerbezogene Daten übermittelt das OERhörnchen nicht an externe Anbieter. Anonymisierte Statistiken zur Seitenbenutzung werden anonym auf einem eigenen Piwik-Server erhoben und sollen in Zukunft der Allgemeinheit als Open Data zur Verfügung gestellt werden. Weitere Informationen: <a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" target="_blank">Datenschutzerklärung</a></small></p>
+                    <p data-i18n="[html]modal-text-feedback">Feedback oder Fragen? Sehr gerne <a href="https://matthias-andrasch.de/kontakt" target="_blank"> bei mir melden</a>!
+                        <br>
+                    </p>
+                </div>
+                <!-- <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal"
             data-i18n="modal-button-cont-search"><i class="fa fa-angle-double-down" aria-hidden="true"></i> Nichts gefunden? Nächster Schritt
           </button>
         </div> -->
-      </div>
+            </div>
+        </div>
     </div>
-  </div> <!-- eo modal -->
-
-
-  <!-- github info modal -->
-  <div class="modal fade" id="github-info-modal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" data-i18n="modal-search-title">Vorschauversion</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <!-- eo modal -->
+    <!-- github info modal -->
+    <div class="modal fade" id="github-info-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" data-i18n="modal-search-title">Vorschauversion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <img src="img/squirrel_pixabay_cocoparisienne_250497_cc0.jpg" class="rounded float-right" style="max-width:120px;margin-left:5px;" role="presentation" />Hi! Dies ist die Vorschau auf den aktuellen Entwicklungsstand des OERhörnchens. Diese Version ist noch nicht vollständig getestet und kann noch Fehler enthalten (bitte <a href="https://github.com/programmieraffe/oer-hoernchen/issues">hier</a> melden - danke!). Die offizielle und getestete Version findet sich stets hier:
+                        <br><a href="https://oerhoernchen.de">www.oerhoernchen.de</a>.</p>
+                    <p data-i18n="[html]modal-text-feedback">Feedback oder Fragen? Sehr gerne <a href="https://matthias-andrasch.de/kontakt" target="_blank"> bei mir melden</a>!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-i18n="modal-button-cont-search">Alles klar, ausprobieren!</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <p>
-            <img src="img/squirrel_pixabay_cocoparisienne_250497_cc0.jpg" class="rounded float-right" style="max-width:120px;margin-left:5px;" role="presentation" />Hi! Dies ist die Vorschau auf den aktuellen Entwicklungsstand des OERhörnchens. Diese Version ist noch nicht vollständig getestet und kann noch Fehler enthalten (bitte <a href="https://github.com/programmieraffe/oer-hoernchen/issues">hier</a> melden - danke!). Die offizielle und getestete Version findet sich stets hier:<br><a href="https://oerhoernchen.de">www.oerhoernchen.de</a>.</p>
-          <p data-i18n="[html]modal-text-feedback">Feedback oder Fragen? Sehr gerne <a
-            href="https://matthias-andrasch.de/kontakt" target="_blank"> bei mir melden</a>!
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal"
-          data-i18n="modal-button-cont-search">Alles klar, ausprobieren!</button>
-        </div>
-      </div>
     </div>
-  </div>  <!-- eo github info modal>
+    <!-- eo github info modal>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/popper/popper.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Internationalization -->
-  <script src="vendor/i18n/libs/CLDRPluralRuleParser/src/CLDRPluralRuleParser.js"></script>
-  <script src="vendor/i18n/js/jquery.i18n.js"></script>
-  <script src="vendor/i18n/js/jquery.i18n.messagestore.js"></script>
-  <script src="vendor/i18n/js/jquery.i18n.fallbacks.js"></script>
-  <script src="vendor/i18n/js/jquery.i18n.parser.js"></script>
-  <script src="vendor/i18n/js/jquery.i18n.emitter.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/stylish-portfolio.js"></script>
-
-  <!-- OER-squirrel script -->
-  <script src="js/oer-squirrel-provider-list.js"></script>
-  <script src="js/oer-squirrel.js"></script>
-  <script src="js/oer-squirrel-i18n.js"></script>
-
-
-  <!-- cookie consent -->
-  <script type="text/javascript" id="cookiebanner"
-  src="js/cookiebanner.min.js"
-  data-height="30px" data-position="top"
-  data-message="Das OERhörnchen erhebt anonymisiert Nutzungen/Suchbegriffe." 
-  data-moreinfo="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/"
-  data-linkmsg="Infos"
-  data-font-size="12px"
-  data-close-text="✔"
-  >
-</script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Internationalization -->
+    <script src="vendor/i18n/libs/CLDRPluralRuleParser/src/CLDRPluralRuleParser.js"></script>
+    <script src="vendor/i18n/js/jquery.i18n.js"></script>
+    <script src="vendor/i18n/js/jquery.i18n.messagestore.js"></script>
+    <script src="vendor/i18n/js/jquery.i18n.fallbacks.js"></script>
+    <script src="vendor/i18n/js/jquery.i18n.parser.js"></script>
+    <script src="vendor/i18n/js/jquery.i18n.emitter.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/stylish-portfolio.js"></script>
+    <!-- OER-squirrel script -->
+    <script src="js/oer-squirrel-provider-list.js"></script>
+    <script src="js/oer-squirrel.js"></script>
+    <script src="js/oer-squirrel-i18n.js"></script>
+    <!-- cookie consent -->
+    <script type="text/javascript" id="cookiebanner" src="js/cookiebanner.min.js" data-height="30px" data-position="top" data-message="Das OERhörnchen erhebt anonymisiert Nutzungen/Suchbegriffe." data-moreinfo="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" data-linkmsg="Infos" data-font-size="12px" data-close-text="✔">
+    </script>
 </body>
+
 </html>
