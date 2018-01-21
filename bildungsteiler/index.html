@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Bildungsmaterialien als OER mit der Welt teilen: Online-Tool, um Creative Commons Lizenzhinweise zu erstellen.">
+    <meta name="author" content="">
+    <title>Bildungsteiler (BETA) - OERhörnchen</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet" />
+    <style type="text/css">
+    /* 2DO: move to css file */
+    /* important - color for a */
+
+    #previewHtml5License a,
+    #previewHtml5License a:visited {
+        color: #0085a1;
+        text-decoration: underline;
+    }
+    /* weird margins/paddings? */
+
+    .form-check-input {
+        margin-left: 0;
+        /*    margin-left: -1.25rem; */
+    }
+
+    .form-check-label {
+        padding-left: 1.5rem;
+    }
+    /* license box styles */
+
+    .oer-cc-licensebox {
+        font-family: Arial;
+    }
+
+    .oer-cc-licensebox img {
+        max-width: 80px;
+        padding-bottom: 5px;
+    }
+
+    #faq h3 {
+        font-weight: 1.25rem;
+        font-weight: 600;
+    }
+    </style>
+    <!-- ################### GITHUB FORKERS: PLEASE REMOVE THIS ##################### -->
+    <!-- PIWIK TRACKING CODE (forked domains will not be tracked, but you should remove this) -->
+    <script type="text/javascript">
+    var _paq = _paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDomains", ["*.programmieraffe.github.io/oer-hoernchen", "*.oer-hoernchen.de", "*.oerhoernchen.de"]]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u = "//piwik.matthiasundmedien.de/";
+        _paq.push(['setTrackerUrl', u + 'piwik.php']);
+        _paq.push(['setSiteId', '24']);
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = u + 'piwik.js';
+        s.parentNode.insertBefore(g, s);
+    })();
+    </script>
+    <!-- EO PIWIK TRACKER-->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">OERhörnchen</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Finden</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="post.html">Bildungsteiler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://matthias-andrasch.de/kontakt/">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/squirrel-2781394_1920_pixabay_annawaldl.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading">
+                        <h1>Bildungsteiler</h1>
+                        <span class="subheading">Bildungsmaterialien als OER mit der Welt teilen.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <p><small>Mit diesem Werkzeug können Sie einen Creative-Commons-Lizenzhinweis für selbst erstellte Inhalte erzeugen, welche veröffentlicht werden sollen. Mit dem Lizenzhinweis können die Inhalte als <i>Open Educational Resource</i> offen mit der Welt geteilt werden. Lehrer*innen, Lehrende an Hochschule, freiberufliche Pädagogen oder anderen Personen können die Inhalte dadurch frei benutzen, anpassen, verändern, übersetzen und wiederveröffentlichen.</small></p>
+                <form id="formWorkInformation">
+                    <h2 style="text-align:center;">Informationen zum Werk</h2>
+                    <p><b>Ersteller/in des Werks</b></p>
+                    <div class="form-group row">
+                        <label for="inputCreator" class="col-sm-4 col-form-label">Ersteller/in:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputCreator">
+                        </div>
+                    </div>
+                    <p style="margin-top:4px;margin-bottom:8px;"><i>Optionale Angaben zum Werk:</i></p>
+                    <div class="form-group row">
+                        <label for="inputTitle" class="col-sm-5 col-form-label">Titel des Werks:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="inputTitle">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputWorkLink" class="col-sm-5 col-form-label">Link zum Werk:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="inputWorkLink" placeholder="https://">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputCreatorLink" class="col-sm-5 col-form-label">Link zur Ersteller/in:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="inputCreatorLink" placeholder="https://">
+                        </div>
+                    </div>
+                    <p><b>Freigeben unter</b></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="selectLicense" id="licenseChooser1" value="cc0">
+                        <label class="form-check-label" for="exampleRadios1">
+                            <img src="img/cc0.png" alt="cc by logo" style="width:80px;"> Creative Commons Zero (Public Domain)
+                            <br>
+                            <i><small>Freigaberklärung - keine Bedingungen</small></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="selectLicense" id="licenseChooser2" value="ccby" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            <img src="img/cc_by.png" alt="cc by logo" style="width:80px;"> Creative Commons BY
+                            <br>
+                            <i><small>Lizenz - Namensnennung</small></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="selectLicense" id="licensecChooser3" value="ccbysa">
+                        <label class="form-check-label" for="exampleRadios2">
+                            <img src="img/cc_by_sa.png" alt="cc by logo" style="width:80px;"> Creative Commons BY-ShareAlike
+                            <br>
+                            <i><small>Lizenz - Namensnennung und Weitergabe-unter-gleichen-Bedingungen</small></i>
+                        </label>
+                    </div>
+                </form>
+                <h2 style="text-align:center;margin-top:25px;margin-bottom:25px">Der Lizenzhinweis</h2>
+                <!-- <p>Der Freigabe-/Lizenzhinweis wurde während ihrer Eingabe automatisch generiert. Sie können nun 
+				zwischen zwei Varianten wählen: </p> -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p style="margin-top:0px;"><b>Nutzung auf/in:</b></p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="selectUsageType" id="selectUsageTypeWeb" value="website" checked>
+                            <label class="form-check-label" for="selectUsageTypeWeb">Webseite
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="selectUsageType" id="selectUsageTypeDocument" value="document">
+                            <label class="form-check-label" for="selectUsageTypeDocument">Dokument / Print
+                            </label>
+                        </div>
+                        <p><b>Optionen:</b></p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="1" id="usageSettingShortVersion">
+                            <label class="form-check-label" for="usageSettingShortVersion">
+                                Kurzversion
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">Vorschau:
+                        <div class="card" style="margin-top:10px;">
+                            <div class="card-body">
+                                <div id="previewHtml5License" style="font-size:70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="usageInstructions" style="margin-top:25px;">
+                    <div class="usageInstructionsWebsite" style="display:none;">
+                        <h4 style="text-align:center;">Den Hinweis als HTML-Quelltext einbinden:</h4>
+                        <p class="text-center">Um den Hinweis auf einer Webseite zu nutzen, muss der folgende HTML-Quelltext kopiert und eingefügt werden:</p>
+                        <div class="text-center">
+                            <div class="form-group mx-auto" style="max-width:80%;">
+                                <textarea class="form-control" id="textareaHtml5LicenseCode" rows="7">
+                                </textarea>
+                                <div class="form-check" style="font-size:12px;margin-top:10px;">
+                                    <input class="form-check-input" type="checkbox" value="1" id="usageSettingSvgBase64" checked>
+                                    <label class="form-check-label" for="usageSettingSvgBase64">
+                                        Datenschutzfreundlichen SVG-Grafikcode (Base64) nutzen
+                                    </label>
+                                </div>
+                                <button class="btn-copy btn-primary btn-sm" id="copyHtml5" style="margin-top:5px;" data-clipboard-target="#textareaHtml5LicenseCode">In die Zwischenablage kopieren</button>
+                            </div>
+                            <p>Anleitung für das Content Management System Wordpress:
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/vJ5eGKXD0qU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="usageInstructionsDocument" style="display:none;">
+                        <h4 style="text-align:center;">Den Texthinweis in ein Dokument einfügen:</h4>
+                        <div class="text-center">
+                            <p>Der generierte Text kann aus der Vorschau in ein Dokument kopiert werden. Wichtig: Der Link zum Lizenztext sollte immer vollständig ersichtlich sein, um Missverständnissen vorzubeugen. </p>
+                            <button class="btn-copy btn-primary btn-sm" id="copyHtml5" style="margin-top:10px;" data-clipboard-target="#previewHtml5License">In die Zwischenablage kopieren</button>
+                            <p>Anleitung für Microsoft Word:
+                                <br>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/fn6PhsgaCns" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </p>
+                            <p>Die Grafiken können hier heruntergeladen werden: <a href="https://creativecommons.org/about/downloads/" target="_blank">Creative Commons Icon Download</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="faq">
+                    <h2>FAQ</h2>
+                    <h3>Warum ein eigener OERhörnchen Bildungsteiler?</h3>
+                    <p>In der Arbeit mit Studierenden oder Lehrenden wurde mir oft deutlich, dass das offizielle Werkzeug <a href="https://creativecommons.org/share-your-work/" target="_blank">„Share your Work“</a> von Creative Commons für OER-Einsteiger*innen kompliziert zu bedienen und teilweise unverständlich ist. So wird oft der HTML-Quelltext in Word-Dokumente kopiert, obwohl es eine Einstellung „offline“ gibt für eben solche Zwecke.</p>
+                    <h3>Warum ist ein guter Lizenzhinweis so wichtig?</h3>
+                    <p>Der Lizenzhinweis schafft die wichtige Grundlage für die Nutzung, Weiterverbreitung sowie das Remixen durch Nachnutzer*innen. Wenn der Lizenzhinweis unklar ist, entsteht potenziell Misstrauen oder Unsicherheit und das Material wird schlimmstenfalls deswegen nicht genutzt. Beliebte Fehler sind z.B. Angaben wie „Lizenz: CC BY-SA“. Es gibt inzwischen mehrere Lizenztextversionen, daher empfiehlt es sich immer den Lizenztext klar zu verlinken und die ausgeschriebene URL zum Lizentext anzugeben, falls das Material in Dokumenten zum Ausdrucken genutzt wird (z.B. Arbeitsblätter).</p>
+                    <h3>Warum ist der Link zum Lizenztext wichtig?</h3>
+                    <p>Ist die URL (Internetadresse) zum Lizenztext (CC BY, CC BY-SA) oder der Freigabeerklärung (CC0) nicht vollständig ersichtlich oder nicht zu erreichen, dann ist die Freigabe durch die Lizenz streng genommen nicht gültig aus rechtlicher Sicht. Beispiel für nicht erreichbare Links: Hyperlinks auf Papierausdruck, bei denen URL fehlt bzw. nicht klickbar ist ;-).</p>
+                    <h3>Was hat es mit dem SVG-base64-Grafikcode auf sich?</h3>
+                    <p>...</p>
+                    <h3>Wo finde ich gute Beispiele für Lizenzhinweise/Lizenzierungen</h3>
+                    <p>...</p>
+                    <h3></h3>
+                    <h3>Wer steht hinter den Creative Commons Lizenzen?</h3>
+                    <p>...</p>
+                    <h3>Wie kann ich Inhalte korrekt nachnutzen/remixen</h3>
+                    <p>...</p>
+                    <h3>Wie kann ich das Aussehen verändern?</h3>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/oerhoernchen">
+										<span class="fa-stack fa-lg">
+											<i class="fa fa-circle fa-stack-2x"></i>
+											<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+										</span>
+									</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://matthias-andrasch.de/kontakt">
+										<span class="fa-stack fa-lg">
+											<i class="fa fa-circle fa-stack-2x"></i>
+											<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+										</span>
+									</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/programmieraffe/oer-hoernchen">
+										<span class="fa-stack fa-lg">
+											<i class="fa fa-circle fa-stack-2x"></i>
+											<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+										</span>
+									</a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted">
+                        	Foto: <a href="https://pixabay.com/de/eichh%C3%B6rnchen-f%C3%BCttern-futter-nuss-2781394/">Annawadl (Pixabay/CC0)</a>, Theme: <a href="https://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> (MIT License)</a><br>
+                        	Disclaimer: Auf dieser Seite findet keine Rechtsberatung statt.<br><a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/">Datenschutzerklärung</a> | <a href="https://matthias-andrasch.de/impressum">Impressum</a> | <a href="https://github.com/programmieraffe/oer-hoernchen">Open-Source-Projekt</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Small modal -->
+        <div class="modal fade bd-example-modal-sm" id="clipboard-copy-success-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Kopieren erfolgreich</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Der Lizenzhinweis wurde erfolgreich in die Zwischenablage kopiert und kann nun mit Rechtsklick->Einfügen oder STRG+V (Windows), CMD+V (Mac) eingefügt werden.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom scripts for this template -->
+        <script src="js/clean-blog.min.js"></script>
+        <!-- Internationalization -->
+        <script src="vendor/i18n/libs/CLDRPluralRuleParser/src/CLDRPluralRuleParser.js"></script>
+        <script src="vendor/i18n/js/jquery.i18n.js"></script>
+        <script src="vendor/i18n/js/jquery.i18n.messagestore.js"></script>
+        <script src="vendor/i18n/js/jquery.i18n.fallbacks.js"></script>
+        <script src="vendor/i18n/js/jquery.i18n.language.js"></script>
+        <script src="vendor/i18n/js/jquery.i18n.parser.js"></script>
+        <script src="vendor/i18n/js/jquery.i18n.emitter.js"></script>
+        <!-- OERhoernchen scripts -->
+        <script src="js/oerhoernchen_cc_icons_svg_base64.js"></script>
+        <!-- https://clipboardjs.com/ (MIT) -->
+        <script src="js/clipboard.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+
+            // init
+            $.i18n({
+                locale: 'de' // Locale is Hebrew
+            });
+            $.i18n().load({
+                'message-hello': 'Hello World',
+                'message-welcome': 'Welcome'
+            }, 'de');
+            $.i18n().load({
+                'de': 'i18n/de.json'
+            }).done(function() {
+                console.log('done', $.i18n('title'));
+
+                // init clipboardjs
+                var clipboard = new Clipboard('.btn-copy');
+                // success message
+                clipboard.on('success', function(e) {
+                    $("#clipboard-copy-success-modal").modal('show');
+                    //e.clearSelection();
+                });
+
+                var message = 'Welcome $1 <a href="$2">Test</a>';
+                var html = $.i18n(message, 'Alice', 'Bob'); // This gives "Welcome, Alice"
+                console.log(html);
+
+                // change license select
+                $("input[name='selectLicense']").on('change', function(e) {
+                    console.log('change event licenses - start generation', this.value)
+                    startGeneration();
+                });
+
+                // when user enters a creators name / creators name is not empty, we generate
+                // 2DO: specify keypress actions
+                $("#formWorkInformation input").on('change', function(event) {
+                    console.log('keypress event - start generation');
+                    startGeneration();
+                });
+
+                // change settings
+                $("#usageSettingShortVersion, #usageSettingSvgBase64").on('change', function(e) {
+                    console.log('checkbox change', this);
+                    startGeneration();
+                });
+
+                // 2DO: does this work in all browsers?
+                /*$("#copyHtml5").click(function() {
+                	$("#textareaHtml5LicenseCode").select();
+                	document.execCommand('copy');
+                });
+                $("#copyDocumentText").click(function() {
+                	$("#previewHtml5License").select();
+                	document.execCommand('copy');
+                });*/
+
+
+                // simulate test
+                $("#inputCreator").val('Maxi Muster');
+                $("#inputCreatorLink").val('https://maxi-muster.de'); //optional
+                $("#inputTitle").val('OER-Video Farbenlehre'); // optional
+                $("#inputWorkLink").val('https://maxi-muster.de/oer-video-farbenlehre').trigger('change');
+
+
+                // change usage type
+                $("input[name='selectUsageType']").on('change', function(e) {
+                    startGeneration();
+                });
+                // trigger directly:
+                $("input[name='selectUsageType']:checked").trigger('change');
+
+
+            }) // eo done i18n
+
+        }); // eo jquery
+
+
+        var startGeneration = function() {
+            console.log('execute generation', $("input[name='selectUsageType']:checked"));
+
+            // get values
+            var creator = $("#inputCreator").val();
+            var license = $("input[name='selectLicense']:checked").val();
+            var licenseTitle = getLicenseName(license); // get license title, e.g. "CC BY 4.0"
+            var creatorLink = $("#inputCreatorLink").val(); //optional
+            var workTitle = $("#inputTitle").val(); // optional
+            var workLink = $("#inputWorkLink").val(); //optional
+
+            // settings
+            var usageType = $("input[name='selectUsageType']:checked").val();
+            var usageSettingShortVersion = Boolean($("#usageSettingShortVersion").is(':checked'));
+            var usageSettingSvgBase64 = Boolean($("#usageSettingSvgBase64").is(':checked'));
+
+            // GENERATE LICENSE INFORMATION
+
+            // generate author text (with link to url if given from user), for every license type same procedure
+            var creatorTemplate = '$1';
+            if (creatorLink !== '') {
+                creatorTemplate = '<a href="' + creatorLink + '" target="_blank">' + creator + '</a>';
+            }
+            var creatorHtml = $.i18n(creatorTemplate, creator, creatorLink);
+
+            // include title of work if given by user (not necessary in 4.0)
+            console.log('workTitle', workTitle, Boolean(workTitle !== ''));
+            var workTitleTemplate = ' ';
+            if (workTitle !== '') {
+                workTitleTemplate = '"' + workTitle + '" ' + $.i18n("by") + ' ';
+                if (workLink !== '') {
+                    workTitleTemplate = '"<a href="' + workLink + '" target="_blank">' + workTitle + '</a>" ' + $.i18n("by") + ' '; // 2DO: jquery val --> work title must be there if link is there
+                }
+            }
+            var workTitleHtml = $.i18n(workTitleTemplate, workTitle, workLink);
+
+            // figure out the differences regarding the different licenses
+            var licenseLink, licenseSvg, htmlLicenseInfo, htmlLicenseSuggestion, htmlLinkToLicenseUrl;
+
+            // use short version?
+            var useShortVersion = usageSettingShortVersion ? '-short' : '';
+            var usageSettingsRemoveHtml = false; // 2DO: implement later?
+
+            switch (license) {
+                case 'cc0':
+                    licenseLink = 'https://creativecommons.org/publicdomain/zero/1.0/deed.de';
+                    licenseSvg = CC0_SVG_BASE64;
+                    licensePng = '//i.creativecommons.org/p/zero/1.0/88x31.png';
+                    htmlLicenseInfo = $.i18n('license-infotext-cc0' + useShortVersion, licenseLink, licenseTitle);
+                    htmlLicenseSuggestion = $.i18n('license-suggestion-cc0' + useShortVersion) + '<i>' + workTitleHtml + ' ' + creatorHtml + ', ' + $.i18n("released-as") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
+                    htmlLinkToLicenseUrl = $.i18n("link-to-waver");
+                    break;
+
+                case 'ccby':
+                    licenseLink = 'https://creativecommons.org/licenses/by/4.0/deed.de';
+                    licenseSvg = CC_BY_SVG_BASE64;
+                    licensePng = '//i.creativecommons.org/l/by/4.0/88x31.png';
+                    htmlLicenseInfo = $.i18n('license-infotext-ccby-ccbysa' + useShortVersion, licenseLink, licenseTitle);
+                    htmlLicenseSuggestion = $.i18n("license-suggestion-ccby" + useShortVersion) +
+                        '<i>' + workTitleHtml + ' ' + creatorHtml + ', ' + $.i18n("License") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
+                    htmlLinkToLicenseUrl = $.i18n("link-to-license");
+                    break;
+
+                case 'ccbysa':
+                    licenseSvg = CC_BY_SA_SVG_BASE64;
+                    licensePng = '//i.creativecommons.org/l/by-sa/4.0/88x31.png';
+                    licenseLink = 'https://creativecommons.org/licenses/by-sa/4.0/deed.de';
+                    htmlLicenseInfo = $.i18n('license-infotext-ccby-ccbysa' + useShortVersion, licenseLink, licenseTitle);
+                    htmlLicenseSuggestion = $.i18n("license-suggestion-ccby" + useShortVersion) +
+                        '<i>' + workTitleHtml + ' ' + creatorHtml + ', ' + $.i18n("License") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
+                    // add additional sharealike information
+                    htmlLicenseSuggestion += $.i18n('license-suggestion-ccbysa' + useShortVersion);
+                    htmlLinkToLicenseUrl = $.i18n("link-to-license");
+                    break;
+            }
+
+            // GENERATION
+            // generate html code based on templates
+            var imgSrc = usageSettingSvgBase64 ? licenseSvg : licensePng;
+
+            var html = '<div class="oer-cc-licensebox">';
+            html += '<a href="' + licenseLink + '"><img src="' + imgSrc + '" alt="' + licenseTitle + '"></a><br>';
+            html += htmlLicenseInfo;
+            html += " " + htmlLicenseSuggestion;
+            // add license link if page is printed
+            if (usageType === 'document') {
+                html += '<br>' + htmlLinkToLicenseUrl + '<a href="' + licenseLink + '">' + licenseLink + '</a> ';
+                if (workLink !== '') {
+                    html += '<br>' + $.i18n('work-is-online-available-at') + '<a href="' + workLink + '">' + workLink + '</a>';
+                }
+            }
+            html += '</div>';
+
+            // FINAL RESULT
+
+            $("#textareaHtml5LicenseCode").html(html);
+            $("#previewHtml5License").html(html);
+
+            // remove all html styles if document usage is selected
+            if (usageType === 'document' && usageSettingsRemoveHtml) {
+                var convertedText = $("#previewHtml5License").html();
+                // 2DO: convert line breaks?
+                // var regex = '/<br\s*[\/]?>/gi';
+                // convertedText = $(convertedText).replace(regex, "\n");
+                convertedText = $(convertedText).text();
+                $("#previewHtml5License").html(convertedText);
+            }
+
+            // show/hide the usage instructions for web/document
+            var valCapitalized = usageType.charAt(0).toUpperCase() + usageType.slice(1);
+            $("#usageInstructions > div").hide();
+            $("#usageInstructions .usageInstructions" + valCapitalized).show();
+
+        }
+
+        var getLicenseName = function(license) {
+            switch (license) {
+                case 'cc0':
+                    return 'CC0/Public Domain';
+                    break;
+                case 'ccby':
+                    return "CC BY 4.0";
+                    break;
+                case 'ccbysa':
+                    return "CC BY-SA 4.0";
+                    break;
+            }
+
+        }
+        </script>
+</body>
+
+</html>
