@@ -211,7 +211,10 @@ var performSearch = function (type) {
           break;
 
         case 'pixabay':
-          new_url = 'https://pixabay.com/en/photos/?q=' + q_encoded;
+          new_url = 'https://pixabay.com/de/photos/?q=' + q_encoded;
+          break;
+        case 'pixabay-video':
+          new_url = 'https://pixabay.com/de/videos/list/?hp=&image_type=video&q=' + q_encoded;
           break;
 
         case 'freemusicarchive':
@@ -474,8 +477,8 @@ $(document).ready(function () {
   });
 
   // only select first media provider
-  $('#media-provider-list').find('.image-checkbox-checked').trigger('click');
-  $('#media-provider-list').find('.image-checkbox:not(.image-checkbox-checked):first').trigger('click');
+  //$('#media-provider-list').find('.image-checkbox-checked').trigger('click');
+  //$('#media-provider-list').find('.image-checkbox:not(.image-checkbox-checked):first').trigger('click');
 
   // image checkbox enter action
 

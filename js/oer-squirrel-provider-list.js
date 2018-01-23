@@ -119,6 +119,11 @@ var media_provider_list = [{
     'name': 'Pixabay (CC0 Fotos/Bilder)',
     'url': 'pixabay.de',
     'image': 'pixabay.png'
+  },{
+    'id': 'pixabay-video',
+    'name': 'Pixabay (CC0 Videos)',
+    'url': 'pixabay.de',
+    'image': 'pixabay_video.png'
   }, {
     'id': 'freemusicarchive',
     'name': 'Free Music Archive (FMA)',
@@ -141,7 +146,7 @@ var not_compatible_provider_list =
   [{
     /* badge image from pixabay: https://pixabay.com/de/abzeichen-flair-englisch-sprache-1093968/ */
     'id': 'mason',
-    'name': 'Mason OER Metafinder',
+    'name': 'Mason OER Metafinder (Englischssprachige Inhalte)',
     'url': 'mason.deepwebaccess.com/mason__MasonLibrariesOpenEducationResources_5f4/desktop/en/search.html',
     'image': 'mason.png'
   },
