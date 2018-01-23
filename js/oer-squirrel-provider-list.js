@@ -91,9 +91,9 @@ var mixed_provider_list =
     'url': 'tutory.de',
     'image': 'tutory.png'
   }, {
-    'name':'Heinrich-Heine-Universität Düsseldorf Mediathek',
-    'url':'mediathek.hhu.de',
-    'image':'hhumediathek.png'
+    'name': 'Heinrich-Heine-Universität Düsseldorf Mediathek',
+    'url': 'mediathek.hhu.de',
+    'image': 'hhumediathek.png'
   }];
 
 
@@ -112,7 +112,9 @@ var media_provider_list = [{
     'name': 'Google Bildersuche',
     'url': 'google.de/imghp',
     'image': 'google_image_search.png'
-  }, {
+  },
+  /*2DO: Audio/Video*/
+  {
     'id': 'pixabay',
     'name': 'Pixabay (CC0 Fotos/Bilder)',
     'url': 'pixabay.de',
@@ -133,19 +135,23 @@ var media_provider_list = [{
     'url': 'edutags.de',
     'image': 'edutags.png'
   }
-
 ]
 
 var not_compatible_provider_list =
-  [
-
-    {
-      'name': 'Elixier Bildungssuchmaschine',
-      'url': 'bildungsserver.de/elixier/',
-      'image': 'elixier.png'
-    }, {
-      'name': 'Learnline NRW',
-      'url': 'learnline.schulministerium.nrw.de',
-      'image': 'learnline.png'
-    }
-  ]
+  [{
+    /* badge image from pixabay: https://pixabay.com/de/abzeichen-flair-englisch-sprache-1093968/ */
+    'id': 'mason',
+    'name': 'Mason OER Metafinder',
+    'url': 'mason.deepwebaccess.com/mason__MasonLibrariesOpenEducationResources_5f4/desktop/en/search.html',
+    'image': 'mason.png'
+  },
+  {
+    'name': 'Elixier Bildungssuchmaschine',
+    'url': 'bildungsserver.de/elixier/',
+    'image': 'elixier.png'
+  }, {
+    'name': 'Learnline NRW',
+    'url': 'learnline.schulministerium.nrw.de',
+    'image': 'learnline.png'
+  }
+]
