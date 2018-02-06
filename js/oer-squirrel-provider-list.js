@@ -53,8 +53,12 @@ var oer_provider_list = [{
   'image': 'chile.png'
 }, {
   'name': 'Ö1 macht Schule',
-  'url': 'www.oe1macht.schule',
+  'url': 'oe1macht.schule',
   'image': 'oe1machtschule.png'
+},{
+  'name':'Edulabs Bildung in der digitalen Welt',
+  'url':'edulabs.de/oer/',
+  'image':'edulabs.png'
 }];
 
 var mixed_provider_list =
