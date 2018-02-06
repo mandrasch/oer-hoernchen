@@ -143,6 +143,12 @@ var media_provider_list = [{
     'name': 'Edutags - Social Bookmarking für Lehr- und Lernmaterial',
     'url': 'edutags.de',
     'image': 'edutags.png'
+  },
+  {
+    'id':'freesound',
+    'name':'freesound.org',
+    'url':'freesound.org',
+    'image':'freesound.png'
   }
 ]
 

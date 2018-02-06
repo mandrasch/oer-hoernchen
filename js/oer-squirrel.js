@@ -256,6 +256,12 @@ var performSearch = function (type) {
           }
           new_url = 'https://www.edutags.de/browse?fulltext=' + q_encoded + '&' + url_license_filter;
           break;
+
+          // unfortunately no CC0+BY filtering possible
+          case 'freesound':
+          new_url = 'https://freesound.org/search/?q=' + q_encoded;
+          break;
+
       } // eo switch/case
 
       if (new_url !== '') {
