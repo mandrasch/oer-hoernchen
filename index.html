@@ -70,24 +70,24 @@
                 <a class="js-scroll-trigger" href="#media-search" data-i18n="nav-about">3. Medien-Suche</a>
             </li>
             <li>
-              <a href="bildungsteiler/">Bildungsteiler (BETA)</a>
-            <li>
-                <a class="js-scroll-trigger" href="#about" data-i18n="nav-about">Über das OERhörnchen</a>
-            </li>
-            <li>
-                <a class="js-scroll-trigger" href="https://programmieraffe.github.io/oer-hoernchen/" target="_blank" data-i18n="nav-about">Code @ Github</a>
-            </li>
-            <li>
-                <a href="https://matthias-andrasch.de/oerhoernchen-newsletter/" target="_blank">Newsletter</a>
+                <a href="bildungsteiler/">Bildungsteiler (BETA)</a>
                 <li>
-                    <a href="https://matthias-andrasch.de/kontakt/" target="_blank">Kontakt</a>
+                    <a class="js-scroll-trigger" href="#about" data-i18n="nav-about">Über das OERhörnchen</a>
                 </li>
                 <li>
-                    <a href="https://matthias-andrasch.de/impressum/" target="_blank">Impressum</a>
+                    <a class="js-scroll-trigger" href="https://programmieraffe.github.io/oer-hoernchen/" target="_blank" data-i18n="nav-about">Code @ Github</a>
                 </li>
                 <li>
-                    <a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" target="_blank">Datenschutz</a>
-                </li>
+                    <a href="https://matthias-andrasch.de/oerhoernchen-newsletter/" target="_blank">Newsletter</a>
+                    <li>
+                        <a href="https://matthias-andrasch.de/kontakt/" target="_blank">Kontakt</a>
+                    </li>
+                    <li>
+                        <a href="https://matthias-andrasch.de/impressum/" target="_blank">Impressum</a>
+                    </li>
+                    <li>
+                        <a href="https://matthias-andrasch.de/datenschutzerklaerung-oer-hoernchen/" target="_blank">Datenschutz</a>
+                    </li>
         </ul>
     </nav>
     <!-- not fully supported yet -->
@@ -133,15 +133,13 @@
                         <a class="nav-link js-scroll-trigger" href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i> OER-Material finden</a>
                     </li>
                     <li class="nav-item">
-                         <a class="nav-link js-scroll-trigger" href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i> Medieninhalte für OER-Material</a>
+                        <a class="nav-link js-scroll-trigger" href="#media-search"><i class="fa fa-file-video-o" aria-hidden="true"></i> Medieninhalte für OER-Material</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#web-search"><i class="fa fa-globe" aria-hidden="true"></i> Gesamtes Web</a>
                     </li>
                 </ul>
-            
-            <h2 data-i18n="header-search-link"><a href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i></a> OER-Material finden</h2>
-             Die erste Möglichkeit: OER-Projekte und Bildungsangebote gebündelt durchsuchen, welche explizit Bildungsmaterialien zum Lehren/Lernen anbieten:</p>
+                <h2 data-i18n="header-search-link"><a href="#edu-projects-search"><i class="fa fa-sitemap" aria-hidden="true"></i></a> OER-Material finden</h2> Die erste Möglichkeit: OER-Projekte und Bildungsangebote gebündelt durchsuchen, welche explizit Bildungsmaterialien zum Lehren/Lernen anbieten:</p>
             <div class="row">
                 <div class="col-12" id="search-box">
                     <div class="card">
@@ -190,6 +188,24 @@
                                     <button class="btn btn-sm btn-secondary oer-squirrel-select-all-button"><i class="fa fa-check-square-o" aria-hidden="true"></i> Alle auswählen</button>
                                     <button class="btn btn-sm btn-secondary oer-squirrel-deselect-all-button"><i class="fa fa-square-o" aria-hidden="true"></i> Alle abwählen</button>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" id="custom-site-url-box">
+                    <div class="card">
+                        <div class="card-header">
+                            Benutzerdefinierte Webseite/Domain durchsuchen
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="margin-left: 0;">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Benutzerdefinierte Webseite/Domain durchsuchen
+                                </label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="custom-site-url" data-i18n="[placeholder]custom-site-input-placeholder" placeholder="Domain angeben, z.B. uni-koeln.de" disabled>
                             </div>
                         </div>
                     </div>
@@ -497,10 +513,11 @@
                     Portfolio</a> von BlackrockDigital, MIT-Lizenz.<br>
                     <i>Aktuelles Foto: <a href="https://pixabay.com/de/tier-nagetier-eichh%C3%B6rnchen-1241334/">Oldiefan (CC0/Pixabay)</a> - <a href="https://pixabay.com/de/tier-nagetier-eichh%C3%B6rnchen-1241334/">Kaffee spenden</a></i> ist möglich.</small>.
                         </p>
-                        <p class="text-center">Eintragen auf der <br><a href="https://oerworldmap.org/" target="_blank">
+                        <p class="text-center">Eintragen auf der
+                            <br><a href="https://oerworldmap.org/" target="_blank">
                                     <img src="img/oer_world_map.png" style="height:35px;" />
                                 </a>
-                            </p>
+                        </p>
                 </div>
             </div>
         </div>
@@ -577,7 +594,8 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-i18n="modal-button-cont-search">Alles klar, ausprobieren!</button>
+                    <a class="btn btn-primary" href="https://oerhoernchen.de">Offizielle Version nutzen</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="modal-button-cont-search">Ausprobieren!</button>
                 </div>
             </div>
         </div>

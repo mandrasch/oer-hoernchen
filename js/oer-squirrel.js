@@ -74,10 +74,16 @@ var performSearch = function (type) {
     // get selected checkbox values
     // 2DO: better naming for checkboxes!
     var site_filter_list = [];
-    $.each($('#edu-projects-search input[name="image"]:checked'), function () {
-      site_filter_list.push('site:' + this.value);
-    });
-    //console.log('selected values',site_filter_list);
+
+    if($("#custom-site-url-box input[type=checkbox]:first").prop('checked') === true){
+      site_filter_list.push('site:'+$("#custom-site-url").val());
+    }else{
+      $.each($('#edu-projects-search input[name="image"]:checked'), function () {
+        site_filter_list.push('site:' + this.value);
+      });
+      //console.log('selected values',site_filter_list);
+    }
+
 
     // generate query parameter + append site filter list
     q = $('#edu-projects-search-query').val() + ' ' + site_filter_list.join(' OR '); //2DO: check if empty and show warning?
@@ -493,5 +499,21 @@ $(document).ready(function () {
     e.preventDefault();
     $('#navbar-bottom').hide();
   });
+
+  /* custom site url actions checkbox */
+  $("#custom-site-url-box input[type=checkbox]:first").change(function() {
+      $("#custom-site-url").prop("disabled", !this.checked);   
+      var checked = this.checked;
+      $("#other-provider-list-box .card-body, #provider-list-box .card-body").toggle(400,function(){
+        if(checked){
+            $('html, body').animate({
+          scrollTop: $("#custom-site-url-box").offset().top
+        }, 1000, "easeInOutExpo");
+        }
+
+
+      });
+    });
+
 
 }); // eo jquery
