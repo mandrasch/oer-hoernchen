@@ -102,7 +102,7 @@ var mixed_provider_list =
     'name': 'Heinrich-Heine-Universität Düsseldorf Mediathek',
     'url': 'mediathek.hhu.de',
     'image': 'hhumediathek.png'
-  }{
+  },{
     'name':'OER Commons (englischsprachig)',
     'url':'oercommons.org',
     'image':'oercommons.png'
