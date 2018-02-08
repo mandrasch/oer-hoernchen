@@ -139,3 +139,7 @@ footer h4 {
 .cookiebanner{
 	    background-color: #343a40 !important;
 }
+
+.small{
+	line-height: 1.2;
+}
