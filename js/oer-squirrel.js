@@ -77,6 +77,7 @@ var performSearch = function(type) {
 
     if ($("#custom-site-url-box input[type=checkbox]:first").prop('checked') === true) {
       site_filter_list.push('site:' + $("#custom-site-url").val());
+      var edu_projects_site_url_search = true;
     } else {
       $.each($('#edu-projects-search input[name="image"]:checked'), function() {
         site_filter_list.push('site:' + this.value);
@@ -318,6 +319,12 @@ var performSearch = function(type) {
   // piwik event tracking (experimental)
   // https://piwik.org/docs/event-tracking/
   if (typeof _paq !== 'undefined') {
+
+    // exception for a custom site/domain search
+    if(type === "edu-projects" && edu_projects_site_url_search === true){
+      type = "custom-site";
+    }
+
     _paq.push(['trackEvent', type + '-search', 'generated']);
   } // eo piwik event tracking
 
