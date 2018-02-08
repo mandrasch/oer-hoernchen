@@ -8,13 +8,13 @@
 // console.log fallback
 if (typeof console === 'undefined') {
   window.console = {
-    log: function () {}
+    log: function() {}
   };
 }
 
 /* generate list for providers function */
-var generateList = function (list, selector) {
-  $.each(list, function (index, object) {
+var generateList = function(list, selector) {
+  $.each(list, function(index, object) {
     // console.log(index,object.url)
 
     var data_providerid = '';
@@ -39,8 +39,8 @@ var generateList = function (list, selector) {
 
 /* generate list for providers which are not compatible right now */
 // 2DO: optimize later
-var generateListNotCompatible = function (list, selector) {
-  $.each(list, function (index, object) {
+var generateListNotCompatible = function(list, selector) {
+  $.each(list, function(index, object) {
     // console.log(index,object.url)
 
     var html = '<div class="col-xs-6 col-sm-3 col-md-3 nopad text-center">' +
@@ -54,7 +54,7 @@ var generateListNotCompatible = function (list, selector) {
 };
 
 /* perform search function */
-var performSearch = function (type) {
+var performSearch = function(type) {
   var url = ''; // the url we want to generate
 
   // reset error messages and hide everything to begin
@@ -75,10 +75,10 @@ var performSearch = function (type) {
     // 2DO: better naming for checkboxes!
     var site_filter_list = [];
 
-    if($("#custom-site-url-box input[type=checkbox]:first").prop('checked') === true){
-      site_filter_list.push('site:'+$("#custom-site-url").val());
-    }else{
-      $.each($('#edu-projects-search input[name="image"]:checked'), function () {
+    if ($("#custom-site-url-box input[type=checkbox]:first").prop('checked') === true) {
+      site_filter_list.push('site:' + $("#custom-site-url").val());
+    } else {
+      $.each($('#edu-projects-search input[name="image"]:checked'), function() {
         site_filter_list.push('site:' + this.value);
       });
       //console.log('selected values',site_filter_list);
@@ -152,7 +152,7 @@ var performSearch = function (type) {
     // piwik outlink tracking (experimental)
     // 2DO: not working because of delay? - check later
     urlDiv.off('click'); //unbind all click events
-    urlDiv.on('click', function () {
+    urlDiv.on('click', function() {
       console.log('piwik tracking, tracking outlink: ', url);
       if (typeof _paq !== 'undefined') {
         _paq.push(['trackLink', url, 'link']);
@@ -171,7 +171,7 @@ var performSearch = function (type) {
     keyword = q; // for tracking
     var q_encoded = encodeURI(q);
 
-    $.each($('#media-search input[name="image"]:checked'), function () {
+    $.each($('#media-search input[name="image"]:checked'), function() {
       var provider_id = $(this).data('providerid');
       var url_title = $(this).data('title');
       var new_url = '';
@@ -264,7 +264,7 @@ var performSearch = function (type) {
           break;
 
           // unfortunately no CC0+BY filtering possible
-          case 'freesound':
+        case 'freesound':
           new_url = 'https://freesound.org/search/?q=' + q_encoded;
           break;
 
@@ -297,7 +297,7 @@ var performSearch = function (type) {
     $('#search-link-modal .search-success-multiple-open-urls').off();
     // add event handlers
     // 2DO: (better) namespace usage?
-    $('#search-link-modal .search-success-multiple-open-urls').click(function (e) {
+    $('#search-link-modal .search-success-multiple-open-urls').click(function(e) {
       e.preventDefault();
       for (var i = 0; i < url_list.length; i++) {
         window.open(url_list[i].url, '_blank');
@@ -340,7 +340,7 @@ var performSearch = function (type) {
 /*
  * jQuery functions
  */
-$(document).ready(function () {
+$(document).ready(function() {
   // 2DO: check if provider-list is set
   /* PAGE GENERATION */
   // generate the checkbox lists
@@ -353,7 +353,7 @@ $(document).ready(function () {
 
   /* Image Checkbox Bootstrap template for multiple image selection
   https://www.prepbootstrap.com/bootstrap-template/image-checkbox */
-  $('.image-checkbox').each(function () {
+  $('.image-checkbox').each(function() {
     $(this).toggleClass(
       'image-checkbox-checked',
       $(this).find('input[type="checkbox"]').first().attr('checked')
@@ -361,7 +361,7 @@ $(document).ready(function () {
   });
 
   // sync the state to the input
-  $('.image-checkbox').on('click', function (e) {
+  $('.image-checkbox').on('click', function(e) {
     e.preventDefault();
     $(this).toggleClass('image-checkbox-checked');
     var $checkbox = $(this).find('input[type="checkbox"]');
@@ -405,7 +405,7 @@ $(document).ready(function () {
 
   // listen for select change events
   // license filter explanation
-  $('select[name="license-filter"], select[name="web-search-license-filter"], select[name="media-search-license-filter"]').change(function () {
+  $('select[name="license-filter"], select[name="web-search-license-filter"], select[name="media-search-license-filter"]').change(function() {
     var val = $(this).find(':selected').val();
     var explanation_div = $(this).parent().find('div.license-explanation:first');
     $('div', explanation_div).hide();
@@ -428,13 +428,13 @@ $(document).ready(function () {
   }).change();
 
   // listen for submit events
-  $('#landing-form').submit(function (e) {
+  $('#landing-form').submit(function(e) {
     e.preventDefault();
     $('#search-button-landing').trigger('click');
   });
 
   // landing section button, add query to other input form field (down below)
-  $('#search-button-landing').click(function (e) {
+  $('#search-button-landing').click(function(e) {
     e.preventDefault();
     var val = $('#query-landing').val();
     $('#edu-projects-search-query').val(val).focus();
@@ -445,45 +445,45 @@ $(document).ready(function () {
 
   // 2DO: enter key action on first form field?
 
-  $('#edu-projects-search-form').submit(function (e) {
+  $('#edu-projects-search-form').submit(function(e) {
     e.preventDefault();
     performSearch('edu-projects');
   });
 
-  $('.edu-projects-search-submit-button').click(function (e) {
+  $('.edu-projects-search-submit-button').click(function(e) {
     //console.log('search button click event');
     e.preventDefault();
     performSearch('edu-projects');
   });
 
-  $('#web-search-form').submit(function (e) {
+  $('#web-search-form').submit(function(e) {
     e.preventDefault();
     performSearch('web');
   });
 
-  $('.web-search-submit-button').click(function (e) {
+  $('.web-search-submit-button').click(function(e) {
     //console.log('search button click event');
     e.preventDefault();
     performSearch('web');
   });
 
-  $('#media-search-form').submit(function (e) {
+  $('#media-search-form').submit(function(e) {
     e.preventDefault();
     performSearch('media');
   });
 
-  $('.media-search-submit-button').click(function (e) {
+  $('.media-search-submit-button').click(function(e) {
     //console.log('search button click event');
     e.preventDefault();
     performSearch('media');
   });
 
   // select all / deselect all buttons
-  $('.oer-squirrel-select-all-button').click(function (e) {
+  $('.oer-squirrel-select-all-button').click(function(e) {
     e.preventDefault();
     $(this).parents('.card-body').find('.image-checkbox:not(.image-checkbox-checked)').trigger('click');
   });
-  $('.oer-squirrel-deselect-all-button').click(function (e) {
+  $('.oer-squirrel-deselect-all-button').click(function(e) {
     e.preventDefault();
     $(this).parents('.card-body').find('.image-checkbox-checked').trigger('click');
   });
@@ -495,25 +495,26 @@ $(document).ready(function () {
   // image checkbox enter action
 
   // bottom navbar
-  $('.button-hide-navbar').click(function (e) {
+  $('.button-hide-navbar').click(function(e) {
     e.preventDefault();
     $('#navbar-bottom').hide();
   });
 
   /* custom site url actions checkbox */
   $("#custom-site-url-box input[type=checkbox]:first").change(function() {
-      $("#custom-site-url").prop("disabled", !this.checked);   
-      var checked = this.checked;
-      $("#other-provider-list-box .card-body, #provider-list-box .card-body").toggle(400,function(){
-        if(checked){
-            $('html, body').animate({
+    $("#custom-site-url").prop("disabled", !this.checked);
+    var checked = this.checked;
+    $("#other-provider-list-box, #provider-list-box").toggle(400, function() {
+      if (checked) {
+        $('html, body').animate({
           scrollTop: $("#custom-site-url-box").offset().top
-        }, 1000, "easeInOutExpo");
-        }
+        }, 500, "easeInOutExpo");
+        $("#custom-site-url").focus();
+      }
 
 
-      });
     });
+  });
 
 
 }); // eo jquery
