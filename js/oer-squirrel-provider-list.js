@@ -59,6 +59,10 @@ var oer_provider_list = [{
   'name':'Edulabs Bildung in der digitalen Welt',
   'url':'edulabs.de/oer/',
   'image':'edulabs.png'
+},{
+  'name':'Digitale Spielewelten (Medienpädagogik)',
+  'url':'digitale-spielewelten.de',
+  'image':'digitale_spielewelten.png'
 }];
 
 var mixed_provider_list =
@@ -98,6 +102,10 @@ var mixed_provider_list =
     'name': 'Heinrich-Heine-Universität Düsseldorf Mediathek',
     'url': 'mediathek.hhu.de',
     'image': 'hhumediathek.png'
+  }{
+    'name':'OER Commons (englischsprachig)',
+    'url':'oercommons.org',
+    'image':'oercommons.png'
   }];
 
 
