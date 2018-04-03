@@ -7,7 +7,7 @@
     <meta name="description" content="Bildungsmaterialien als OER mit der Welt teilen: Online-Tool, um Creative Commons Lizenzhinweise zu erstellen.">
     <meta name="author" content="">
     <meta property="og:image" content="https://programmieraffe.github.io/oer-hoernchen/bildungsteiler/img/squirrel-2781394_1920_pixabay_annawaldl.jpg" />
-    <title>Bildungsteiler (BETA) - OERhörnchen</title>
+    <title>OERhörnchen Bildungsteiler (BETA)</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -189,13 +189,13 @@
                             <label class="form-check-label" for="selectUsageTypeDocument">Dokument / Print
                             </label>
                         </div>
-                        <p><b>Optionen:</b></p>
+                        <!-- <p><b>Optionen:</b></p>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" id="usageSettingShortVersion">
-                            <label class="form-check-label" for="usageSettingShortVersion">
-                                Kurzversion
+                            <input class="form-check-input" type="checkbox" value="1" id="usageSettingLongVersion">
+                            <label class="form-check-label" for="usageSettingLongVersion">
+                                Langversion
                             </label>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="col-sm-8">Vorschau:
                         <div class="card" style="margin-top:10px;">
@@ -207,8 +207,8 @@
                 </div>
                 <div id="usageInstructions" style="margin-top:25px;">
                     <div class="usageInstructionsWebsite" style="display:none;">
-                        <h4 style="text-align:center;">Den Hinweis als HTML-Quelltext einbinden:</h4>
-                        <p class="text-center">Um den Hinweis auf einer Webseite zu nutzen, muss der folgende HTML-Quelltext kopiert und eingefügt werden:</p>
+                        <h4 style="text-align:center;">Den Hinweis einbinden:</h4>
+                        <p class="text-center">Um den Hinweis auf einer Webseite maschinlesbar zu nutzen, den folgende HTML-Quelltext kopieren und einfügen:</p>
                         <div class="text-center">
                             <div class="form-group mx-auto" style="max-width:80%;">
                                 <textarea class="form-control" id="textareaHtml5LicenseCode" rows="7">
@@ -232,7 +232,7 @@
                         <div class="text-center">
                             <p>Der generierte Text kann aus der Vorschau oben in ein Dokument kopiert werden: </p>
                             <button class="btn-copy btn-primary btn-lg" id="copyHtml5" style="margin-top:5px;" data-clipboard-target="#previewHtml5License">In die Zwischenablage kopieren</button>
-                            <p><small><i>Wichtig: Der Link zum Lizenztext sollte immer vollständig ersichtlich sein, um Missverständnissen vorzubeugen.</i></small></p>
+                            <p><small><i>Wichtig: Der Link zum Lizenztext sollte immer vollständig ersichtlich sein, um Missverständnissen vorzubeugen und rechtliche Verbindlichkeit sicherzustellen.</i></small></p>
                             <h4 style="text-align:center;margin-top:50px;">Tutorials</h4>
                             <p>Anleitung für Microsoft Word:
                                 <br>
@@ -388,7 +388,7 @@
                 });
 
                 // change settings
-                $("#usageSettingShortVersion, #usageSettingSvgBase64").on('change', function(e) {
+                $("#usageSettingLongVersion, #usageSettingSvgBase64").on('change', function(e) {
                     console.log('checkbox change', this);
                     startGeneration();
                 });
@@ -428,7 +428,7 @@
             console.log('execute generation', $("input[name='selectUsageType']:checked"));
 
             // get values
-            var creator = $("#inputCreator").val();
+            var creator = $("#inputCreator").val(); 
             var license = $("input[name='selectLicense']:checked").val();
             var licenseTitle = getLicenseName(license); // get license title, e.g. "CC BY 4.0"
             var creatorLink = $("#inputCreatorLink").val(); //optional
@@ -437,53 +437,77 @@
 
             // settings
             var usageType = $("input[name='selectUsageType']:checked").val();
-            var usageSettingShortVersion = Boolean($("#usageSettingShortVersion").is(':checked'));
+            var usageSettingLongVersion = Boolean($("#usageSettingLongVersion").is(':checked'));
             var usageSettingSvgBase64 = Boolean($("#usageSettingSvgBase64").is(':checked'));
+
 
             // GENERATE LICENSE INFORMATION
 
             // generate author text (with link to url if given from user), for every license type same procedure
-            var creatorTemplate = '$1';
+            // creator of work (must be given)
+            // 2DO: is it possible to license something anonymously?
+            var creatorHtml = '<span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">';
+            // add link to creators homepage/profile if given
             if (creatorLink !== '') {
-                creatorTemplate = '<a href="' + creatorLink + '" target="_blank">' + creator + '</a>';
+                creatorHtml += '<a href="' + creatorLink + '" target="_blank">';
             }
-            var creatorHtml = $.i18n(creatorTemplate, creator, creatorLink);
+            creatorHtml += creator;
+            if(creatorLink !== ''){
+                creatorHtml += '</a>';
+            }
+            creatorHtml += '</span>';
+
 
             // include title of work if given by user (not necessary in 4.0)
-            console.log('workTitle', workTitle, Boolean(workTitle !== ''));
-            var workTitleTemplate = ' ';
+            //console.log('workTitle', workTitle, Boolean(workTitle !== ''));
+            var workTitleHtml = ' ';
             if (workTitle !== '') {
-                workTitleTemplate = '"' + workTitle + '" ' + $.i18n("by") + ' ';
+                workTitleHtml = '<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">"';
                 if (workLink !== '') {
-                    workTitleTemplate = '"<a href="' + workLink + '" target="_blank">' + workTitle + '</a>" ' + $.i18n("by") + ' '; // 2DO: jquery val --> work title must be there if link is there
+                    workTitleHtml += '<a href="' + workLink + '" target="_blank" xmlns:cc="http://creativecommons.org/ns#" rel="cc:attributionURL">';
                 }
+
+                workTitleHtml += workTitle;
+                
+                if(workLink !== ''){
+                    workTitleHtml += '</a>';
+                }
+                workTitleHtml += '"</span>';
+                // append translated by word
+                workTitleHtml += ' ' + $.i18n("by") + ' ';
             }
-            var workTitleHtml = $.i18n(workTitleTemplate, workTitle, workLink);
+
+            // 2DO: find better way (remove attributes afterwards?)
 
             // figure out the differences regarding the different licenses
             var licenseLink, licenseSvg, htmlLicenseInfo, htmlLicenseSuggestion, htmlLinkToLicenseUrl;
 
-            // use short version?
-            var useShortVersion = usageSettingShortVersion ? '-short' : '';
+            // small helper - use short version?
+            var useShortVersion = usageSettingLongVersion ? '' : '-short';
+            console.log('use short version',useShortVersion);
             var usageSettingsRemoveHtml = false; // 2DO: implement later?
 
+            // 2DO: use functions for this
             switch (license) {
                 case 'cc0':
                     licenseLink = 'https://creativecommons.org/publicdomain/zero/1.0/deed.de';
                     licenseSvg = CC0_SVG_BASE64;
                     licensePng = '//i.creativecommons.org/p/zero/1.0/88x31.png';
-                    htmlLicenseInfo = $.i18n('license-infotext-cc0' + useShortVersion, licenseLink, licenseTitle);
-                    htmlLicenseSuggestion = $.i18n('license-suggestion-cc0' + useShortVersion) + '<i>' + workTitleHtml + ' ' + creatorHtml + ', ' + $.i18n("released-as") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
+                    // the important link - machine readable
+                    licenseLinkHtml = '<a href="'+licenseLink+'" rel="license" target="_blank">'+licenseTitle+'</a>';
+                    htmlLicenseInfo = $.i18n('license-infotext-cc0' + useShortVersion, licenseLinkHtml);
+                    htmlLicenseSuggestion = $.i18n('license-suggestion-cc0' + useShortVersion) + '<i>' + workTitleHtml + creatorHtml + ', ' + $.i18n("released-as") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
                     htmlLinkToLicenseUrl = $.i18n("link-to-waver");
                     break;
-
                 case 'ccby':
                     licenseLink = 'https://creativecommons.org/licenses/by/4.0/deed.de';
                     licenseSvg = CC_BY_SVG_BASE64;
                     licensePng = '//i.creativecommons.org/l/by/4.0/88x31.png';
-                    htmlLicenseInfo = $.i18n('license-infotext-ccby-ccbysa' + useShortVersion, licenseLink, licenseTitle);
+                    // the important link - machine readable
+                    licenseLinkHtml = '<a href="'+licenseLink+'" rel="license" target="_blank">'+licenseTitle+'</a>';
+                    htmlLicenseInfo = $.i18n('license-infotext-ccby-ccbysa' + useShortVersion, licenseLinkHtml);
                     htmlLicenseSuggestion = $.i18n("license-suggestion-ccby" + useShortVersion) +
-                        '<i>' + workTitleHtml + ' ' + creatorHtml + ', ' + $.i18n("License") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
+                        '<i>' + workTitleHtml + creatorHtml + ', ' + $.i18n("License") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
                     htmlLinkToLicenseUrl = $.i18n("link-to-license");
                     break;
 
@@ -491,14 +515,17 @@
                     licenseSvg = CC_BY_SA_SVG_BASE64;
                     licensePng = '//i.creativecommons.org/l/by-sa/4.0/88x31.png';
                     licenseLink = 'https://creativecommons.org/licenses/by-sa/4.0/deed.de';
-                    htmlLicenseInfo = $.i18n('license-infotext-ccby-ccbysa' + useShortVersion, licenseLink, licenseTitle);
+                    // the important link - machine readable
+                    licenseLinkHtml = '<a href="'+licenseLink+'" rel="license" target="_blank">'+licenseTitle+'</a>';
+                    htmlLicenseInfo = $.i18n('license-infotext-ccby-ccbysa' + useShortVersion, licenseLinkHtml);
                     htmlLicenseSuggestion = $.i18n("license-suggestion-ccby" + useShortVersion) +
-                        '<i>' + workTitleHtml + ' ' + creatorHtml + ', ' + $.i18n("License") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
+                        '<i>' + workTitleHtml + creatorHtml + ', ' + $.i18n("License") + ': <a href="' + licenseLink + '" target="_blank">' + licenseTitle + '</a></i>. ';
                     // add additional sharealike information
                     htmlLicenseSuggestion += $.i18n('license-suggestion-ccbysa' + useShortVersion);
                     htmlLinkToLicenseUrl = $.i18n("link-to-license");
                     break;
             }
+
 
             // GENERATION
             // generate html code based on templates
@@ -510,9 +537,9 @@
             html += " " + htmlLicenseSuggestion;
             // add license link if page is printed
             if (usageType === 'document') {
-                html += '<br>' + htmlLinkToLicenseUrl + '<a href="' + licenseLink + '">' + licenseLink + '</a> ';
+                html += '<br><br>' + htmlLinkToLicenseUrl + '<a href="' + licenseLink + '">' + licenseLink + '</a> ';
                 if (workLink !== '') {
-                    html += '<br>' + $.i18n('work-is-online-available-at') + '<a href="' + workLink + '">' + workLink + '</a>';
+                    html += '<br>' + $.i18n('work-is-online-available-at') + '<br><a href="' + workLink + '">' + workLink + '</a>';
                 }
             }
             html += '</div>';
@@ -551,8 +578,10 @@
                     return "CC BY-SA 4.0";
                     break;
             }
-
         }
+
+
+
         </script>
 </body>
 
