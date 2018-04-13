@@ -375,14 +375,14 @@
                 console.log(html);
 
                 // change license select
-                $("input[name='selectLicense']").on('change', function(e) {
+                $("input[name='selectLicense']").on('keyup', function(e) {
                     console.log('change event licenses - start generation', this.value)
                     startGeneration();
                 });
 
                 // when user enters a creators name / creators name is not empty, we generate
                 // 2DO: specify keypress actions
-                $("#formWorkInformation input").on('change', function(event) {
+                $("#formWorkInformation input").on('keyup', function(event) {
                     console.log('keypress event - start generation');
                     startGeneration();
                 });
