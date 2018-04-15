@@ -375,7 +375,7 @@
                 console.log(html);
 
                 // change license select
-                $("input[name='selectLicense']").on('keyup', function(e) {
+                $("input[name='selectLicense']").on('change', function(e) {
                     console.log('change event licenses - start generation', this.value)
                     startGeneration();
                 });
