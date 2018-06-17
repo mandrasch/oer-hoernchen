@@ -1,8 +1,8 @@
 # OERhörnchen (oer-squirrel)
 :squirrel: OER (Open Educational Resources) gezielt suchen und finden.
 
-* THIS IS THE OLD HTML-ONLY REPOSITORY. NEW PAGE SOURCE CAN BE FOUND HERE:
-https://github.com/programmieraffe/oerhoernchen *
+THIS IS THE OLD HTML-ONLY REPOSITORY. NEW PAGE SOURCE CAN BE FOUND HERE:
+https://github.com/programmieraffe/oerhoernchen
 
 
 :warning: quick&dirty coding
